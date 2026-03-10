@@ -1,0 +1,42 @@
+
+> portal-jogos@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.1
+
+   Creating an optimized production build ...
+(node:11072) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:24944) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:24944) Warning: To load an ES module, set "type": "module" in the package.json or use the .mjs extension.
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/9) ...
+   Generating static pages (2/9) 
+   Generating static pages (4/9) 
+   Generating static pages (6/9) 
+ ✓ Generating static pages (9/9)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    196 B          98.9 kB
+├ ○ /_not-found                          871 B          87.7 kB
+├ ○ /about                               141 B            87 kB
+├ ƒ /category/[slug]                     196 B          98.9 kB
+├ ○ /contact                             141 B            87 kB
+├ ƒ /game/[slug]                         196 B          98.9 kB
+├ ○ /new                                 196 B          98.9 kB
+├ ○ /popular                             196 B          98.9 kB
+└ ƒ /search                              196 B          98.9 kB
++ First Load JS shared by all            86.8 kB
+  ├ chunks/23-4da9901fba80ff50.js        31.3 kB
+  ├ chunks/fd9d1056-8042ad09b3c311e2.js  53.6 kB
+  └ other shared chunks (total)          1.86 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
