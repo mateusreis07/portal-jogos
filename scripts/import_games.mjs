@@ -2,9 +2,32 @@ import fs from 'fs';
 import path from 'path';
 
 const API_SID = 'O31L7';
-const TOTAL_PAGES_TO_FETCH = 40;
+const TOTAL_PAGES_TO_FETCH = 40; // 40 pages * 12 items = 480 games
 const ITEMS_PER_PAGE = 12;
 const OUTPUT_FILE = path.join(process.cwd(), 'data', 'games.json');
+
+// We want to normalize GamePix's hundreds of categories into our portal's 8 core categories:
+const categoryMapping = {
+  'puzzle': ['puzzle', 'match-3', '2048', 'memory', 'mahjong', 'sudoku', 'logic', 'tetris', 'blocks', 'word', 'board'],
+  'racing': ['racing', 'car', 'bike', 'motorcycle', 'driving', 'drift', 'parking', 'truck'],
+  'shooting': ['shooting', 'gun', 'sniper', 'fps', 'zombie', 'battle', 'tank', 'archery'],
+  'adventure': ['adventure', 'platformer', 'rpg', 'exploration', 'escape', 'survival'],
+  'sports': ['sports', 'football', 'basketball', 'soccer', 'tennis', 'golf', 'pool', 'fishing', 'boxing', 'bowling'],
+  'strategy': ['strategy', 'tower-defense', 'card', 'chess', 'simulation', 'management', 'idle', 'clicker'],
+  'multiplayer': ['multiplayer', 'io', '2-player', '3d-multiplayer', 'coop', 'mmo'],
+  'arcade': ['arcade', 'action', 'casual', 'stickman', 'drawing', 'kids', 'funny', 'animal', 'bubble-shooter', 'running', 'jumping', 'skill']
+};
+
+function normalizeCategory(rawCategory) {
+  const cat = (rawCategory || '').toLowerCase().trim();
+  for (const [mainCat, subCats] of Object.entries(categoryMapping)) {
+    if (subCats.includes(cat) || mainCat === cat) {
+      return mainCat;
+    }
+  }
+  // Fallback to arcade if it's too obscure
+  return 'arcade';
+}
 
 async function importGames() {
   console.log('🔄 Starting GamePix Import...');
@@ -12,7 +35,7 @@ async function importGames() {
 
   for (let page = 1; page <= TOTAL_PAGES_TO_FETCH; page++) {
     const url = `https://feeds.gamepix.com/v2/json?sid=${API_SID}&pagination=${ITEMS_PER_PAGE}&page=${page}`;
-    console.log(`📥 Fetching page ${page}... (${url})`);
+    console.log(`📥 Fetching page ${page}...`);
 
     try {
       const response = await fetch(url);
@@ -24,10 +47,7 @@ async function importGames() {
         break;
       }
 
-      // Map GamePix format to our Portal format
       const formattedGames = data.items.map(game => {
-        // Strip the width query parameter to get the highest resolution banner if possible,
-        // or just use the banner_image as provided
         let thumbnail = game.banner_image;
         if (thumbnail && thumbnail.includes('?w=')) {
           thumbnail = thumbnail.split('?w=')[0];
@@ -41,16 +61,15 @@ async function importGames() {
           title: game.title,
           description: game.description || 'A fun HTML5 game.',
           instructions: 'Use touch or mouse to play.',
-          category: (game.category || 'arcade').toLowerCase(),
+          category: normalizeCategory(game.category),
           thumbnail: thumbnail || 'https://via.placeholder.com/320x320?text=No+Image',
           gameUrl: game.url,
           createdAt: game.date_published || new Date().toISOString(),
-          views: Math.floor(Math.random() * (50000 - 100) + 100) // Random views for mock
+          views: Math.floor(Math.random() * (50000 - 100) + 100)
         };
       });
 
       allGames = allGames.concat(formattedGames);
-      console.log(`✅ Page ${page} processed. Total games so far: ${allGames.length}`);
     } catch (error) {
       console.error(`❌ Failed to fetch page ${page}:`, error.message);
       break;
