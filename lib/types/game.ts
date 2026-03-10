@@ -1,12 +1,4 @@
-export type GameCategory =
-  | 'arcade'
-  | 'puzzle'
-  | 'racing'
-  | 'shooting'
-  | 'adventure'
-  | 'sports'
-  | 'strategy'
-  | 'multiplayer';
+export type GameCategory = string;
 
 export interface Game {
   id: string;
