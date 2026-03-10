@@ -1,18 +1,18 @@
 import createMiddleware from 'next-intl/middleware';
-import { locales } from './i18n';
+import { defineRouting } from 'next-intl/routing';
 
-export default createMiddleware({
-  // A list of all locales that are supported
-  locales,
-
-  // Used when no locale matches
-  defaultLocale: 'en',
-
-  // Custom domains or detection behavior can be added here
-  localePrefix: 'as-needed'
+const routing = defineRouting({
+  locales: ['en', 'pt-BR', 'es'],
+  defaultLocale: 'pt-BR',
+  localePrefix: 'always'
 });
 
+export default createMiddleware(routing);
+
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(pt-BR|en|es)/:path*']
+  matcher: [
+    '/',
+    '/(pt-BR|en|es)/:path*',
+    '/((?!api|_next|_vercel|.*\\..*).*)'
+  ]
 };
