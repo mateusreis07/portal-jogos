@@ -1,0 +1,42 @@
+{
+  "Navigation": {
+    "popular": "Popular",
+    "categories": "Categories",
+    "new": "New",
+    "about": "About Us",
+    "contact": "Contact",
+    "search_placeholder": "Search games..."
+  },
+  "Home": {
+    "popular_title": "Popular Right Now",
+    "view_all": "View all →",
+    "categories_title": "Categories",
+    "new_title": "New Additions"
+  },
+  "Categories": {
+    "arcade": "Arcade",
+    "puzzle": "Puzzle",
+    "racing": "Racing",
+    "shooting": "Shooting",
+    "adventure": "Adventure",
+    "sports": "Sports",
+    "strategy": "Strategy",
+    "multiplayer": "Multiplayer"
+  },
+  "Game": {
+    "play_now": "Play Now",
+    "full_screen": "Full Screen",
+    "description": "About this game",
+    "instructions": "Instructions",
+    "related": "Related Games"
+  },
+  "Footer": {
+    "description": "Your ultimate destination for the best free HTML5 games playable across all devices.",
+    "links": "Quick Links",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "All rights reserved",
+    "developed_by": "Developed by Arcade Hub"
+  }
+}

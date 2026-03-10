@@ -1,0 +1,42 @@
+{
+  "Navigation": {
+    "popular": "Populares",
+    "categories": "Categorias",
+    "new": "Novos",
+    "about": "Sobre Nós",
+    "contact": "Contato",
+    "search_placeholder": "Pesquisar jogos..."
+  },
+  "Home": {
+    "popular_title": "Em Alta Agora",
+    "view_all": "Ver todos →",
+    "categories_title": "Categorias",
+    "new_title": "Novas Adições"
+  },
+  "Categories": {
+    "arcade": "Arcade",
+    "puzzle": "Quebra-Cabeça",
+    "racing": "Corrida",
+    "shooting": "Tiro",
+    "adventure": "Aventura",
+    "sports": "Esportes",
+    "strategy": "Estratégia",
+    "multiplayer": "Multijogador"
+  },
+  "Game": {
+    "play_now": "Jogar Agora",
+    "full_screen": "Tela Cheia",
+    "description": "Sobre este jogo",
+    "instructions": "Instruções",
+    "related": "Jogos Relacionados"
+  },
+  "Footer": {
+    "description": "Seu destino definitivo para os melhores jogos HTML5 grátis, disponíveis em todos os dispositivos.",
+    "links": "Links Rápidos",
+    "legal": "Legal",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "rights": "Todos os direitos reservados",
+    "developed_by": "Desenvolvido por Arcade Hub"
+  }
+}

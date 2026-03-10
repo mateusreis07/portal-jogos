@@ -4,7 +4,11 @@ import { Search } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState, FormEvent } from 'react';
 
-export default function SearchBar() {
+interface SearchBarProps {
+  placeholder?: string;
+}
+
+export default function SearchBar({ placeholder = "Search games..." }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const router = useRouter();
 
@@ -23,7 +27,7 @@ export default function SearchBar() {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search games..."
+          placeholder={placeholder}
           className="w-full bg-slate-800/50 border border-slate-700 rounded-full py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-slate-200 placeholder:text-slate-500"
         />
       </div>
