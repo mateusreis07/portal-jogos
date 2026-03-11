@@ -5,19 +5,20 @@
     "new": "Nuevos",
     "about": "Sobre Nosotros",
     "contact": "Contacto",
-    "search_placeholder": "Buscar juegos..."
+    "search_placeholder": "Buscar juegos...",
+    "dashboard": "Mi Panel"
   },
   "Home": {
-    "popular_title": "Tendencias",
+    "popular_title": "Populares Ahora",
     "view_all": "Ver todos →",
     "categories_title": "Categorías",
-    "new_title": "Nuevas Adiciones"
+    "new_title": "Agregados Recientemente"
   },
   "Categories": {
     "arcade": "Arcade",
-    "puzzle": "Puzle",
+    "puzzle": "Rompecabezas",
     "racing": "Carreras",
-    "shooting": "Tiro",
+    "shooting": "Disparos",
     "adventure": "Aventura",
     "sports": "Deportes",
     "strategy": "Estrategia",
@@ -27,11 +28,23 @@
     "play_now": "Jugar Ahora",
     "full_screen": "Pantalla Completa",
     "description": "Sobre este juego",
-    "instructions": "Instrucciones",
-    "related": "Juegos Relacionados"
+    "instructions": "Cómo Jugar",
+    "related": "Juegos Similares",
+    "add_favorite": "Agregar a Favoritos",
+    "remove_favorite": "Quitar de Favoritos"
+  },
+  "Dashboard": {
+    "title": "Mi Panel",
+    "subtitle": "Tus juegos favoritos y tu historial de juego en un solo lugar.",
+    "favorites": "Mis Favoritos",
+    "recent": "Jugados Recientemente",
+    "empty_favorites_title": "Sin favoritos aún",
+    "empty_favorites_desc": "¡Haz clic en el ícono de corazón en cualquier juego para guardarlo aquí!",
+    "empty_recent_title": "Ningún juego jugado aún",
+    "empty_recent_desc": "Empieza a jugar y los juegos aparecerán aquí."
   },
   "Footer": {
-    "description": "Tu destino definitivo para los mejores juegos HTML5 gratis, disponibles en todos los dispositivos.",
+    "description": "Tu destino definitivo para los mejores juegos HTML5 gratuitos, jugables en todos los dispositivos.",
     "links": "Enlaces Rápidos",
     "legal": "Legal",
     "privacy": "Política de Privacidad",

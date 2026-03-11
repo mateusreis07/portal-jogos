@@ -5,7 +5,8 @@
     "new": "New",
     "about": "About Us",
     "contact": "Contact",
-    "search_placeholder": "Search games..."
+    "search_placeholder": "Search games...",
+    "dashboard": "My Dashboard"
   },
   "Home": {
     "popular_title": "Popular Right Now",
@@ -27,8 +28,20 @@
     "play_now": "Play Now",
     "full_screen": "Full Screen",
     "description": "About this game",
-    "instructions": "Instructions",
-    "related": "Related Games"
+    "instructions": "How to Play",
+    "related": "Similar Games",
+    "add_favorite": "Add to Favorites",
+    "remove_favorite": "Remove from Favorites"
+  },
+  "Dashboard": {
+    "title": "My Dashboard",
+    "subtitle": "Your favorite games and play history in one place.",
+    "favorites": "My Favorites",
+    "recent": "Recently Played",
+    "empty_favorites_title": "No favorites yet",
+    "empty_favorites_desc": "Click the heart icon on any game to save it here!",
+    "empty_recent_title": "No games played yet",
+    "empty_recent_desc": "Start playing some games and they'll appear here."
   },
   "Footer": {
     "description": "Your ultimate destination for the best free HTML5 games playable across all devices.",

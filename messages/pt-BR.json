@@ -5,13 +5,14 @@
     "new": "Novos",
     "about": "Sobre Nós",
     "contact": "Contato",
-    "search_placeholder": "Pesquisar jogos..."
+    "search_placeholder": "Pesquisar jogos...",
+    "dashboard": "Meu Painel"
   },
   "Home": {
     "popular_title": "Em Alta Agora",
     "view_all": "Ver todos →",
     "categories_title": "Categorias",
-    "new_title": "Novas Adições"
+    "new_title": "Adicionados Recentemente"
   },
   "Categories": {
     "arcade": "Arcade",
@@ -27,11 +28,23 @@
     "play_now": "Jogar Agora",
     "full_screen": "Tela Cheia",
     "description": "Sobre este jogo",
-    "instructions": "Instruções",
-    "related": "Jogos Relacionados"
+    "instructions": "Como Jogar",
+    "related": "Jogos Similares",
+    "add_favorite": "Adicionar aos Favoritos",
+    "remove_favorite": "Remover dos Favoritos"
+  },
+  "Dashboard": {
+    "title": "Meu Painel",
+    "subtitle": "Seus jogos favoritos e histórico de jogadas em um só lugar.",
+    "favorites": "Meus Favoritos",
+    "recent": "Jogados Recentemente",
+    "empty_favorites_title": "Nenhum favorito ainda",
+    "empty_favorites_desc": "Clique no ícone de coração em qualquer jogo para salvar aqui!",
+    "empty_recent_title": "Nenhum jogo jogado ainda",
+    "empty_recent_desc": "Comece a jogar e os jogos aparecerão aqui."
   },
   "Footer": {
-    "description": "Seu destino definitivo para os melhores jogos HTML5 grátis, disponíveis em todos os dispositivos.",
+    "description": "O destino definitivo para os melhores jogos HTML5 gratuitos, jogáveis em todos os dispositivos.",
     "links": "Links Rápidos",
     "legal": "Legal",
     "privacy": "Política de Privacidade",
