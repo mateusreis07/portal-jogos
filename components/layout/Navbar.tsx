@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import SearchBar from '@/components/ui/SearchBar';
-import { Gamepad2, Menu, User } from 'lucide-react';
+import { Gamepad2, Menu } from 'lucide-react';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import { useTranslations } from 'next-intl';
 
@@ -22,9 +22,6 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href="/dashboard" className="p-2 text-slate-400 hover:text-primary transition-colors" title={t('dashboard')}>
-              <User className="h-5 w-5" />
-            </Link>
             <LanguageSwitcher />
             <div className="hidden sm:block w-64">
               <SearchBar placeholder={t('search_placeholder')} />
