@@ -42,9 +42,9 @@ export default async function SeoContent() {
             <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
               <ShieldCheck className="w-6 h-6 text-green-400" />
             </div>
-            <h3 className="text-xl font-bold text-slate-200">Seguro e Confiável</h3>
+            <h3 className="text-xl font-bold text-slate-200">{t('subtitle_3')}</h3>
             <p className="text-slate-400 leading-relaxed text-sm">
-              Nossa plataforma garante um ambiente seguro para jogadores de todas as idades. Sem arquivos maliciosos, sem exigência de conta bancária e sempre testado por nossa equipe de edição para máxima diversão.
+              {t('content_3')}
             </p>
           </div>
 

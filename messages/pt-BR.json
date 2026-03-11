@@ -56,5 +56,15 @@
     "terms": "Termos de Serviço",
     "rights": "Todos os direitos reservados",
     "developed_by": "Desenvolvido por Arcade Hub"
+  },
+  "Seo": {
+    "title": "Jogos Online Grátis",
+    "description": "O ArcadeHub é o seu portal definitivo para os melhores jogos online grátis. Oferecemos centenas de títulos divertidos para você jogar sozinho ou com amigos, sem precisar baixar, criar conta ou lidar com pop-ups irritantes.",
+    "subtitle_1": "Jogue Direto no Navegador",
+    "content_1": "Todos os nossos jogos rodam perfeitamente no seu navegador usando tecnologia HTML5 leve e segura. Isso significa carregamento instantâneo no seu celular, tablet ou computador de mesa, ocupando zero de armazenamento do seu dispositivo.",
+    "subtitle_2": "Nossa Seleção de Jogos",
+    "content_2": "Novos jogos são adicionados constantemente pelos desenvolvedores mais quentes do momento. Mergulhe em sucessos de Ação, quebre a cabeça com nossos Puzzles viciantes ou acelere fundo nos Jogos de Corrida. Nossa coleção abrange gêneros para todos os gostos, garantindo diversão ilimitada sempre que você acessar o ArcadeHub.",
+    "subtitle_3": "Seguro e Confiável",
+    "content_3": "Nossa plataforma garante um ambiente seguro para jogadores de todas as idades. Sem arquivos maliciosos, sem exigência de conta bancária e sempre testado por nossa equipe de edição para máxima diversão."
   }
 }
