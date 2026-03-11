@@ -23,6 +23,17 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
+  appleWebApp: {
+    title: 'Arcade Hub',
+    statusBarStyle: 'black-translucent',
+    startupImage: [
+      '/icon-512x512.png',
+    ],
+  },
+};
+
+export const viewport = {
+  themeColor: '#0f172a',
 };
 
 export default async function RootLayout({
