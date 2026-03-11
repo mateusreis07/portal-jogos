@@ -2,6 +2,7 @@ import { gameService } from '@/lib/services/gameService';
 import GameCarousel from '@/components/game/GameCarousel';
 import CategoryCard from '@/components/category/CategoryCard';
 import AdInContent from '@/components/ads/AdInContent';
+import SeoContent from '@/components/home/SeoContent';
 import { Gamepad2, Puzzle, CarFront, Crosshair, Map as MapIcon, Trophy, BrainCircuit, Users } from 'lucide-react';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
@@ -211,6 +212,9 @@ export default async function Home() {
           ))}
         </div>
       </section>
+
+      {/* SEO Block Content */}
+      <SeoContent />
 
     </div>
   );

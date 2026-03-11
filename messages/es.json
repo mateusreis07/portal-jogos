@@ -25,6 +25,14 @@
     "strategy": "Estrategia",
     "multiplayer": "Multijugador"
   },
+  "Seo": {
+    "title": "Juegos en Línea Gratis",
+    "description": "ArcadeHub es tu portal definitivo para los mejores juegos en línea gratuitos. Ofrecemos cientos de divertidos títulos para que juegues solo o con amigos, sin necesidad de descargar nada, sin registros y sin pop-ups molestos.",
+    "subtitle_1": "Juega Directamente en tu Navegador",
+    "content_1": "Todos nuestros juegos se ejecutan sin problemas en tu navegador utilizando tecnología HTML5 ligera y segura. Esto significa carga instantánea en tu celular, tablet o computadora, ocupando cero espacio de almacenamiento en tu dispositivo.",
+    "subtitle_2": "Nuestra Selección de Juegos",
+    "content_2": "Nuevos juegos son añadidos constantemente por los desarrolladores más populares del momento. Sumérgete en éxitos de Acción, desafía tu mente con nuestros adictivos Rompecabezas o acelera en nuestros Juegos de Carreras. Nuestra colección abarca géneros para todos los gustos, garantizando diversión ilimitada cada vez que visites ArcadeHub."
+  },
   "Game": {
     "play_now": "Jugar Ahora",
     "full_screen": "Pantalla Completa",
