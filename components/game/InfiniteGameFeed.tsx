@@ -12,6 +12,10 @@ interface InfiniteGameFeedProps {
   translations: {
     description: string;
     instructions: string;
+    tips_tricks: string;
+    tip_1: string;
+    tip_2: string;
+    tip_3: string;
   };
 }
 

@@ -1,0 +1,19 @@
+
+> portal-jogos@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+  ▲ Next.js 14.2.1
+  - Local:        http://localhost:3001
+  - Environments: .env.local
+
+ ✓ Starting...
+[Error: EPERM: operation not permitted, open 'C:\Users\mateus.pereira\Documents\app\portal-jogos\.next\trace'] {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'open',
+  path: 'C:\\Users\\mateus.pereira\\Documents\\app\\portal-jogos\\.next\\trace'
+}
+ ✓ Ready in 3.9s
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Parsing of C:\Users\mateus.pereira\Documents\app\portal-jogos\node_modules\next-intl\dist\esm\production\extractor\format\index.js for build dependencies failed at 'import(t)'.
+<w> Build dependencies behind this expression are ignored and might cause incorrect cache invalidation.

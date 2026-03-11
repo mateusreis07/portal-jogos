@@ -30,8 +30,12 @@
     "description": "Sobre este juego",
     "instructions": "Cómo Jugar",
     "related": "Juegos Similares",
-    "add_favorite": "Agregar a Favoritos",
-    "remove_favorite": "Quitar de Favoritos"
+    "add_favorite": "Añadir a Favoritos",
+    "remove_favorite": "Eliminar de Favoritos",
+    "tips_tricks": "Consejos y Trucos",
+    "tip_1": "Practica los controles antes de saltar a la acción.",
+    "tip_2": "Toma descansos regulares para descansar la vista.",
+    "tip_3": "¡Desafía a tus amigos a superar tu puntuación!"
   },
   "Dashboard": {
     "title": "Mi Panel",

@@ -9,6 +9,10 @@ interface GameViewProps {
   translations: {
     description: string;
     instructions: string;
+    tips_tricks: string;
+    tip_1: string;
+    tip_2: string;
+    tip_3: string;
   };
 }
 
@@ -44,21 +48,21 @@ export default function GameView({ game, translations: t }: GameViewProps) {
 
       <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 md:p-8">
         <div className="prose prose-invert max-w-none">
-          <h2 className="text-2xl font-bold mb-4">{t.description} — {game.title}</h2>
-          <p className="text-slate-300 mb-8 leading-relaxed text-lg">
+          <h2 className="text-2xl font-bold mb-4">{t.description} — <span lang="en">{game.title}</span></h2>
+          <p className="text-slate-300 mb-8 leading-relaxed text-lg" lang="en" dir="ltr">
             {game.description}
           </p>
 
           <h3 className="text-xl font-bold mb-3 text-primary">{t.instructions}</h3>
-          <p className="text-slate-300 leading-relaxed bg-slate-900/50 p-4 rounded-lg border border-slate-700/50 mb-8">
+          <p className="text-slate-300 leading-relaxed bg-slate-900/50 p-4 rounded-lg border border-slate-700/50 mb-8" lang="en" dir="ltr">
             {game.instructions}
           </p>
 
-          <h3 className="text-xl font-bold mb-3 text-primary">Tips & Tricks</h3>
+          <h3 className="text-xl font-bold mb-3 text-primary">{t.tips_tricks}</h3>
           <ul className="text-slate-300 leading-relaxed list-disc pl-5 space-y-2">
-            <li>Practice the controls before jumping into the action.</li>
-            <li>Take regular breaks to rest your eyes.</li>
-            <li>Challenge your friends to beat your high score!</li>
+            <li>{t.tip_1}</li>
+            <li>{t.tip_2}</li>
+            <li>{t.tip_3}</li>
           </ul>
         </div>
       </div>

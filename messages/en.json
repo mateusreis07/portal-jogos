@@ -31,7 +31,11 @@
     "instructions": "How to Play",
     "related": "Similar Games",
     "add_favorite": "Add to Favorites",
-    "remove_favorite": "Remove from Favorites"
+    "remove_favorite": "Remove from Favorites",
+    "tips_tricks": "Tips & Tricks",
+    "tip_1": "Practice the controls before jumping into the action.",
+    "tip_2": "Take regular breaks to rest your eyes.",
+    "tip_3": "Challenge your friends to beat your high score!"
   },
   "Dashboard": {
     "title": "My Dashboard",

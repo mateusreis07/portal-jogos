@@ -31,7 +31,11 @@
     "instructions": "Como Jogar",
     "related": "Jogos Similares",
     "add_favorite": "Adicionar aos Favoritos",
-    "remove_favorite": "Remover dos Favoritos"
+    "remove_favorite": "Remover dos Favoritos",
+    "tips_tricks": "Dicas e Truques",
+    "tip_1": "Pratique os controles do jogo antes de pular para a ação.",
+    "tip_2": "Faça pausas regulares para descansar a visão.",
+    "tip_3": "Desafie os seus amigos a baterem seu recorde!"
   },
   "Dashboard": {
     "title": "Meu Painel",

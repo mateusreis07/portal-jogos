@@ -75,7 +75,11 @@ export default async function GamePage({ params }: GamePageProps) {
             game={game}
             translations={{
               description: t('description'),
-              instructions: t('instructions')
+              instructions: t('instructions'),
+              tips_tricks: t('tips_tricks'),
+              tip_1: t('tip_1'),
+              tip_2: t('tip_2'),
+              tip_3: t('tip_3')
             }}
           />
 
@@ -85,7 +89,11 @@ export default async function GamePage({ params }: GamePageProps) {
             initialExcludeIds={[game.id]}
             translations={{
               description: t('description'),
-              instructions: t('instructions')
+              instructions: t('instructions'),
+              tips_tricks: t('tips_tricks'),
+              tip_1: t('tip_1'),
+              tip_2: t('tip_2'),
+              tip_3: t('tip_3')
             }}
           />
 
