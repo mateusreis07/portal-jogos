@@ -1,5 +1,4 @@
 import { gameService } from '@/lib/services/gameService';
-import HeroCarousel from '@/components/game/HeroCarousel';
 import GameCarousel from '@/components/game/GameCarousel';
 import CategoryCard from '@/components/category/CategoryCard';
 import AdInContent from '@/components/ads/AdInContent';
@@ -13,7 +12,6 @@ export default async function Home() {
 
   // Fetching distinct lots of games
   const [
-    popularGames,
     newGames,
     arcadeGames,
     puzzleGames,
@@ -24,7 +22,6 @@ export default async function Home() {
     strategyGames,
     multiplayerGames
   ] = await Promise.all([
-    gameService.getPopularGames(5),                     // Destinated for Hero Banner
     gameService.getNewGames(15),                        // Destinated for New Shelf
     gameService.getGamesByCategory('arcade', 15),       // Arcade Shelf
     gameService.getGamesByCategory('puzzle', 15),       // Puzzle Shelf
@@ -48,14 +45,7 @@ export default async function Home() {
   ];
 
   return (
-    <div className="flex flex-col gap-12 sm:gap-16">
-
-      {/* 1. Hero Banner: using top 5 popular games */}
-      <section className="-mt-4 md:mt-0">
-        <HeroCarousel games={popularGames} />
-      </section>
-
-
+    <div className="flex flex-col gap-12 sm:gap-16 pt-8">
 
       {/* 3. New Releases Shelf */}
       {newGames && newGames.length > 0 && (
