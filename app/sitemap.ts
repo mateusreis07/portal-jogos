@@ -6,10 +6,14 @@ import { locales } from '@/i18n';
 export const revalidate = 86400; // 24 hours in seconds
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://arcadehub.example.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://portal-jogos.vercel.app';
 
   // 1. Fetch all games optimized for sitemap
   const games = await gameService.getAllGamesSlugs();
+
+  // Fetch all articles
+  const { articleService } = await import('@/lib/services/articleService');
+  const articles = await articleService.getAllArticleSlugs();
 
   // 2. Define static routes
   const staticRoutes = [
@@ -17,6 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/popular',
     '/new',
     '/dashboard',
+    '/article',
     '/category/arcade',
     '/category/puzzle',
     '/category/racing',
@@ -60,6 +65,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const game of games) {
     const lastMod = game.created_at ? new Date(game.created_at) : now;
     sitemapEntries.push(getLocalizedUrlConfig(`/game/${game.slug}`, lastMod));
+  }
+
+  // 5. Add Article Routes
+  for (const article of articles) {
+    const lastMod = article.created_at ? new Date(article.created_at) : now;
+    sitemapEntries.push(getLocalizedUrlConfig(`/article/${article.slug}`, lastMod));
   }
 
   return sitemapEntries;
