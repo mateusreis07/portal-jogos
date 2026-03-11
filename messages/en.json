@@ -1,5 +1,6 @@
 {
   "Navigation": {
+    "home": "Home",
     "popular": "Popular",
     "categories": "Categories",
     "new": "New",

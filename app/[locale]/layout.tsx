@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
+import Sidebar from '@/components/layout/Sidebar';
 import Footer from '@/components/layout/Footer';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
@@ -46,15 +47,21 @@ export default async function RootLayout({
   const { locale } = await params;
   const messages = await getMessages();
 
+  // ... (in the render function)
   return (
     <html lang={locale} className="dark">
-      <body className={`${inter.variable} font-sans min-h-screen flex flex-col antialiased`}>
+      <body className={`${inter.variable} font-sans min-h-screen flex flex-col antialiased bg-slate-950 text-slate-200`}>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
-          <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
-            {children}
-          </main>
-          <Footer />
+          <div className="flex w-full">
+            <Sidebar />
+            <div className="flex-1 flex flex-col min-h-[calc(100vh-4rem)] w-full md:pl-16 transition-all duration-300">
+              <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>
