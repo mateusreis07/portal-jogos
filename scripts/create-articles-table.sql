@@ -47,7 +47,7 @@ VALUES
   'Descubra os melhores jogos de corrida e carros online. Jogue drift, rali e estacionamento grátis sem baixar nada!',
   '<h2>Os Melhores Jogos de Carros na Internet</h2><p>Se você é fã de alta velocidade e adrenalina, esta lista é para você. Separamos os melhores jogos de corrida e pilotagem do momento, disponíveis diretamente no seu navegador, sem necessidade de download ou instalação pesada.</p><h3>Diversidade nas Pistas</h3><p>Desde rali extremo na lama até corridas de drift em metrópoles neon, a tag <b>car-games</b> oferece experiências para todos os gostos. Melhore seus reflexos e compita para ser o rei das pistas.</p><h3>Vantagens de Jogar no ArcadeHub</h3><p>Nossos jogos HTML5 são super leves, carregam rápido e funcionam perfeitamente no PC ou no Celular.</p>',
   'car-games',
-  'https://images.unsplash.com/photo-1547396652-320c22fa15c6?auto=format&fit=crop&q=80&w=1600'
+  'https://img.gamepix.com/games/madalin-stunt-cars-2/cover/madalin-stunt-cars-2.png'
 ),
 (
   'top-10-car-games',
@@ -56,5 +56,5 @@ VALUES
   'Discover the best racing and car games online. Play drift, rally, and parking games for free with no download!',
   '<h2>The Best Car Games on the Internet</h2><p>If you love high speed and adrenaline, this list is for you. We gathered the best racing and driving games available directly in your browser, no heavy downloads needed.</p><h3>Diversity on the Tracks</h3><p>From extreme mud rallies to neon city drfits, our <b>car-games</b> tag offers experiences for everyone. Improve your reflexes and compete to be the king of the track.</p><h3>Why Play on ArcadeHub?</h3><p>Our HTML5 games are super lightweight, load fast and work perfectly on both PC and Mobile.</p>',
   'car-games',
-  'https://images.unsplash.com/photo-1547396652-320c22fa15c6?auto=format&fit=crop&q=80&w=1600'
+  'https://img.gamepix.com/games/madalin-stunt-cars-2/cover/madalin-stunt-cars-2.png'
 );
