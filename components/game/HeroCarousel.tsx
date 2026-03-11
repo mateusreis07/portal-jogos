@@ -45,7 +45,7 @@ export default function HeroCarousel({ games }: HeroCarouselProps) {
     <div className="relative group rounded-2xl overflow-hidden shadow-2xl bg-slate-900 border border-slate-800">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex touch-pan-y">
-          {games.map((game) => (
+          {games.map((game, index) => (
             <div className="flex-[0_0_100%] min-w-0 relative aspect-[2/1] sm:aspect-[21/9] lg:aspect-[3/1]" key={game.id}>
               {/* Blurred Background */}
               <div className="absolute inset-0">
@@ -54,7 +54,7 @@ export default function HeroCarousel({ games }: HeroCarouselProps) {
                   alt="Background"
                   fill
                   className="object-cover blur-xl opacity-40 scale-110"
-                  priority
+                  priority={index === 0}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/80 to-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
