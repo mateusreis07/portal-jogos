@@ -1,8 +1,7 @@
 import { gameService } from '@/lib/services/gameService';
-import GamePlayer from '@/components/game/GamePlayer';
 import GameGrid from '@/components/game/GameGrid';
-import FavoriteButton from '@/components/game/FavoriteButton';
-import TrackRecentlyPlayed from '@/components/game/TrackRecentlyPlayed';
+import GameView from '@/components/game/GameView';
+import InfiniteGameFeed from '@/components/game/InfiniteGameFeed';
 import AdSidebar from '@/components/ads/AdSidebar';
 import AdTopBanner from '@/components/ads/AdTopBanner';
 import { Metadata } from 'next';
@@ -66,57 +65,34 @@ export default async function GamePage({ params }: GamePageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Track this game as recently played */}
-      <TrackRecentlyPlayed gameId={game.id} />
-
       <AdTopBanner />
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        <div className="lg:col-span-3 flex flex-col gap-8">
+        <div className="lg:col-span-3">
 
-          {/* Game Header with Favorite Button */}
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <Link
-                href={`/category/${game.category}`}
-                className="px-3 py-1 bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider rounded-md hover:bg-primary/30 transition-colors"
-              >
-                {game.category}
-              </Link>
-            </div>
-            <div className="flex items-center justify-between gap-4">
-              <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
-                {game.title}
-              </h1>
-              <FavoriteButton gameId={game.id} />
-            </div>
-          </div>
+          {/* Render the initial game the user clicked on synchronously for SEO and LCP */}
+          <GameView
+            game={game}
+            translations={{
+              description: t('description'),
+              instructions: t('instructions')
+            }}
+          />
 
-          <GamePlayer gameUrl={game.gameUrl} title={game.title} />
+          {/* Infinite Scroll Feed triggers below the first game */}
+          <InfiniteGameFeed
+            initialCategory={game.category}
+            initialExcludeIds={[game.id]}
+            translations={{
+              description: t('description'),
+              instructions: t('instructions')
+            }}
+          />
 
-          <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 md:p-8">
-            <div className="prose prose-invert max-w-none">
-              <h2 className="text-2xl font-bold mb-4">{t('description')} — {game.title}</h2>
-              <p className="text-slate-300 mb-8 leading-relaxed text-lg">
-                {game.description}
-              </p>
-
-              <h3 className="text-xl font-bold mb-3 text-primary">{t('instructions')}</h3>
-              <p className="text-slate-300 leading-relaxed bg-slate-900/50 p-4 rounded-lg border border-slate-700/50 mb-8">
-                {game.instructions}
-              </p>
-
-              <h3 className="text-xl font-bold mb-3 text-primary">Tips & Tricks</h3>
-              <ul className="text-slate-300 leading-relaxed list-disc pl-5 space-y-2">
-                <li>Practice the controls before jumping into the action.</li>
-                <li>Take regular breaks to rest your eyes.</li>
-                <li>Challenge your friends to beat your high score!</li>
-              </ul>
-            </div>
-          </div>
         </div>
 
         <div className="lg:col-span-1 hidden lg:block">
+          {/* Sidebar Ads stay sticky or scroll based on their own internal component logic */}
           <AdSidebar />
         </div>
       </div>
