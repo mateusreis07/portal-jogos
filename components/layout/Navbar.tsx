@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl';
 
 export default function Navbar() {
   const t = useTranslations('Navigation');
-  const cat = useTranslations('Categories');
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-900/80 backdrop-blur-md">
@@ -20,14 +19,6 @@ export default function Navbar() {
               <span className="font-bold text-xl tracking-tight">Arcade<span className="text-primary">Hub</span></span>
             </Link>
 
-            <div className="hidden md:flex items-center space-x-6">
-              <Link href="/popular" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">{t('popular')}</Link>
-              <Link href="/new" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">{t('new')}</Link>
-              <div className="h-4 w-px bg-slate-700"></div>
-              <Link href="/category/arcade" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">{cat('arcade')}</Link>
-              <Link href="/category/puzzle" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">{cat('puzzle')}</Link>
-              <Link href="/category/racing" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">{cat('racing')}</Link>
-            </div>
           </div>
 
           <div className="flex items-center gap-4">
