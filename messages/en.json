@@ -83,5 +83,10 @@
   "NewPage": {
     "title": "New Games",
     "description": "Explore {count} recently added games. Be the first to play the latest releases on ArcadeHub."
+  },
+  "SearchPage": {
+    "title": "Search Results",
+    "query": "Searching for: \"{query}\"",
+    "description": "We found {count} games that match your search to play online for free."
   }
 }

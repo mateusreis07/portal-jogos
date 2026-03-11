@@ -83,5 +83,10 @@
   "NewPage": {
     "title": "Juegos Nuevos",
     "description": "Explora {count} juegos añadidos recientemente. Sé el primero en jugar las últimas novedades de ArcadeHub."
+  },
+  "SearchPage": {
+    "title": "Resultados de Búsqueda",
+    "query": "Buscando por: \"{query}\"",
+    "description": "Encontramos {count} juegos que coinciden con tu búsqueda para jugar en línea gratis."
   }
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { useLocale } from 'next-intl';
 import { Search } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState, FormEvent } from 'react';
@@ -11,11 +12,12 @@ interface SearchBarProps {
 export default function SearchBar({ placeholder = "Search games..." }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const router = useRouter();
+  const locale = useLocale();
 
   const handleSearch = (e: FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
-      router.push(`/search?q=${encodeURIComponent(query.trim())}`);
+      router.push(`/${locale}/search?q=${encodeURIComponent(query.trim())}`);
     }
   };
 
