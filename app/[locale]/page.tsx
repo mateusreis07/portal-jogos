@@ -45,7 +45,7 @@ export default async function Home() {
   ];
 
   return (
-    <div className="flex flex-col gap-12 sm:gap-16 pt-8">
+    <div className="flex flex-col gap-8 sm:gap-10 pt-8">
 
       {/* 3. New Releases Shelf */}
       {newGames && newGames.length > 0 && (
