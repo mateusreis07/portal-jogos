@@ -9,6 +9,7 @@ export interface Game {
   category: GameCategory;
   thumbnail: string;
   gameUrl: string;
+  tags?: string[];
   createdAt: string;
   views: number;
 }

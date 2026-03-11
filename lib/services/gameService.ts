@@ -80,6 +80,30 @@ export const gameService = {
   },
 
   /**
+   * Retrieves games that contain a specific tag.
+   */
+  async getGamesByTag(tag: string, limit?: number): Promise<Game[]> {
+    let query = supabase
+      .from('games')
+      .select('*')
+      .contains('tags', [tag])
+      .order('created_at', { ascending: false });
+
+    if (limit) {
+      query = query.limit(limit);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+      console.error(`Error fetching games by tag ${tag}:`, error);
+      return [];
+    }
+
+    return (data || []).map(mapSupabaseRowToGame);
+  },
+
+  /**
    * Retrieves the most popular games based on views.
    */
   async getPopularGames(limit: number = 8): Promise<Game[]> {
@@ -168,7 +192,8 @@ function mapSupabaseRowToGame(row: any): Game {
     instructions: row.instructions,
     category: row.category,
     thumbnail: row.thumbnail,
-    gameUrl: row.gameUrl,  // ensure table column preserves casing if needed or map if snake_case
+    gameUrl: row.gameUrl,
+    tags: Array.isArray(row.tags) ? row.tags : (row.tags ? [row.tags] : []), // Fallback just in case, ensuring it's an array
     createdAt: row.created_at,
     views: Number(row.views) || 0,
   };

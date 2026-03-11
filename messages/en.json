@@ -36,7 +36,8 @@
     "tips_tricks": "Tips & Tricks",
     "tip_1": "Practice the controls before jumping into the action.",
     "tip_2": "Take regular breaks to rest your eyes.",
-    "tip_3": "Challenge your friends to beat your high score!"
+    "tip_3": "Challenge your friends to beat your high score!",
+    "tags": "Tags:"
   },
   "Dashboard": {
     "title": "My Dashboard",
@@ -70,5 +71,9 @@
   "CategoryPage": {
     "title": "{category} Games",
     "description": "Explore {count} amazing {category} games. Play instantly for free."
+  },
+  "TagPage": {
+    "title": "{tag} Games",
+    "description": "Play the best {tag} games. We have {count} free options for you to enjoy online."
   }
 }

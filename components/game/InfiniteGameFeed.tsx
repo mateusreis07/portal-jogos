@@ -17,6 +17,7 @@ interface InfiniteGameFeedProps {
     tip_1: string;
     tip_2: string;
     tip_3: string;
+    tags: string;
   };
 }
 

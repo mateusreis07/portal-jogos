@@ -36,7 +36,8 @@
     "tips_tricks": "Dicas e Truques",
     "tip_1": "Pratique os controles do jogo antes de pular para a ação.",
     "tip_2": "Faça pausas regulares para descansar a visão.",
-    "tip_3": "Desafie os seus amigos a baterem seu recorde!"
+    "tip_3": "Desafie os seus amigos a baterem seu recorde!",
+    "tags": "Tags:"
   },
   "Dashboard": {
     "title": "Meu Painel",
@@ -70,5 +71,9 @@
   "CategoryPage": {
     "title": "Jogos de {category}",
     "description": "Explore {count} jogos incríveis de {category}. Jogue online gratuitamente."
+  },
+  "TagPage": {
+    "title": "Jogos da Tag: {tag}",
+    "description": "Jogue os melhores jogos com a tag {tag}. Temos {count} opções gratuitas para você se divertir online."
   }
 }

@@ -13,6 +13,7 @@ interface GameViewProps {
     tip_1: string;
     tip_2: string;
     tip_3: string;
+    tags: string;
   };
 }
 
@@ -35,6 +36,20 @@ export default function GameView({ game, translations: t }: GameViewProps) {
           >
             {game.category}
           </Link>
+          {game.tags && game.tags.length > 0 && (
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-slate-500 text-xs uppercase tracking-wider font-semibold mr-1">{t.tags}</span>
+              {game.tags.map((tag) => (
+                <Link
+                  key={tag}
+                  href={`/tag/${tag}`}
+                  className="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded-md hover:bg-slate-700 hover:text-white transition-colors border border-slate-700/50"
+                >
+                  #{tag}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
         <div className="flex items-center justify-between gap-4">
           <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">

@@ -91,7 +91,8 @@ export default async function GamePage({ params }: GamePageProps) {
               tips_tricks: t('tips_tricks'),
               tip_1: t('tip_1'),
               tip_2: t('tip_2'),
-              tip_3: t('tip_3')
+              tip_3: t('tip_3'),
+              tags: t('tags')
             }}
           />
 
@@ -106,7 +107,8 @@ export default async function GamePage({ params }: GamePageProps) {
               tips_tricks: t('tips_tricks'),
               tip_1: t('tip_1'),
               tip_2: t('tip_2'),
-              tip_3: t('tip_3')
+              tip_3: t('tip_3'),
+              tags: t('tags')
             }}
           />
 
