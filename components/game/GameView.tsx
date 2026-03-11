@@ -1,5 +1,4 @@
 import GamePlayer from '@/components/game/GamePlayer';
-import FavoriteButton from '@/components/game/FavoriteButton';
 import TrackRecentlyPlayed from '@/components/game/TrackRecentlyPlayed';
 import GameGrid from '@/components/game/GameGrid';
 import Link from 'next/link';
@@ -59,11 +58,10 @@ export default function GameView({ game, translations: t, relatedGames = [], isI
           <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
             {game.title}
           </h2>
-          <FavoriteButton gameId={game.id} />
         </div>
       </div>
 
-      <GamePlayer gameUrl={game.gameUrl} title={game.title} />
+      <GamePlayer gameId={game.id} gameUrl={game.gameUrl} title={game.title} />
 
       <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 md:p-8">
         <div className="prose prose-invert max-w-none">
