@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Gamepad2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 
 export default function Footer() {
   const t = useTranslations('Footer');
@@ -22,7 +23,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-slate-100 mb-4 tracking-wider uppercase text-sm">{nav('categories')}</h3>
+            <h3 className="font-semibold text-slate-100 mb-4 tracking-wider uppercase text-sm">{nav('popular')}</h3>
             <ul className="space-y-3">
               <li><Link href="/category/arcade" className="text-slate-400 hover:text-primary transition-colors text-sm">{cat('arcade')}</Link></li>
               <li><Link href="/category/puzzle" className="text-slate-400 hover:text-primary transition-colors text-sm">{cat('puzzle')}</Link></li>
@@ -42,12 +43,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 text-center md:flex md:justify-between md:text-left">
+        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-slate-500 text-sm">
             &copy; {new Date().getFullYear()} ArcadeHub. {t('rights')}.
           </p>
-          <div className="mt-4 md:mt-0">
-            <p className="text-slate-600 text-xs">
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <LanguageSwitcher />
+            <p className="text-slate-600 text-xs text-center md:text-left">
               {t('developed_by')}
             </p>
           </div>
