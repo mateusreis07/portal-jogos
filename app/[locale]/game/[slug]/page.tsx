@@ -54,7 +54,7 @@ export default async function GamePage({ params }: GamePageProps) {
 
   const translatedGame = applyTranslation(game, locale);
 
-  const relatedGames = await gameService.getRelatedGames(translatedGame.category, translatedGame.slug, 4);
+  const relatedGames = await gameService.getAdvancedRelatedGames(translatedGame, 4);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -85,6 +85,7 @@ export default async function GamePage({ params }: GamePageProps) {
           {/* Render the initial game the user clicked on synchronously for SEO and LCP */}
           <GameView
             game={translatedGame}
+            relatedGames={relatedGames}
             translations={{
               description: t('description'),
               instructions: t('instructions'),
@@ -92,14 +93,16 @@ export default async function GamePage({ params }: GamePageProps) {
               tip_1: t('tip_1'),
               tip_2: t('tip_2'),
               tip_3: t('tip_3'),
-              tags: t('tags')
+              tags: t('tags'),
+              related: t('related')
             }}
           />
 
           {/* Infinite Scroll Feed triggers below the first game */}
           <InfiniteGameFeed
             initialCategory={translatedGame.category}
-            initialExcludeIds={[translatedGame.id]}
+            initialExcludeIds={[translatedGame.id, ...relatedGames.map(g => g.id)]}
+            initialTags={translatedGame.tags}
             locale={locale}
             translations={{
               description: t('description'),
@@ -108,7 +111,8 @@ export default async function GamePage({ params }: GamePageProps) {
               tip_1: t('tip_1'),
               tip_2: t('tip_2'),
               tip_3: t('tip_3'),
-              tags: t('tags')
+              tags: t('tags'),
+              related: t('related')
             }}
           />
 
@@ -118,14 +122,6 @@ export default async function GamePage({ params }: GamePageProps) {
           {/* Sidebar Ads stay sticky or scroll based on their own internal component logic */}
           <AdSidebar />
         </div>
-      </div>
-
-      <div className="mt-12 pt-12 border-t border-slate-800">
-        <h2 className="text-2xl font-bold tracking-tight text-white flex items-center gap-2 mb-8">
-          <span className="bg-primary w-2 h-6 rounded-full inline-block"></span>
-          {t('related')} — <span className="capitalize">{translatedGame.category}</span>
-        </h2>
-        <GameGrid games={relatedGames} />
       </div>
     </div>
   );

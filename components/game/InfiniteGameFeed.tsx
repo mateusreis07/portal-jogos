@@ -9,6 +9,7 @@ import AdTopBanner from '@/components/ads/AdTopBanner';
 interface InfiniteGameFeedProps {
   initialCategory: string;
   initialExcludeIds: string[];
+  initialTags?: string[];
   locale: string;
   translations: {
     description: string;
@@ -18,17 +19,20 @@ interface InfiniteGameFeedProps {
     tip_2: string;
     tip_3: string;
     tags: string;
+    related: string;
   };
 }
 
 export default function InfiniteGameFeed({
   initialCategory,
   initialExcludeIds,
+  initialTags,
   locale,
   translations,
 }: InfiniteGameFeedProps) {
   const [games, setGames] = useState<Game[]>([]);
   const [excludeIds, setExcludeIds] = useState<string[]>(initialExcludeIds);
+  const [currentTags, setCurrentTags] = useState<string[] | undefined>(initialTags);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
@@ -39,11 +43,14 @@ export default function InfiniteGameFeed({
 
     setLoading(true);
     try {
-      const nextGame = await loadNextGame(initialCategory, excludeIds, locale);
+      const nextGame = await loadNextGame(initialCategory, excludeIds, locale, currentTags);
 
       if (nextGame) {
         setGames((prev) => [...prev, nextGame]);
         setExcludeIds((prev) => [...prev, nextGame.id]);
+        if (nextGame.tags && nextGame.tags.length > 0) {
+          setCurrentTags(nextGame.tags);
+        }
       } else {
         // No more games found in this category
         setHasMore(false);
@@ -54,7 +61,7 @@ export default function InfiniteGameFeed({
     } finally {
       setLoading(false);
     }
-  }, [initialCategory, excludeIds, loading, hasMore]);
+  }, [initialCategory, excludeIds, currentTags, locale, loading, hasMore]);
 
   // Intersection Observer to trigger load when scrolling near the bottom
   useEffect(() => {
@@ -84,7 +91,7 @@ export default function InfiniteGameFeed({
           </div>
 
           <div className="pt-8">
-            <GameView game={game} translations={translations} />
+            <GameView game={game} translations={translations} isInfiniteFeed={true} />
           </div>
         </div>
       ))}

@@ -1,6 +1,7 @@
 import GamePlayer from '@/components/game/GamePlayer';
 import FavoriteButton from '@/components/game/FavoriteButton';
 import TrackRecentlyPlayed from '@/components/game/TrackRecentlyPlayed';
+import GameGrid from '@/components/game/GameGrid';
 import Link from 'next/link';
 import { Game } from '@/lib/types/game';
 
@@ -14,14 +15,17 @@ interface GameViewProps {
     tip_2: string;
     tip_3: string;
     tags: string;
+    related?: string;
   };
+  relatedGames?: Game[];
+  isInfiniteFeed?: boolean;
 }
 
 /**
  * A reusable component that renders the full game player, details, and SEO elements.
  * Extracted so it can be used for both the initial page load and the infinite scroll feed.
  */
-export default function GameView({ game, translations: t }: GameViewProps) {
+export default function GameView({ game, translations: t, relatedGames = [], isInfiniteFeed = false }: GameViewProps) {
   return (
     <div className="flex flex-col gap-8 pb-12 mb-12 border-b border-slate-800">
       {/* Track this game as recently played */}
@@ -81,6 +85,17 @@ export default function GameView({ game, translations: t }: GameViewProps) {
           </ul>
         </div>
       </div>
+
+      {/* Advanced Related Games Grid (Tags Based) injected before infinite loop */}
+      {relatedGames.length > 0 && (
+        <div className="mt-8">
+          <h2 className="text-2xl font-bold tracking-tight text-white flex items-center gap-2 mb-6">
+            <span className="bg-primary w-2 h-6 rounded-full inline-block"></span>
+            {t.related || 'Related Games'} — <span className="capitalize">{game.category}</span>
+          </h2>
+          <GameGrid games={relatedGames} />
+        </div>
+      )}
     </div>
   );
 }
