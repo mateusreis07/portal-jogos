@@ -48,13 +48,13 @@ export default function GameView({ game, translations: t }: GameViewProps) {
 
       <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 md:p-8">
         <div className="prose prose-invert max-w-none">
-          <h2 className="text-2xl font-bold mb-4">{t.description} — <span lang="en">{game.title}</span></h2>
-          <p className="text-slate-300 mb-8 leading-relaxed text-lg" lang="en" dir="ltr">
+          <h2 className="text-2xl font-bold mb-4">{t.description} — {game.title}</h2>
+          <p className="text-slate-300 mb-8 leading-relaxed text-lg">
             {game.description}
           </p>
 
           <h3 className="text-xl font-bold mb-3 text-primary">{t.instructions}</h3>
-          <p className="text-slate-300 leading-relaxed bg-slate-900/50 p-4 rounded-lg border border-slate-700/50 mb-8" lang="en" dir="ltr">
+          <p className="text-slate-300 leading-relaxed bg-slate-900/50 p-4 rounded-lg border border-slate-700/50 mb-8">
             {game.instructions}
           </p>
 

@@ -9,6 +9,7 @@ import AdTopBanner from '@/components/ads/AdTopBanner';
 interface InfiniteGameFeedProps {
   initialCategory: string;
   initialExcludeIds: string[];
+  locale: string;
   translations: {
     description: string;
     instructions: string;
@@ -22,6 +23,7 @@ interface InfiniteGameFeedProps {
 export default function InfiniteGameFeed({
   initialCategory,
   initialExcludeIds,
+  locale,
   translations,
 }: InfiniteGameFeedProps) {
   const [games, setGames] = useState<Game[]>([]);
@@ -36,7 +38,7 @@ export default function InfiniteGameFeed({
 
     setLoading(true);
     try {
-      const nextGame = await loadNextGame(initialCategory, excludeIds);
+      const nextGame = await loadNextGame(initialCategory, excludeIds, locale);
 
       if (nextGame) {
         setGames((prev) => [...prev, nextGame]);

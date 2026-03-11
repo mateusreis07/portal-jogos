@@ -8,50 +8,62 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
+import translationsData from '@/data/translations.json';
+
+// Utility to apply translations
+const applyTranslation = (game: any, locale: string) => {
+  const langKey = locale === 'pt-BR' ? 'pt' : locale;
+  const translation = (translationsData as any)[game.id]?.[langKey] || (translationsData as any)[game.id]?.en || { description: game.description, instructions: game.instructions };
+  return { ...game, description: translation.description, instructions: translation.instructions };
+};
 
 interface GamePageProps {
   params: Promise<{ slug: string; locale: string }>;
 }
 
 export async function generateMetadata({ params }: GamePageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const game = await gameService.getGameBySlug(slug);
+  const { slug, locale } = await params;
+  let game: any = await gameService.getGameBySlug(slug);
 
   if (!game) {
     return { title: 'Game Not Found' };
   }
 
+  const translatedGame = applyTranslation(game, locale);
+
   return {
-    title: `Play ${game.title} Online Free - Browser Game`,
-    description: game.description,
+    title: `Play ${translatedGame.title} Online Free - Browser Game`,
+    description: translatedGame.description,
     openGraph: {
-      title: `Play ${game.title} Online Free`,
-      description: game.description,
-      images: [{ url: game.thumbnail, width: 600, height: 400, alt: game.title }],
+      title: `Play ${translatedGame.title} Online Free`,
+      description: translatedGame.description,
+      images: [{ url: translatedGame.thumbnail, width: 600, height: 400, alt: translatedGame.title }],
       type: 'website',
     },
   };
 }
 
 export default async function GamePage({ params }: GamePageProps) {
-  const { slug } = await params;
-  const game = await gameService.getGameBySlug(slug);
+  const { slug, locale } = await params;
+  let game = await gameService.getGameBySlug(slug);
   const t = await getTranslations('Game');
 
   if (!game) {
     notFound();
   }
 
-  const relatedGames = await gameService.getRelatedGames(game.category, game.slug, 4);
+  const translatedGame = applyTranslation(game, locale);
+
+  const relatedGames = await gameService.getRelatedGames(translatedGame.category, translatedGame.slug, 4);
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'VideoGame',
-    name: game.title,
-    description: game.description,
-    image: game.thumbnail,
-    url: `https://arcadehub.example.com/game/${game.slug}`,
-    genre: game.category,
+    name: translatedGame.title,
+    description: translatedGame.description,
+    image: translatedGame.thumbnail,
+    url: `https://arcadehub.example.com/game/${translatedGame.slug}`,
+    genre: translatedGame.category,
     playMode: 'SinglePlayer',
     applicationCategory: 'Game',
     operatingSystem: 'Any',
@@ -72,7 +84,7 @@ export default async function GamePage({ params }: GamePageProps) {
 
           {/* Render the initial game the user clicked on synchronously for SEO and LCP */}
           <GameView
-            game={game}
+            game={translatedGame}
             translations={{
               description: t('description'),
               instructions: t('instructions'),
@@ -85,8 +97,9 @@ export default async function GamePage({ params }: GamePageProps) {
 
           {/* Infinite Scroll Feed triggers below the first game */}
           <InfiniteGameFeed
-            initialCategory={game.category}
-            initialExcludeIds={[game.id]}
+            initialCategory={translatedGame.category}
+            initialExcludeIds={[translatedGame.id]}
+            locale={locale}
             translations={{
               description: t('description'),
               instructions: t('instructions'),
@@ -108,7 +121,7 @@ export default async function GamePage({ params }: GamePageProps) {
       <div className="mt-12 pt-12 border-t border-slate-800">
         <h2 className="text-2xl font-bold tracking-tight text-white flex items-center gap-2 mb-8">
           <span className="bg-primary w-2 h-6 rounded-full inline-block"></span>
-          {t('related')} — <span className="capitalize">{game.category}</span>
+          {t('related')} — <span className="capitalize">{translatedGame.category}</span>
         </h2>
         <GameGrid games={relatedGames} />
       </div>
