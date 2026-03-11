@@ -75,5 +75,13 @@
   "TagPage": {
     "title": "{tag} Games",
     "description": "Play the best {tag} games. We have {count} free options for you to enjoy online."
+  },
+  "PopularPage": {
+    "title": "Popular Games",
+    "description": "The top {count} most played games right now. Discover what's trending and play for free."
+  },
+  "NewPage": {
+    "title": "New Games",
+    "description": "Explore {count} recently added games. Be the first to play the latest releases on ArcadeHub."
   }
 }

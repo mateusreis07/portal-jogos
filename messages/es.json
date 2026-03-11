@@ -75,5 +75,13 @@
   "TagPage": {
     "title": "Juegos de Etiqueta: {tag}",
     "description": "Juega los mejores juegos con la etiqueta {tag}. Tenemos {count} opciones gratuitas para ti en línea."
+  },
+  "PopularPage": {
+    "title": "Juegos Populares",
+    "description": "Los {count} juegos más jugados del momento. Descubre qué está de moda y juega gratis."
+  },
+  "NewPage": {
+    "title": "Juegos Nuevos",
+    "description": "Explora {count} juegos añadidos recientemente. Sé el primero en jugar las últimas novedades de ArcadeHub."
   }
 }

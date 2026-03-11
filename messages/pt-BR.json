@@ -75,5 +75,13 @@
   "TagPage": {
     "title": "Jogos da Tag: {tag}",
     "description": "Jogue os melhores jogos com a tag {tag}. Temos {count} opções gratuitas para você se divertir online."
+  },
+  "PopularPage": {
+    "title": "Jogos Populares",
+    "description": "Os {count} jogos mais jogados do momento. Descubra o que está em alta e jogue online gratuitamente."
+  },
+  "NewPage": {
+    "title": "Jogos Novos",
+    "description": "Explore {count} jogos adicionados recentemente. Seja o primeiro a jogar as novidades do ArcadeHub."
   }
 }

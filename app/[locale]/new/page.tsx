@@ -2,25 +2,37 @@ import { gameService } from '@/lib/services/gameService';
 import GameGrid from '@/components/game/GameGrid';
 import AdTopBanner from '@/components/ads/AdTopBanner';
 import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: 'Newest Games - Latest HTML5 Games Online',
-  description: 'Play the newest free HTML5 browser games added today on Arcade Hub.',
-};
+interface NewPageProps {
+  params: Promise<{ locale: string }>;
+}
 
-export default async function NewGamesPage() {
-  const games = await gameService.getNewGames(40); // Top 40 new games
+export async function generateMetadata({ params }: NewPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'NewPage' });
+
+  return {
+    title: `${t('title')} - Arcade Hub`,
+    description: t('description', { count: 100 }),
+  };
+}
+
+export default async function NewGamesPage({ params }: NewPageProps) {
+  const { locale } = await params;
+  const games = await gameService.getNewGames(100);
+  const t = await getTranslations({ locale, namespace: 'NewPage' });
 
   return (
     <div className="flex flex-col gap-8">
       <AdTopBanner />
 
-      <div className="mb-4 border-b border-slate-800 pb-8">
+      <div className="mb-8 border-b border-slate-800 pb-8 mt-4">
         <h1 className="text-4xl font-extrabold text-white tracking-tight mb-2">
-          Newest Games
+          🆕 {t('title')}
         </h1>
         <p className="text-slate-400 text-lg">
-          Fresh off the press! Complete new challenges in our latest additions.
+          {t('description', { count: games.length })}
         </p>
       </div>
 

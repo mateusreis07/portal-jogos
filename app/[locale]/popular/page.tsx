@@ -2,25 +2,37 @@ import { gameService } from '@/lib/services/gameService';
 import GameGrid from '@/components/game/GameGrid';
 import AdTopBanner from '@/components/ads/AdTopBanner';
 import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: 'Popular Games - Play The Best HTML5 Games',
-  description: 'A curated list of the most popular and highly rated free online games on Arcade Hub.',
-};
+interface PopularPageProps {
+  params: Promise<{ locale: string }>;
+}
 
-export default async function PopularGamesPage() {
-  const games = await gameService.getPopularGames(40); // Top 40 popular games
+export async function generateMetadata({ params }: PopularPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'PopularPage' });
+
+  return {
+    title: `${t('title')} - Arcade Hub`,
+    description: t('description', { count: 100 }),
+  };
+}
+
+export default async function PopularPage({ params }: PopularPageProps) {
+  const { locale } = await params;
+  const games = await gameService.getPopularGames(100);
+  const t = await getTranslations({ locale, namespace: 'PopularPage' });
 
   return (
     <div className="flex flex-col gap-8">
       <AdTopBanner />
 
-      <div className="mb-4 border-b border-slate-800 pb-8">
-        <h1 className="text-4xl font-extrabold text-white tracking-tight mb-2 flex items-center gap-3">
-          <span className="text-primary text-3xl">★</span> Popular Games
+      <div className="mb-8 border-b border-slate-800 pb-8 mt-4">
+        <h1 className="text-4xl font-extrabold text-white tracking-tight mb-2">
+          🔥 {t('title')}
         </h1>
         <p className="text-slate-400 text-lg">
-          The most played games by our community. Join the fun!
+          {t('description', { count: games.length })}
         </p>
       </div>
 
