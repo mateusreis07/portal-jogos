@@ -1,5 +1,6 @@
 import GamePlayer from '@/components/game/GamePlayer';
 import TrackRecentlyPlayed from '@/components/game/TrackRecentlyPlayed';
+import GameContentTabs from '@/components/game/GameContentTabs';
 import GameGrid from '@/components/game/GameGrid';
 import Link from 'next/link';
 import { Game } from '@/lib/types/game';
@@ -63,26 +64,15 @@ export default function GameView({ game, translations: t, relatedGames = [], isI
 
       <GamePlayer gameId={game.id} gameUrl={game.gameUrl} title={game.title} />
 
-      <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 md:p-8">
-        <div className="prose prose-invert max-w-none">
-          <h2 className="text-2xl font-bold mb-4">{t.description} — {game.title}</h2>
-          <p className="text-slate-300 mb-8 leading-relaxed text-lg">
-            {game.description}
-          </p>
-
-          <h3 className="text-xl font-bold mb-3 text-primary">{t.instructions}</h3>
-          <p className="text-slate-300 leading-relaxed bg-slate-900/50 p-4 rounded-lg border border-slate-700/50 mb-8">
-            {game.instructions}
-          </p>
-
-          <h3 className="text-xl font-bold mb-3 text-primary">{t.tips_tricks}</h3>
-          <ul className="text-slate-300 leading-relaxed list-disc pl-5 space-y-2">
-            <li>{t.tip_1}</li>
-            <li>{t.tip_2}</li>
-            <li>{t.tip_3}</li>
-          </ul>
-        </div>
-      </div>
+      {/* SEO-Optimized Content Tabs for large text volumes */}
+      <GameContentTabs
+        title={game.title}
+        translations={t}
+        content={{
+          description: game.description,
+          instructions: game.instructions
+        }}
+      />
 
       {/* Advanced Related Games Grid (Tags Based) injected before infinite loop */}
       {relatedGames.length > 0 && (
