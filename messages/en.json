@@ -66,5 +66,9 @@
     "content_2": "New games are constantly added by today's hottest developers. Dive into Action blockbusters, challenge your mind with our addictive Puzzles, or speed up in our Racing Games. Our collection covers genres for all tastes, guaranteeing unlimited fun whenever you visit ArcadeHub.",
     "subtitle_3": "Safe and Reliable",
     "content_3": "Our platform guarantees a safe environment for players of all ages. No malicious files, no bank accounts required, and always tested by our editorial team for maximum fun."
+  },
+  "CategoryPage": {
+    "title": "{category} Games",
+    "description": "Explore {count} amazing {category} games. Play instantly for free."
   }
 }

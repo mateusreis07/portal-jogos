@@ -66,5 +66,9 @@
     "terms": "Términos de Servicio",
     "rights": "Todos los derechos reservados",
     "developed_by": "Desarrollado por Arcade Hub"
+  },
+  "CategoryPage": {
+    "title": "Juegos de {category}",
+    "description": "Explora {count} juegos increíbles de {category}. Juega gratis al instante."
   }
 }
