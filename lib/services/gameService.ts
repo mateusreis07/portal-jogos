@@ -20,6 +20,24 @@ export const gameService = {
   },
 
   /**
+   * Retrieves only game slugs and timestamps for SEO sitemap generation.
+   * This is heavily optimized to use minimal DB resources.
+   */
+  async getAllGamesSlugs(): Promise<{ slug: string; created_at: string }[]> {
+    const { data, error } = await supabase
+      .from('games')
+      .select('slug, created_at')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Error fetching game slugs for sitemap:', error);
+      return [];
+    }
+
+    return data || [];
+  },
+
+  /**
    * Retrieves a single game by its slug for the game detail page.
    */
   async getGameBySlug(slug: string): Promise<Game | null> {
