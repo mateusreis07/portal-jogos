@@ -42,12 +42,12 @@ export default function GameCarousel({ games }: GameCarouselProps) {
     <div className="relative group">
       {/* Embla Viewport */}
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex touch-pan-y -ml-4">
+        <div className="flex touch-pan-y -ml-3">
           {games.map((game) => (
             // A slide taking up specific percentage of width based on breakpoints
             <div
               key={game.id}
-              className="flex-[0_0_80%] sm:flex-[0_0_40%] lg:flex-[0_0_25%] xl:flex-[0_0_20%] min-w-0 pl-4 py-4"
+              className="flex-[0_0_65%] sm:flex-[0_0_35%] md:flex-[0_0_22%] lg:flex-[0_0_18%] xl:flex-[0_0_14.28%] min-w-0 pl-3 py-2"
             >
               <GameCard game={game} />
             </div>

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Game } from '@/lib/types/game';
-import { Play } from 'lucide-react';
 
 interface GameCardProps {
   game: Game;
@@ -20,19 +19,9 @@ export default function GameCard({ game }: GameCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
 
-        {/* Play Icon Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-75 group-hover:scale-100">
-          <div className="bg-primary/90 p-4 rounded-full backdrop-blur-sm shadow-lg">
-            <Play className="w-8 h-8 text-white fill-white ml-1" />
-          </div>
-        </div>
-
         {/* Content */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-          <div className="inline-block px-2 py-1 bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider rounded backdrop-blur-md mb-2">
-            {game.category}
-          </div>
-          <h3 className="font-bold text-white text-lg leading-tight truncate">{game.title}</h3>
+        <div className="absolute bottom-0 left-0 right-0 p-3">
+          <h3 className="font-bold text-white text-sm md:text-base leading-tight truncate">{game.title}</h3>
         </div>
       </div>
     </Link>
