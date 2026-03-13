@@ -46,6 +46,7 @@ async function migrateGames() {
       category: g.category,
       thumbnail: g.thumbnail,
       gameUrl: g.gameUrl,
+      tags: g.tags || [],
       created_at: g.createdAt,
       views: g.views
     }));
@@ -54,7 +55,7 @@ async function migrateGames() {
 
     const { error } = await supabase.from('games').upsert(batch, { 
       onConflict: 'id',
-      ignoreDuplicates: true 
+      ignoreDuplicates: false 
     });
 
     if (error) {

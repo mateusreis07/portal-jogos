@@ -13382,5 +13382,61 @@
       "description": "Engage in exhilarating two-player duels in Gun and Guys. Master swift movements and sharp shooting, utilizing diverse weapons and upgrades. Dodge, jump, and aim carefully across vibrant battlefields as you strategize to outplay your opponent. Victory lies in the art of speed and precision. ",
       "instructions": "Use touch or mouse to play."
     }
+  },
+  "6BUAR": {
+    "pt": {
+      "description": "Embarque em uma emocionante aventura 3D em Samurai Brawling como Arashin, um feroz guerreiro Yakuza. Participe de batalhas estratégicas e emocionantes contra inimigos formidáveis. Revele verdades ocultas em um enredo envolvente, dominando movimentos especiais e evoluindo habilidades para triunfar em um mundo repleto de samurais, ninjas e intrigas.",
+      "instructions": "Use o toque ou o mouse para jogar."
+    },
+    "es": {
+      "description": "Embárcate en una emocionante aventura en 3D en Samurai Brawling como Arashin, un feroz guerrero Yakuza. Participa en batallas estratégicas y trepidantes contra enemigos formidables. Descubre verdades ocultas en una historia apasionante, domina movimientos especiales y desarrolla habilidades para triunfar en un mundo repleto de samuráis, ninjas e intrigas.",
+      "instructions": "Utilice el tacto o el ratón para jugar."
+    },
+    "en": {
+      "description": " Embark on an exhilarating 3D adventure in Samurai Brawling as Arashin, a fierce Yakuza warrior. Engage in strategic, pulse-pounding battles against formidable foes. Unveil hidden truths in a gripping storyline, mastering special moves and evolving abilities to triumph in a world teeming with samurais, ninjas, and intrigue.",
+      "instructions": "Use touch or mouse to play."
+    }
+  },
+  "ER93R": {
+    "pt": {
+      "description": "Comande a defesa da sua fortaleza contra hordas implacáveis ​​de zumbis em Empire Tower Defense: Zombie Fortress. Posicione estrategicamente seus arqueiros habilidosos, gerencie recursos com habilidade e planeje táticas astutas para enganar invasores monstruosos. Participe de ações estratégicas intensas e emocionantes, garantindo que sua fortaleza permaneça resistente ao ataque de mortos-vivos.",
+      "instructions": "Use o toque ou o mouse para jogar."
+    },
+    "es": {
+      "description": "Dirige la defensa de tu fortaleza contra las implacables hordas de zombis en Empire Tower Defense: Zombie Fortress. Coloca estratégicamente a tus hábiles arqueros, administra los recursos de manera experta e idea tácticas astutas para burlar a los monstruosos invasores. Participa en una acción estratégica intensa y emocionante, asegurándote de que tu fortaleza resista el ataque de los no-muertos.",
+      "instructions": "Utilice el tacto o el ratón para jugar."
+    },
+    "en": {
+      "description": "Command your fortress's defense against relentless zombie hordes in Empire Tower Defense: Zombie Fortress. Strategically place your skilled archers, expertly manage resources, and devise cunning tactics to outsmart monstrous invaders. Engage in intense and thrilling strategic action, ensuring your fortress stands resilient against the undead onslaught. ",
+      "instructions": "Use touch or mouse to play."
+    }
+  },
+  "7SLO5L": {
+    "pt": {
+      "description": "Acerte cestas como um profissional na Basketball School, com os modos Arcade, Time Attack e Distance King. Cada um oferece desafios distintos, recompensando precisão, velocidade ou resistência. Com controles de deslizamento intuitivos e visuais impressionantes, aprimore suas habilidades enquanto marca seu caminho para a grandeza do basquete.",
+      "instructions": "Use o toque ou o mouse para jogar."
+    },
+    "es": {
+      "description": "Encesta canastas como un profesional en Basketball School, con los modos Arcade, Time Attack y Distance King. Cada uno ofrece desafíos distintos, que recompensan la precisión, la velocidad o la resistencia. Con controles de deslizamiento intuitivos y efectos visuales impresionantes, perfecciona tus habilidades mientras te abres camino hacia la grandeza del baloncesto.",
+      "instructions": "Utilice el tacto o el ratón para jugar."
+    },
+    "en": {
+      "description": "Sink baskets like a pro in Basketball School, featuring Arcade, Time Attack, and Distance King modes. Each offers distinct challenges, rewarding precision, speed, or endurance. With intuitive swipe controls and stunning visuals, hone your skills as you score your way to basketball greatness.",
+      "instructions": "Use touch or mouse to play."
+    }
+  },
+  "T2G46E": {
+    "pt": {
+      "description": "Um divertido jogo HTML5.",
+      "instructions": "Use o toque ou o mouse para jogar."
+    },
+    "es": {
+      "description": "Un divertido juego HTML5.",
+      "instructions": "Utilice el tacto o el ratón para jugar."
+    },
+    "en": {
+      "description": "A fun HTML5 game.",
+      "instructions": "Use touch or mouse to play."
+    }
   }
 }

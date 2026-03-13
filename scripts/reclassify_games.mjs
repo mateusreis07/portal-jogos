@@ -43,8 +43,8 @@ function normalizeCategory(rawCategory) {
 async function reclassify() {
   console.log('🔄 Fetching raw categories from GamePix API (pages 1-80)...');
 
-  // Build a map of game namespace (slug) -> correct category from raw API
-  const slugToCategory = {};
+  // Build a map of game ID -> correct category from raw API
+  const idToCorrectCat = {};
 
   for (let page = 1; page <= 80; page++) {
     const url = `https://feeds.gamepix.com/v2/json?sid=${API_SID}&pagination=${ITEMS_PER_PAGE}&page=${page}`;
@@ -56,17 +56,18 @@ async function reclassify() {
       for (const game of data.items) {
         const rawCat = (game.category || '').toLowerCase().trim();
         const correctCat = normalizeCategory(rawCat);
-        slugToCategory[game.namespace] = { rawCat, correctCat };
+        const gameId = game.id || Math.random().toString(36).substr(2, 9);
+        idToCorrectCat[game.namespace] = { id: gameId, correctCat, rawCat };
       }
     } catch (err) {
       console.error(`Error fetching page ${page}:`, err.message);
     }
   }
 
-  console.log(`📦 Fetched ${Object.keys(slugToCategory).length} games from API.`);
+  console.log(`📦 Fetched ${Object.keys(idToCorrectCat).length} games from API.`);
 
-  // Now fetch all games from Supabase
-  const { data: dbGames, error } = await supabase.from('games').select('id, slug, category').limit(2000);
+  // Fetch all games from Supabase
+  const { data: dbGames, error } = await supabase.from('games').select('*').limit(2000);
   if (error) {
     console.error('❌ Failed to fetch from Supabase:', error.message);
     process.exit(1);
@@ -74,36 +75,65 @@ async function reclassify() {
 
   console.log(`🗄️ Found ${dbGames.length} games in Supabase.`);
 
-  // Find misclassified games
-  let updated = 0;
-  let skipped = 0;
-  const changes = { puzzle: 0, racing: 0, shooting: 0, adventure: 0, sports: 0, strategy: 0, multiplayer: 0, arcade: 0 };
-
+  // Find games that need reclassification
+  const toUpdate = [];
   for (const dbGame of dbGames) {
-    const mapping = slugToCategory[dbGame.slug];
-    if (!mapping) { skipped++; continue; }
-
-    if (dbGame.category !== mapping.correctCat) {
-      const { error: updateError } = await supabase
-        .from('games')
-        .update({ category: mapping.correctCat })
-        .eq('id', dbGame.id);
-
-      if (updateError) {
-        console.error(`❌ Failed to update ${dbGame.slug}:`, updateError.message);
-      } else {
-        changes[mapping.correctCat]++;
-        updated++;
-      }
+    const mapping = idToCorrectCat[dbGame.slug];
+    if (mapping && dbGame.category !== mapping.correctCat) {
+      toUpdate.push({
+        ...dbGame,
+        category: mapping.correctCat
+      });
     }
   }
 
-  console.log(`\n✅ Reclassification complete!`);
-  console.log(`📊 Updated: ${updated} games | Skipped: ${skipped}`);
-  console.log(`\n📂 Games moved to each category:`);
-  for (const [cat, count] of Object.entries(changes)) {
-    if (count > 0) console.log(`  ${cat}: +${count}`);
+  console.log(`🔄 ${toUpdate.length} games need reclassification.`);
+
+  if (toUpdate.length === 0) {
+    console.log('✅ All games are already correctly classified!');
+    return;
   }
+
+  // Delete and re-insert games that need reclassification (RLS may block update/upsert)
+  const BATCH_SIZE = 50;
+  const changes = {};
+  
+  for (let i = 0; i < toUpdate.length; i += BATCH_SIZE) {
+    const batch = toUpdate.slice(i, i + BATCH_SIZE);
+    const batchIds = batch.map(g => g.id);
+    console.log(`📤 Reclassifying batch ${Math.floor(i / BATCH_SIZE) + 1} (${batch.length} games)...`);
+
+    // Step 1: Delete old rows
+    const { error: deleteError } = await supabase.from('games').delete().in('id', batchIds);
+    if (deleteError) {
+      console.error(`❌ Delete failed:`, deleteError.message);
+      process.exit(1);
+    }
+
+    // Step 2: Re-insert with correct category
+    const { error: insertError } = await supabase.from('games').insert(batch);
+    if (insertError) {
+      console.error(`❌ Insert failed:`, insertError.message);
+      process.exit(1);
+    }
+
+    batch.forEach(g => {
+      changes[g.category] = (changes[g.category] || 0) + 1;
+    });
+  }
+
+  console.log(`\n✅ Reclassification complete! Updated ${toUpdate.length} games.`);
+  console.log(`\n📂 Games moved to each category:`);
+  for (const [cat, count] of Object.entries(changes).sort((a,b) => b[1] - a[1])) {
+    console.log(`  ${cat}: +${count}`);
+  }
+
+  // Verify
+  const { data: verify } = await supabase.from('games').select('category').limit(2000);
+  const finalCounts = {};
+  verify.forEach(g => { finalCounts[g.category] = (finalCounts[g.category] || 0) + 1; });
+  console.log(`\n📊 Final category counts:`);
+  Object.entries(finalCounts).sort((a,b) => b[1] - a[1]).forEach(([k,v]) => console.log(`  ${k}: ${v}`));
 }
 
 reclassify();

@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 
 const API_SID = 'O31L7';
-const START_PAGE = 41;
-const END_PAGE = 80; // Pages 41 to 80 * 12 items = 480 new games
+const START_PAGE = 1;
+const END_PAGE = 80; // Pages 1 to 80 * 12 items = 960 games
 const ITEMS_PER_PAGE = 12;
 const OUTPUT_FILE = path.join(process.cwd(), 'data', 'games.json');
 
@@ -63,6 +63,7 @@ async function importGames() {
           description: game.description || 'A fun HTML5 game.',
           instructions: 'Use touch or mouse to play.',
           category: normalizeCategory(game.category),
+          tags: [game.category.toLowerCase().trim()],
           thumbnail: thumbnail || 'https://via.placeholder.com/320x320?text=No+Image',
           gameUrl: game.url,
           createdAt: game.date_published || new Date().toISOString(),
