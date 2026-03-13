@@ -52,8 +52,10 @@ async function migrateGames() {
 
     console.log(`📤 Inserting batch ${i / BATCH_SIZE + 1}...`);
 
-    // We use upsert so the script can be run multiple times without duplicating data
-    const { error } = await supabase.from('games').upsert(batch, { onConflict: 'id' });
+    const { error } = await supabase.from('games').upsert(batch, { 
+      onConflict: 'id',
+      ignoreDuplicates: true 
+    });
 
     if (error) {
       console.error(`❌ Migration failed at batch ${i / BATCH_SIZE + 1}:`, error.message, error.details);

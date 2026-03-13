@@ -20,7 +20,7 @@ async function translateText(text, targetLang) {
 
 async function run() {
   console.log('Fetching games from Supabase...');
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/games?select=id,description,instructions`, {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/games?select=id,description,instructions&limit=2000`, {
     headers: {
       'apikey': ANON_KEY,
       'Authorization': `Bearer ${ANON_KEY}`
@@ -28,14 +28,27 @@ async function run() {
   });
 
   const games = await res.json();
-  console.log(`Found ${games.length} games. Starting translations...`);
+  console.log(`Found ${games.length} games in Supabase.`);
 
-  const translations = {};
+  // Load existing translations to skip already-translated games
+  let translations = {};
+  if (fs.existsSync(OUTPUT_FILE)) {
+    translations = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf-8'));
+    console.log(`📦 Loaded ${Object.keys(translations).length} existing translations. Will skip those.`);
+  }
+
+  const gamesToTranslate = games.filter(g => !translations[g.id]);
+  console.log(`🆕 ${gamesToTranslate.length} new games need translation.`);
+
+  if (gamesToTranslate.length === 0) {
+    console.log('✅ All games already translated!');
+    return;
+  }
 
   let i = 0;
-  for (const game of games) {
+  for (const game of gamesToTranslate) {
     i++;
-    console.log(`[${i}/${games.length}] Translating game ID: ${game.id}`);
+    console.log(`[${i}/${gamesToTranslate.length}] Translating game ID: ${game.id}`);
 
     // Portuguese
     const descPt = await translateText(game.description, 'pt');

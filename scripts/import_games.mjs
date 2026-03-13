@@ -2,7 +2,8 @@ import fs from 'fs';
 import path from 'path';
 
 const API_SID = 'O31L7';
-const TOTAL_PAGES_TO_FETCH = 40; // 40 pages * 12 items = 480 games
+const START_PAGE = 41;
+const END_PAGE = 80; // Pages 41 to 80 * 12 items = 480 new games
 const ITEMS_PER_PAGE = 12;
 const OUTPUT_FILE = path.join(process.cwd(), 'data', 'games.json');
 
@@ -33,7 +34,7 @@ async function importGames() {
   console.log('🔄 Starting GamePix Import...');
   let allGames = [];
 
-  for (let page = 1; page <= TOTAL_PAGES_TO_FETCH; page++) {
+  for (let page = START_PAGE; page <= END_PAGE; page++) {
     const url = `https://feeds.gamepix.com/v2/json?sid=${API_SID}&pagination=${ITEMS_PER_PAGE}&page=${page}`;
     console.log(`📥 Fetching page ${page}...`);
 
