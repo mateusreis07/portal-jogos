@@ -6,7 +6,7 @@ import { locales } from '@/i18n';
 export const revalidate = 86400; // 24 hours in seconds
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://portal-jogos.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://foxchaos.com';
 
   // 1. Fetch all games optimized for sitemap
   const games = await gameService.getAllGamesSlugs();
