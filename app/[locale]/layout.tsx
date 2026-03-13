@@ -11,24 +11,32 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Arcade Hub - Play HTML5 Games Online Free',
-    template: '%s | Arcade Hub',
+    default: 'FoxChaos - Play HTML5 Games Online Free',
+    template: '%s | FoxChaos',
   },
   description: 'The best portal to play free online HTML5 games in your browser. Action, Puzzle, Arcade and more.',
   keywords: ['games', 'html5', 'browser games', 'free games', 'online games', 'arcade', 'puzzle'],
   openGraph: {
-    title: 'Arcade Hub - Play Online Free',
+    title: 'FoxChaos - Play Online Free',
     description: 'The best portal to play free online HTML5 games',
-    url: 'https://arcadehub.example.com',
-    siteName: 'Arcade Hub',
+    url: 'https://foxchaos.com',
+    siteName: 'FoxChaos',
     locale: 'en_US',
     type: 'website',
   },
   appleWebApp: {
-    title: 'Arcade Hub',
+    title: 'FoxChaos',
     statusBarStyle: 'black-translucent',
     startupImage: [
       '/icon-512x512.png',
+    ],
+  },
+  icons: {
+    icon: [
+      { url: '/images/brand/logo-mascot.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/images/brand/logo-mascot.png', type: 'image/png' },
     ],
   },
 };
@@ -55,7 +63,7 @@ export default async function RootLayout({
           <Navbar />
           <div className="flex w-full">
             <Sidebar />
-            <div className="flex-1 flex flex-col min-h-[calc(100vh-4rem)] w-full md:pl-16 transition-all duration-300">
+            <div className="flex-1 flex flex-col min-h-[calc(100vh-7rem)] w-full md:pl-16 transition-all duration-300">
               <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
                 {children}
               </main>

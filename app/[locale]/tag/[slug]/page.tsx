@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   const tagTitle = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
   return {
-    title: `Play Free ${tagTitle} Games Online - Arcade Hub`,
+    title: `Play Free ${tagTitle} Games Online - FoxChaos`,
     description: `Browse and play the best free ${tagTitle} HTML5 games directly in your browser without downloads.`,
   };
 }

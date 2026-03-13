@@ -23,15 +23,15 @@
     "adventure": "Aventura",
     "sports": "Deportes",
     "strategy": "Estrategia",
-    "multiplayer": "Multijugador"
+    "multiplayer": "Multijogador"
   },
   "Seo": {
     "title": "Juegos en Línea Gratis",
-    "description": "ArcadeHub es tu portal definitivo para los mejores juegos en línea gratuitos. Ofrecemos cientos de divertidos títulos para que juegues solo o con amigos, sin necesidad de descargar nada, sin registros y sin pop-ups molestos.",
+    "description": "FoxChaos es tu portal definitivo para los mejores juegos en línea gratuitos. Ofrecemos cientos de divertidos títulos para que juegues solo o con amigos, sin necesidad de descargar nada, sin registros y sin pop-ups molestos.",
     "subtitle_1": "Juega Directamente en tu Navegador",
     "content_1": "Todos nuestros juegos se ejecutan sin problemas en tu navegador utilizando tecnología HTML5 ligera y segura. Esto significa carga instantánea en tu celular, tablet o computadora, ocupando cero espacio de almacenamiento en tu dispositivo.",
     "subtitle_2": "Nuestra Selección de Juegos",
-    "content_2": "Nuevos juegos son añadidos constantemente por los desarrolladores más populares del momento. Sumérgete en éxitos de Acción, desafía tu mente con nuestros adictivos Rompecabezas o acelera en nuestros Juegos de Carreras. Nuestra colección abarca géneros para todos los gustos, garantizando diversión ilimitada cada vez que visites ArcadeHub.",
+    "content_2": "Nuevos juegos son añadidos constantemente por los desarrolladores más populares del momento. Sumérgete en éxitos de Acción, desafía tu mente con nuestros adictivos Rompecabezas o acelera en nuestros Juegos de Carreras. Nuestra colección abarca géneros para todos los gustos, garantizando diversión ilimitada cada vez que visites FoxChaos.",
     "subtitle_3": "Seguro y Confiable",
     "content_3": "Nuestra plataforma garantiza un entorno seguro para jugadores de todas las edades. Sin archivos maliciosos, sin necesidad de cuentas bancarias y siempre probado por nuestro equipo de edición para una máxima diversión."
   },
@@ -63,10 +63,10 @@
     "description": "Tu destino definitivo para los mejores juegos HTML5 gratuitos, jugables en todos los dispositivos.",
     "links": "Enlaces Rápidos",
     "legal": "Legal",
-    "privacy": "Política de Privacidad",
+    "privacy": "Política de Privacidade",
     "terms": "Términos de Servicio",
     "rights": "Todos los derechos reservados",
-    "developed_by": "Desarrollado por Arcade Hub"
+    "developed_by": "Desarrollado por FoxChaos"
   },
   "CategoryPage": {
     "title": "Juegos de {category}",
@@ -78,11 +78,11 @@
   },
   "PopularPage": {
     "title": "Juegos Populares",
-    "description": "Los {count} juegos más jugados del momento. Descubre qué está de moda y juega gratis."
+    "description": "Los {count} juegos más jugados del momento. Descubra qué está de moda y juega gratis."
   },
   "NewPage": {
-    "title": "Juegos Nuevos",
-    "description": "Explora {count} juegos añadidos recientemente. Sé el primero en jugar las últimas novedades de ArcadeHub."
+    "title": "Juegos Novos",
+    "description": "Explora {count} juegos añadidos recientemente. Sé el primero en jugar las últimas novedades de FoxChaos."
   },
   "SearchPage": {
     "title": "Resultados de Búsqueda",

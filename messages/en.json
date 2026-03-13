@@ -56,15 +56,15 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "rights": "All rights reserved",
-    "developed_by": "Developed by Arcade Hub"
+    "developed_by": "Developed by FoxChaos"
   },
   "Seo": {
     "title": "Free Online Games",
-    "description": "ArcadeHub is your ultimate portal for the best free online games. We offer hundreds of fun titles for you to play alone or with friends, with no downloads, logins, or annoying pop-ups required.",
+    "description": "FoxChaos is your ultimate portal for the best free online games. We offer hundreds of fun titles for you to play alone or with friends, with no downloads, logins, or annoying pop-ups required.",
     "subtitle_1": "Play Directly in Your Browser",
     "content_1": "All our games run smoothly in your browser using lightweight and secure HTML5 technology. This means instant loading on your mobile, tablet or desktop, taking up zero storage space on your device.",
     "subtitle_2": "Our Game Selection",
-    "content_2": "New games are constantly added by today's hottest developers. Dive into Action blockbusters, challenge your mind with our addictive Puzzles, or speed up in our Racing Games. Our collection covers genres for all tastes, guaranteeing unlimited fun whenever you visit ArcadeHub.",
+    "content_2": "New games are constantly added by today's hottest developers. Dive into Action blockbusters, challenge your mind with our addictive Puzzles, or speed up in our Racing Games. Our collection covers genres for all tastes, guaranteeing unlimited fun whenever you visit FoxChaos.",
     "subtitle_3": "Safe and Reliable",
     "content_3": "Our platform guarantees a safe environment for players of all ages. No malicious files, no bank accounts required, and always tested by our editorial team for maximum fun."
   },
@@ -82,7 +82,7 @@
   },
   "NewPage": {
     "title": "New Games",
-    "description": "Explore {count} recently added games. Be the first to play the latest releases on ArcadeHub."
+    "description": "Explore {count} recently added games. Be the first to play the latest releases on FoxChaos."
   },
   "SearchPage": {
     "title": "Search Results",

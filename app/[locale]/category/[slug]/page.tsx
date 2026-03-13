@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const tCat = await getTranslations({ locale, namespace: 'Categories' });
   const categoryTitle = tCat(slug as any);
   return {
-    title: `Play Free ${categoryTitle} Games Online - Arcade Hub`,
+    title: `Play Free ${categoryTitle} Games Online - FoxChaos`,
     description: `Browse and play the best free ${categoryTitle} HTML5 games directly in your browser without downloads.`,
   };
 }

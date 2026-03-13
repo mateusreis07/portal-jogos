@@ -1,14 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import SearchBar from '@/components/ui/SearchBar';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import {
-  Gamepad2, Menu, X,
+  Menu, X,
   Home, Heart,
-  Puzzle, CarFront, Crosshair,
+  Gamepad2, Puzzle, CarFront, Crosshair,
   Map as MapIcon, Trophy, BrainCircuit, Users
 } from 'lucide-react';
 
@@ -17,6 +18,13 @@ export default function Navbar() {
   const tCat = useTranslations('Categories');
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const isActive = (path: string) => pathname.includes(path);
 
@@ -36,29 +44,60 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-900/80 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            <div className="flex items-center gap-3">
-              {/* Hamburger — mobile only, LEFT side */}
+      <nav className={`sticky top-0 z-50 w-full transition-all duration-300 border-b border-slate-800 backdrop-blur-xl ${isScrolled ? 'h-16 bg-slate-900/95 shadow-xl' : 'h-24 bg-slate-900/80'
+        }`}>
+        <div className="max-w-[1600px] mx-auto px-4 h-full">
+          <div className="flex h-full items-center justify-between gap-4">
+            <div className="flex items-center h-full overflow-visible">
+              {/* Hamburger — mobile only */}
               <button
-                className="md:hidden p-2 text-slate-400 hover:text-white transition-colors"
+                className="md:hidden p-2 mr-2 text-slate-400 hover:text-white transition-colors"
                 onClick={() => setMobileMenuOpen(true)}
                 aria-label="Open menu"
               >
-                <Menu className="h-6 w-6" />
+                <Menu className="h-8 w-8" />
               </button>
 
-              <Link href="/" className="flex items-center gap-2 group">
-                <div className="bg-primary/20 p-2 rounded-lg group-hover:bg-primary/30 transition-colors">
-                  <Gamepad2 className="h-6 w-6 text-primary" />
+              <Link href="/" className="flex items-center h-full relative group overflow-visible">
+                {/* Branding Container */}
+                <div className="flex items-center h-full transition-all duration-500 overflow-visible">
+                  {/* Mascot - Resized to fit the header */}
+                  <div className={`transition-all duration-500 ease-in-out flex items-center justify-center overflow-visible ${isScrolled
+                      ? 'w-0 opacity-0 scale-50 -translate-x-10 pointer-events-none'
+                      : 'w-24 sm:w-28 md:w-32 opacity-100 scale-100 translate-x-0'
+                    }`}>
+                    <Image
+                      src="/images/brand/logo-mascot.png"
+                      alt="FoxChaos Mascot"
+                      width={120}
+                      height={120}
+                      className="w-auto h-20 md:h-24 object-contain group-hover:rotate-3 transition-transform"
+                      priority
+                      quality={100}
+                    />
+                  </div>
+
+                  {/* Text Logo - Resized to fit the header */}
+                  <div className={`transition-all duration-500 ease-in-out flex items-center h-full ${isScrolled ? 'ml-6 sm:ml-8 md:ml-10' : '-ml-4 sm:-ml-6 md:-ml-8'
+                    }`}>
+                    <Image
+                      src="/images/brand/logo-text.png"
+                      alt="FoxChaos"
+                      width={200}
+                      height={60}
+                      className={`w-auto transition-all duration-300 ${isScrolled ? 'h-10 sm:h-11 md:h-12' : 'h-14 sm:h-16 md:h-18'
+                        }`}
+                      priority
+                      quality={100}
+                    />
+                  </div>
                 </div>
-                <span className="font-bold text-xl tracking-tight">Arcade<span className="text-primary">Hub</span></span>
               </Link>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="hidden sm:block w-64">
+            {/* SearchBar Area */}
+            <div className="flex-1 flex justify-end items-center max-w-lg">
+              <div className="w-full">
                 <SearchBar placeholder={t('search_placeholder')} />
               </div>
             </div>
@@ -69,38 +108,43 @@ export default function Navbar() {
       {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-md md:hidden"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
 
       {/* Mobile Drawer */}
       <aside
-        className={`fixed top-0 left-0 bottom-0 z-[70] w-72 bg-slate-900 border-r border-slate-800 transform transition-transform duration-300 ease-in-out md:hidden ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed top-0 left-0 bottom-0 z-[70] w-80 bg-slate-950 border-r border-slate-800 transform transition-transform duration-500 md:hidden ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
       >
         {/* Drawer Header */}
-        <div className="flex items-center justify-between h-16 px-4 border-b border-slate-800">
-          <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
-            <div className="bg-primary/20 p-2 rounded-lg">
-              <Gamepad2 className="h-5 w-5 text-primary" />
-            </div>
-            <span className="font-bold text-lg tracking-tight">Arcade<span className="text-primary">Hub</span></span>
+        <div className="flex flex-col items-center justify-center pt-8 pb-6 px-4 border-b border-slate-800 bg-slate-900">
+          <Link href="/" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
+            <Image
+              src="/images/brand/logo-full.png"
+              alt="FoxChaos Logo"
+              width={200}
+              height={80}
+              className="h-20 w-auto"
+              quality={100}
+              priority
+            />
           </Link>
           <button
-            className="p-2 text-slate-400 hover:text-white transition-colors"
+            className="absolute top-4 right-4 p-2 text-slate-500 hover:text-white transition-colors"
             onClick={() => setMobileMenuOpen(false)}
             aria-label="Close menu"
           >
-            <X className="h-5 w-5" />
+            <X className="h-8 w-8" />
           </button>
         </div>
 
         {/* Drawer Items */}
-        <div className="flex flex-col py-4 overflow-y-auto h-[calc(100vh-4rem)]">
+        <div className="flex flex-col py-6 overflow-y-auto h-[calc(100vh-10rem)] bg-slate-950">
           {menuItems.map((item, index) => {
             if (item.divider) {
-              return <div key={`divider-${index}`} className="my-2 border-t border-slate-800 mx-4" />;
+              return <div key={`divider-${index}`} className="my-4 border-t border-slate-800/50 mx-8" />;
             }
             if (!item.href || !item.title) return null;
 
@@ -111,13 +155,17 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center gap-3 h-12 px-5 transition-colors ${active
+                className={`flex items-center gap-4 h-14 px-8 transition-all duration-300 ${active
                     ? 'bg-primary/10 text-primary border-r-4 border-primary'
-                    : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                    : 'text-slate-400 hover:bg-slate-900 hover:text-white'
                   }`}
               >
-                {item.icon}
-                <span className="font-medium">{item.title}</span>
+                <div className={`${active ? 'text-primary' : 'text-slate-500'} transition-colors`}>
+                  {item.icon}
+                </div>
+                <span className={`font-bold tracking-tight text-lg ${active ? 'text-white' : ''}`}>
+                  {item.title}
+                </span>
               </Link>
             );
           })}

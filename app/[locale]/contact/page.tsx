@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import { Mail, MapPin, MessageSquare } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - Arcade Hub',
-  description: 'Get in touch with the Arcade Hub team for support, business inquiries, or feedback.',
+  title: 'Contact Us - FoxChaos',
+  description: 'Get in touch with the FoxChaos team for support, business inquiries, or feedback.',
 };
 
 export default function ContactPage() {
@@ -27,7 +27,7 @@ export default function ContactPage() {
               <Mail className="w-6 h-6" />
             </div>
             <h3 className="font-bold text-white mb-1">Email</h3>
-            <p className="text-slate-400 text-sm">support@arcadehub.example.com</p>
+            <p className="text-slate-400 text-sm">support@foxchaos.com</p>
           </div>
 
           <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 flex flex-col items-center text-center">
@@ -35,7 +35,7 @@ export default function ContactPage() {
               <MessageSquare className="w-6 h-6" />
             </div>
             <h3 className="font-bold text-white mb-1">Social Media</h3>
-            <p className="text-slate-400 text-sm">@ArcadeHubGames</p>
+            <p className="text-slate-400 text-sm">@FoxChaosGames</p>
           </div>
 
           <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 flex flex-col items-center text-center">

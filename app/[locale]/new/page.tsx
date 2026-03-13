@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: NewPageProps): Promise<Metada
   const t = await getTranslations({ locale, namespace: 'NewPage' });
 
   return {
-    title: `${t('title')} - Arcade Hub`,
+    title: `${t('title')} - FoxChaos`,
     description: t('description', { count: 100 }),
   };
 }

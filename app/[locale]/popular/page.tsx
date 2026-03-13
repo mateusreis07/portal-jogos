@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: PopularPageProps): Promise<Me
   const t = await getTranslations({ locale, namespace: 'PopularPage' });
 
   return {
-    title: `${t('title')} - Arcade Hub`,
+    title: `${t('title')} - FoxChaos`,
     description: t('description', { count: 100 }),
   };
 }

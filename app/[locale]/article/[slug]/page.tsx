@@ -18,18 +18,18 @@ export async function generateMetadata({ params: { locale, slug } }: ArticlePage
 
   if (!article) {
     return {
-      title: 'Article Not Found | ArcadeHub',
+      title: 'Article Not Found | FoxChaos',
     };
   }
-
+ 
   return {
-    title: `${article.title} | ArcadeHub`,
+    title: `${article.title} | FoxChaos`,
     description: article.meta_description || article.title,
     openGraph: {
       title: article.title,
       description: article.meta_description || article.title,
       type: 'article',
-      url: `https://arcadehub.com/${locale}/article/${slug}`, // Replace with your actual domain
+      url: `https://foxchaos.com/${locale}/article/${slug}`,
       images: article.image_url ? [
         {
           url: article.image_url,
@@ -91,7 +91,7 @@ export default async function ArticlePage({ params: { locale, slug } }: ArticleP
                 })}
               </time>
               <span>•</span>
-              <span>ArcadeHub Editor</span>
+              <span>FoxChaos Editor</span>
             </div>
           </header>
 

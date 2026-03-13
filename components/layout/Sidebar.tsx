@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -20,6 +21,13 @@ export default function Sidebar() {
   const tNav = useTranslations('Navigation');
   const tCat = useTranslations('Categories');
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Helper to determine if a path is active
   const isActive = (path: string) => {
@@ -84,7 +92,9 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="fixed left-0 top-16 bottom-0 z-40 hidden md:flex flex-col bg-slate-900 border-r border-slate-800 w-16 hover:w-64 transition-all duration-300 ease-in-out overflow-x-hidden overflow-y-auto group">
+    <aside className={`fixed left-0 bottom-0 z-40 hidden md:flex flex-col bg-slate-900 border-r border-slate-800 w-16 hover:w-64 transition-all duration-300 ease-in-out overflow-x-hidden overflow-y-auto group ${
+      isScrolled ? 'top-16' : 'top-24'
+    }`}>
       <div className="flex flex-col py-4 w-64">
         {menuItems.map((item, index) => {
           if (item.divider) {

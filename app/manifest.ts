@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Arcade Hub - Jogos Grátis',
-    short_name: 'Arcade Hub',
+    name: 'FoxChaos - Jogos Grátis',
+    short_name: 'FoxChaos',
     description: 'Jogue os melhores jogos em HTML5 gratuitamente no seu navegador ou celular.',
     start_url: '/pt-BR', // Defaulting to the base locale
     display: 'standalone',

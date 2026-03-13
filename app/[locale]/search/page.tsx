@@ -18,7 +18,7 @@ export async function generateMetadata({ params, searchParams }: SearchPageProps
   const query = q ? decodeURIComponent(q) : '';
 
   return {
-    title: `${t('title')} ${query ? `- ${query}` : ''} - Arcade Hub`,
+    title: `${t('title')} ${query ? `- ${query}` : ''} - FoxChaos`,
     description: t('description', { count: 0 }).replace('0', '100+'),
     robots: {
       index: false,
