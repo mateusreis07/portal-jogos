@@ -24,8 +24,16 @@ export default function Sidebar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      setIsScrolled((prev) => {
+        // Ensure same hysteresis deadzone as Navbar to stay synced
+        if (!prev && window.scrollY > 80) return true;
+        if (prev && window.scrollY < 20) return false;
+        return prev;
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
