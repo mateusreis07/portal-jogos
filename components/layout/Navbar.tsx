@@ -19,6 +19,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,7 +57,9 @@ export default function Navbar() {
         }`}>
         <div className="max-w-[1600px] mx-auto px-4 h-full">
           <div className="flex h-full items-center justify-between gap-4">
-            <div className="flex items-center h-full overflow-visible">
+            <div className={`flex items-center h-full transition-all duration-300 ${
+              isSearchFocused ? 'w-0 overflow-hidden opacity-0 md:w-auto md:overflow-visible md:opacity-100' : 'w-auto opacity-100 overflow-visible'
+            }`}>
               {/* Hamburger — mobile only */}
               <button
                 className="md:hidden p-2 mr-2 text-slate-400 hover:text-white transition-colors"
@@ -104,9 +107,13 @@ export default function Navbar() {
             </div>
 
             {/* SearchBar Area */}
-            <div className="flex-1 flex justify-end items-center max-w-lg">
+            <div className="flex-1 flex justify-end items-center max-w-lg transition-all duration-300">
               <div className="w-full">
-                <SearchBar placeholder={t('search_placeholder')} />
+                <SearchBar 
+                  placeholder={t('search_placeholder')} 
+                  onFocus={() => setIsSearchFocused(true)}
+                  onBlur={() => setIsSearchFocused(false)}
+                />
               </div>
             </div>
           </div>

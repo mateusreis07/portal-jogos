@@ -7,9 +7,11 @@ import { useState, FormEvent } from 'react';
 
 interface SearchBarProps {
   placeholder?: string;
+  onFocus?: () => void;
+  onBlur?: () => void;
 }
 
-export default function SearchBar({ placeholder = "Search games..." }: SearchBarProps) {
+export default function SearchBar({ placeholder = "Search games...", onFocus, onBlur }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const router = useRouter();
   const locale = useLocale();
@@ -29,6 +31,8 @@ export default function SearchBar({ placeholder = "Search games..." }: SearchBar
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onFocus={onFocus}
+          onBlur={onBlur}
           placeholder={placeholder}
           className="w-full bg-slate-800/50 border border-slate-700 rounded-full py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-slate-200 placeholder:text-slate-500"
         />
