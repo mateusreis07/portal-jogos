@@ -35,14 +35,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Helper function to generate combinations with localized alternates
   const getLocalizedUrlConfig = (path: string, lastModified: Date) => {
     // Generate the URL for each locale correctly
-    const alternates: Record<string, string> = {};
+    const alternates: Record<string, string> = {
+      'x-default': `${baseUrl}${path}`, // Recommends browser to use default translation/redirection
+    };
     locales.forEach((locale) => {
       alternates[locale] = `${baseUrl}/${locale}${path}`;
     });
 
     // Provide the sitemap entry block
     return {
-      url: `${baseUrl}/en${path}`, // default fallback URL
+      url: `${baseUrl}/pt-BR${path}`, // default locale URL fallback
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: path === '' ? 1.0 : path.includes('/game/') ? 0.8 : 0.9,
