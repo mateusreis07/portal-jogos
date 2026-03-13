@@ -9,14 +9,14 @@ const OUTPUT_FILE = path.join(process.cwd(), 'data', 'games.json');
 
 // We want to normalize GamePix's hundreds of categories into our portal's 8 core categories:
 const categoryMapping = {
-  'puzzle': ['puzzle', 'match-3', '2048', 'memory', 'mahjong', 'sudoku', 'logic', 'tetris', 'blocks', 'word', 'board'],
-  'racing': ['racing', 'car', 'bike', 'motorcycle', 'driving', 'drift', 'parking', 'truck'],
-  'shooting': ['shooting', 'gun', 'sniper', 'fps', 'zombie', 'battle', 'tank', 'archery'],
-  'adventure': ['adventure', 'platformer', 'rpg', 'exploration', 'escape', 'survival'],
-  'sports': ['sports', 'football', 'basketball', 'soccer', 'tennis', 'golf', 'pool', 'fishing', 'boxing', 'bowling'],
-  'strategy': ['strategy', 'tower-defense', 'card', 'chess', 'simulation', 'management', 'idle', 'clicker'],
-  'multiplayer': ['multiplayer', 'io', '2-player', '3d-multiplayer', 'coop', 'mmo'],
-  'arcade': ['arcade', 'action', 'casual', 'stickman', 'drawing', 'kids', 'funny', 'animal', 'bubble-shooter', 'running', 'jumping', 'skill']
+  'puzzle': ['puzzle', 'match-3', '2048', 'memory', 'mahjong', 'sudoku', 'logic', 'tetris', 'blocks', 'word', 'board', 'trivia', 'brain', 'math', 'jigsaw-puzzles', 'hidden-object', 'jewel', 'block'],
+  'racing': ['racing', 'car', 'bike', 'motorcycle', 'driving', 'drift', 'parking', 'truck', 'dirt-bike', 'flight', 'airplane'],
+  'shooting': ['shooting', 'gun', 'sniper', 'fps', 'zombie', 'battle', 'tank', 'archery', 'fighting', 'shooter', 'first-person-shooter', 'tanks', 'war', 'gangster', 'hunting', 'ninja'],
+  'adventure': ['adventure', 'platformer', 'rpg', 'exploration', 'escape', 'survival', 'monster', 'dinosaur', 'parkour', 'horror', 'scary', 'granny', 'snake'],
+  'sports': ['sports', 'football', 'basketball', 'soccer', 'tennis', 'golf', 'pool', 'fishing', 'boxing', 'bowling', 'ball', 'baseball', 'skateboard'],
+  'strategy': ['strategy', 'tower-defense', 'card', 'chess', 'simulation', 'management', 'idle', 'clicker', 'building', 'minecraft', 'farming', 'money'],
+  'multiplayer': ['multiplayer', 'io', '2-player', '3d-multiplayer', 'coop', 'mmo', 'two-player'],
+  'arcade': ['arcade', 'action', 'casual', 'stickman', 'drawing', 'kids', 'funny', 'animal', 'bubble-shooter', 'running', 'jumping', 'skill', 'fun', 'runner', 'skibidi-toilet', 'hyper-casual', 'addictive', 'music', 'pixel', 'retro', 'mobile', 'robots', 'christmas', 'spinner', 'coloring', 'games-for-girls', 'fashion', 'crazy', 'dress-up', 'mermaid', 'cats', 'tap', 'surgery', 'educational']
 };
 
 function normalizeCategory(rawCategory) {
