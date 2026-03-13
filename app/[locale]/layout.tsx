@@ -6,6 +6,7 @@ import Sidebar from '@/components/layout/Sidebar';
 import Footer from '@/components/layout/Footer';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -58,6 +59,14 @@ export default async function RootLayout({
   // ... (in the render function)
   return (
     <html lang={locale} className="dark">
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3311983697432850"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className={`${inter.variable} font-sans min-h-screen flex flex-col antialiased bg-slate-950 text-slate-200`}>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
