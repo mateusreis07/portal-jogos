@@ -12,18 +12,32 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
   title: {
-    default: 'FoxChaos - Play HTML5 Games Online Free',
+    default: 'JOGOS ONLINE - Jogue Grátis Online em FoxChaos!',
     template: '%s | FoxChaos',
   },
-  description: 'The best portal to play free online HTML5 games in your browser. Action, Puzzle, Arcade and more.',
-  keywords: ['games', 'html5', 'browser games', 'free games', 'online games', 'arcade', 'puzzle'],
+  description: 'O FoxChaos é o seu portal definitivo para os melhores jogos online grátis. Oferecemos centenas de títulos divertidos para você jogar sozinho ou com amigos, sem necessidade de download.',
+  keywords: ['jogos online', 'jogos grátis', 'jogar online', 'jogos html5', 'games', 'browser games', 'free games', 'arcade', 'puzzle'],
   openGraph: {
-    title: 'FoxChaos - Play Online Free',
-    description: 'The best portal to play free online HTML5 games',
+    title: 'JOGOS ONLINE - Jogue Grátis Online em FoxChaos!',
+    description: 'O FoxChaos é o seu portal definitivo para os melhores jogos online grátis. Jogue agora sem download!',
     url: 'https://foxchaos.com',
     siteName: 'FoxChaos',
-    locale: 'en_US',
+    locale: 'pt_BR',
     type: 'website',
+    images: [
+      {
+        url: '/images/brand/logo-full.png',
+        width: 1200,
+        height: 630,
+        alt: 'FoxChaos - Portal de Jogos Online Grátis',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JOGOS ONLINE - Jogue Grátis Online em FoxChaos!',
+    description: 'O FoxChaos é o seu portal definitivo para os melhores jogos online grátis.',
+    images: ['/images/brand/logo-full.png'],
   },
   appleWebApp: {
     title: 'FoxChaos',
@@ -34,16 +48,28 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/images/brand/logo-mascot.png', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
-      { url: '/images/brand/logo-mascot.png', type: 'image/png' },
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
     ],
+    shortcut: '/favicon-32x32.png',
+  },
+  metadataBase: new URL('https://foxchaos.com'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'pt-BR': '/pt-BR',
+      'en': '/en',
+    },
   },
 };
 
 export const viewport = {
-  themeColor: '#0f172a',
+  themeColor: '#08090f',
 };
 
 export default async function RootLayout({
