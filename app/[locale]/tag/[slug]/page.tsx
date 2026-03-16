@@ -14,12 +14,11 @@ interface TagPageProps {
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
   const { slug, locale } = await params;
 
-  // Tag format usually is something like 'car-games' or 'io', so we format it a bit better.
   const tagTitle = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
   return {
-    title: `Play Free ${tagTitle} Games Online - FoxChaos`,
-    description: `Browse and play the best free ${tagTitle} HTML5 games directly in your browser without downloads.`,
+    title: `Jogar Jogos de ${tagTitle} Grátis Online - FoxChaos`,
+    description: `Os melhores jogos com a tag ${tagTitle} para jogar online gratuitamente no seu navegador. Diversão sem download no FoxChaos.`,
   };
 }
 
@@ -30,8 +29,18 @@ export default async function TagPage({ params }: TagPageProps) {
   const tPage = await getTranslations({ locale, namespace: 'TagPage' });
   const tagTitle = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'FoxChaos', item: 'https://foxchaos.com' },
+      { '@type': 'ListItem', position: 2, name: tagTitle, item: `https://foxchaos.com/${locale}/tag/${slug}` },
+    ],
+  };
+
   return (
     <div className="flex flex-col gap-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <AdTopBanner />
 
       <div className="mb-8 border-b border-slate-800 pb-8 mt-4">

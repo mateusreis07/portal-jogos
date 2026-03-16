@@ -88,5 +88,11 @@
     "title": "Search Results",
     "query": "Searching for: \"{query}\"",
     "description": "We found {count} games that match your search to play online for free."
+  },
+  "HomeSeo": {
+    "h1": "Free Online Games — Play Without Download at FoxChaos",
+    "h1_sub": "The ultimate destination for the best HTML5 games across all devices.",
+    "meta_description": "Play the best free online games at FoxChaos. Hundreds of action, puzzle and racing titles to play now in your browser.",
+    "item_list_name": "Featured Games on FoxChaos"
   }
 }

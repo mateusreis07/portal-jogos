@@ -26,19 +26,21 @@ export async function generateMetadata({ params }: GamePageProps): Promise<Metad
   let game: any = await gameService.getGameBySlug(slug);
 
   if (!game) {
-    return { title: 'Game Not Found' };
+    return { title: 'Jogo Não Encontrado' };
   }
 
   const translatedGame = applyTranslation(game, locale);
+  const categoryLabel = translatedGame.category ? translatedGame.category.charAt(0).toUpperCase() + translatedGame.category.slice(1) : 'Jogos';
 
   return {
-    title: `Play ${translatedGame.title} Online Free - Browser Game`,
-    description: translatedGame.description,
+    title: `Jogar ${translatedGame.title} Grátis Online - Jogo de ${categoryLabel}`,
+    description: translatedGame.description || `Jogue ${translatedGame.title} grátis online no FoxChaos. Sem download, sem cadastro. Jogue direto no navegador!`,
     openGraph: {
-      title: `Play ${translatedGame.title} Online Free`,
-      description: translatedGame.description,
+      title: `Jogar ${translatedGame.title} Grátis Online`,
+      description: translatedGame.description || `Jogue ${translatedGame.title} grátis no FoxChaos`,
       images: [{ url: translatedGame.thumbnail, width: 600, height: 400, alt: translatedGame.title }],
       type: 'website',
+      url: `https://foxchaos.com/${locale}/game/${translatedGame.slug}`,
     },
   };
 }
@@ -47,6 +49,7 @@ export default async function GamePage({ params }: GamePageProps) {
   const { slug, locale } = await params;
   let game = await gameService.getGameBySlug(slug);
   const t = await getTranslations('Game');
+  const tCat = await getTranslations('Categories');
 
   if (!game) {
     notFound();
@@ -56,18 +59,31 @@ export default async function GamePage({ params }: GamePageProps) {
 
   const relatedGames = await gameService.getAdvancedRelatedGames(translatedGame, 4);
 
+  const categoryLabel = tCat(translatedGame.category as any) || translatedGame.category;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'VideoGame',
     name: translatedGame.title,
     description: translatedGame.description,
     image: translatedGame.thumbnail,
-    url: `https://arcadehub.example.com/game/${translatedGame.slug}`,
-    genre: translatedGame.category,
+    url: `https://foxchaos.com/${locale}/game/${translatedGame.slug}`,
+    genre: categoryLabel,
     playMode: 'SinglePlayer',
     applicationCategory: 'Game',
     operatingSystem: 'Any',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    inLanguage: locale,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'BRL', availability: 'https://schema.org/InStock' },
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'FoxChaos', item: 'https://foxchaos.com' },
+      { '@type': 'ListItem', position: 2, name: categoryLabel, item: `https://foxchaos.com/${locale}/category/${translatedGame.category}` },
+      { '@type': 'ListItem', position: 3, name: translatedGame.title, item: `https://foxchaos.com/${locale}/game/${translatedGame.slug}` },
+    ],
   };
 
   return (
@@ -75,6 +91,10 @@ export default async function GamePage({ params }: GamePageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <AdTopBanner />

@@ -66,7 +66,16 @@
     "subtitle_2": "Nossa Seleção de Jogos",
     "content_2": "Novos jogos são adicionados constantemente pelos desenvolvedores mais quentes do momento. Mergulhe em sucessos de Ação, quebre a cabeça com nossos Puzzles viciantes ou acelere fundo nos Jogos de Corrida. Nossa coleção abrange gêneros para todos os gostos, garantindo diversão ilimitada sempre que você acessar o FoxChaos.",
     "subtitle_3": "Seguro e Confiável",
-    "content_3": "Nossa plataforma garante um ambiente seguro para jogadores de todas as idades. Sem arquivos maliciosos, sem exigência de conta bancária e sempre testado por nossa equipe de edição para máxima diversão."
+    "content_3": "Nossa plataforma garante um ambiente seguro para jogadores de todas as idades. Sem arquivos maliciosos, sem exigência de conta bancária e sempre testado por nossa equipe de edição para máxima diversão.",
+    "faq_title": "Perguntas Frequentes (FAQ)",
+    "q1": "Como jogar jogos grátis no FoxChaos?",
+    "a1": "É super simples! Basta navegar pelas nossas categorias, escolher o jogo que mais gosta e clicar em 'Jogar Agora'. O jogo carregará instantaneamente no seu navegador, sem necessidade de baixar nada.",
+    "q2": "Os jogos do FoxChaos são seguros?",
+    "a2": "Sim, a segurança é nossa prioridade. Todos os jogos em HTML5 hospedados no FoxChaos são verificados e testados para garantir que sejam livres de vírus e seguros para jogadores de todas as idades.",
+    "q3": "Preciso criar uma conta para jogar?",
+    "a3": "Não! Você pode jogar centenas de jogos online gratuitamente sem criar uma conta. No entanto, criar uma conta permite que você salve seus jogos favoritos e veja seu histórico de jogadas no painel.",
+    "q4": "O site funciona no celular?",
+    "a4": "Com certeza. O FoxChaos foi desenvolvido para ser totalmente responsivo. Nossos jogos funcionam perfeitamente em smartphones Android, iPhones e tablets, direto pelo navegador Safari ou Chrome."
   },
   "CategoryPage": {
     "title": "Jogos de {category}",
@@ -88,5 +97,11 @@
     "title": "Resultados da Busca",
     "query": "Buscando por: \"{query}\"",
     "description": "Encontramos {count} jogos que correspondem à sua pesquisa para jogar online gratuitamente."
+  },
+  "HomeSeo": {
+    "h1": "Jogos Online Grátis — Jogue Sem Download no FoxChaos",
+    "h1_sub": "O destino definitivo para os melhores jogos HTML5 em todos os dispositivos.",
+    "meta_description": "Jogue os melhores jogos online grátis no FoxChaos. Centenas de títulos de ação, quebra-cabeça e corrida para jogar agora no navegador.",
+    "item_list_name": "Jogos em Destaque no FoxChaos"
   }
 }

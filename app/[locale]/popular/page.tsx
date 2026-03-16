@@ -23,8 +23,18 @@ export default async function PopularPage({ params }: PopularPageProps) {
   const games = await gameService.getPopularGames(100);
   const t = await getTranslations({ locale, namespace: 'PopularPage' });
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'FoxChaos', item: 'https://foxchaos.com' },
+      { '@type': 'ListItem', position: 2, name: t('title'), item: `https://foxchaos.com/${locale}/popular` },
+    ],
+  };
+
   return (
     <div className="flex flex-col gap-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <AdTopBanner />
 
       <div className="mb-8 border-b border-slate-800 pb-8 mt-4">

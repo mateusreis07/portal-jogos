@@ -17,8 +17,14 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const tCat = await getTranslations({ locale, namespace: 'Categories' });
   const categoryTitle = tCat(slug as any);
   return {
-    title: `Play Free ${categoryTitle} Games Online - FoxChaos`,
-    description: `Browse and play the best free ${categoryTitle} HTML5 games directly in your browser without downloads.`,
+    title: `Jogos de ${categoryTitle} Grátis Online - FoxChaos`,
+    description: `Explore e jogue os melhores jogos de ${categoryTitle} em HTML5 grátis no seu navegador. Diversão instantânea sem downloads no FoxChaos.`,
+    openGraph: {
+      title: `Jogar Jogos de ${categoryTitle} Grátis - FoxChaos`,
+      description: `Os melhores jogos de ${categoryTitle} online para jogar agora.`,
+      url: `https://foxchaos.com/${locale}/category/${slug}`,
+      type: 'website',
+    }
   };
 }
 
@@ -31,8 +37,36 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   const categoryTitle = tCat(slug as any);
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'FoxChaos', item: 'https://foxchaos.com' },
+      { '@type': 'ListItem', position: 2, name: categoryTitle, item: `https://foxchaos.com/${locale}/category/${slug}` },
+    ],
+  };
+
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `Jogos de ${categoryTitle}`,
+    numberOfItems: games.length,
+    itemListElement: games.map((game, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'VideoGame',
+        name: game.title,
+        url: `https://foxchaos.com/${locale}/game/${game.slug}`,
+        image: game.thumbnail,
+      },
+    })),
+  };
+
   return (
     <div className="flex flex-col gap-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       <AdTopBanner />
 
       <div className="mb-8 border-b border-slate-800 pb-8">

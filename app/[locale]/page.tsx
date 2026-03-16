@@ -10,6 +10,7 @@ import { getTranslations } from 'next-intl/server';
 
 export default async function Home() {
   const t = await getTranslations('Home');
+  const tSeo = await getTranslations('HomeSeo');
   const cat = await getTranslations('Categories');
 
   // Fetching distinct lots of games
@@ -61,8 +62,67 @@ export default async function Home() {
     </div>
   );
 
+  // JSON-LD: WebSite schema with SearchAction (enables Google Sitelinks Search Box)
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'FoxChaos',
+    url: 'https://foxchaos.com',
+    description: tSeo('meta_description'),
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://foxchaos.com/pt-BR/search?q={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
+  // JSON-LD: ItemList for featured/new games
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: tSeo('item_list_name'),
+    numberOfItems: newGames.length,
+    itemListElement: newGames.slice(0, 10).map((game, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'VideoGame',
+        name: game.title,
+        url: `https://foxchaos.com/pt-BR/game/${game.slug}`,
+        image: game.thumbnail,
+        genre: game.category,
+        playMode: 'SinglePlayer',
+        applicationCategory: 'Game',
+        operatingSystem: 'Any',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'BRL', availability: 'https://schema.org/InStock' },
+      },
+    })),
+  };
+
+  // JSON-LD: Organization
+  const orgJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'FoxChaos',
+    url: 'https://foxchaos.com',
+    logo: 'https://foxchaos.com/images/brand/logo-full.png',
+    sameAs: [],
+  };
+
   return (
     <div className="flex flex-col gap-5 sm:gap-6 pt-4">
+      {/* JSON-LD Structured Data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
+
+      {/* Invisible SEO H1 — visually hidden but critical for screen readers and Google struct */}
+      <h1 className="sr-only">
+        {tSeo('h1')} - {tSeo('h1_sub')}
+      </h1>
 
       {/* New Releases — Carousel */}
       {newGames && newGames.length > 0 && (
