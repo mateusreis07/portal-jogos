@@ -1,6 +1,7 @@
 import { gameService } from '@/lib/services/gameService';
 import GameCarousel from '@/components/game/GameCarousel';
 import GameMixedGrid from '@/components/game/GameMixedGrid';
+import MobileGameGrid from '@/components/game/MobileGameGrid';
 import CategoryCard from '@/components/category/CategoryCard';
 import SeoContent from '@/components/home/SeoContent';
 import { Gamepad2, Puzzle, CarFront, Crosshair, Map as MapIcon, Trophy, BrainCircuit, Users } from 'lucide-react';
@@ -67,7 +68,12 @@ export default async function Home() {
       {newGames && newGames.length > 0 && (
         <section>
           <SectionHeader title={t('new_title')} href="/new" color="bg-primary" />
-          <GameCarousel games={newGames} />
+          <div className="hidden md:block">
+            <GameCarousel games={newGames} />
+          </div>
+          <div className="md:hidden">
+            <MobileGameGrid games={newGames} variant={1} />
+          </div>
         </section>
       )}
 
@@ -75,7 +81,12 @@ export default async function Home() {
       {arcadeGames && arcadeGames.length > 0 && (
         <section>
           <SectionHeader title={cat('arcade')} href="/category/arcade" color="bg-blue-500" />
-          <GameMixedGrid games={arcadeGames} />
+          <div className="hidden md:block">
+            <GameMixedGrid games={arcadeGames} />
+          </div>
+          <div className="md:hidden">
+            <MobileGameGrid games={arcadeGames} variant={2} />
+          </div>
         </section>
       )}
 
@@ -83,7 +94,12 @@ export default async function Home() {
       {puzzleGames && puzzleGames.length > 0 && (
         <section>
           <SectionHeader title={cat('puzzle')} href="/category/puzzle" color="bg-pink-500" />
-          <GameCarousel games={puzzleGames} />
+          <div className="hidden md:block">
+            <GameCarousel games={puzzleGames} />
+          </div>
+          <div className="md:hidden">
+            <MobileGameGrid games={puzzleGames} variant={3} />
+          </div>
         </section>
       )}
 
@@ -91,7 +107,12 @@ export default async function Home() {
       {racingGames && racingGames.length > 0 && (
         <section>
           <SectionHeader title={cat('racing')} href="/category/racing" color="bg-teal-500" />
-          <GameMixedGrid games={racingGames} />
+          <div className="hidden md:block">
+            <GameMixedGrid games={racingGames} />
+          </div>
+          <div className="md:hidden">
+            <MobileGameGrid games={racingGames} variant={4} />
+          </div>
         </section>
       )}
 
@@ -99,7 +120,12 @@ export default async function Home() {
       {shootingGames && shootingGames.length > 0 && (
         <section>
           <SectionHeader title={cat('shooting')} href="/category/shooting" color="bg-red-500" />
-          <GameCarousel games={shootingGames} />
+          <div className="hidden md:block">
+            <GameCarousel games={shootingGames} />
+          </div>
+          <div className="md:hidden">
+            <MobileGameGrid games={shootingGames} variant={1} />
+          </div>
         </section>
       )}
 
@@ -107,7 +133,12 @@ export default async function Home() {
       {adventureGames && adventureGames.length > 0 && (
         <section>
           <SectionHeader title={cat('adventure')} href="/category/adventure" color="bg-green-500" />
-          <GameMixedGrid games={adventureGames} />
+          <div className="hidden md:block">
+            <GameMixedGrid games={adventureGames} />
+          </div>
+          <div className="md:hidden">
+            <MobileGameGrid games={adventureGames} variant={2} />
+          </div>
         </section>
       )}
 
@@ -115,7 +146,12 @@ export default async function Home() {
       {sportsGames && sportsGames.length > 0 && (
         <section>
           <SectionHeader title={cat('sports')} href="/category/sports" color="bg-orange-500" />
-          <GameCarousel games={sportsGames} />
+          <div className="hidden md:block">
+            <GameCarousel games={sportsGames} />
+          </div>
+          <div className="md:hidden">
+            <MobileGameGrid games={sportsGames} variant={3} />
+          </div>
         </section>
       )}
 
@@ -123,7 +159,12 @@ export default async function Home() {
       {strategyGames && strategyGames.length > 0 && (
         <section>
           <SectionHeader title={cat('strategy')} href="/category/strategy" color="bg-yellow-500" />
-          <GameMixedGrid games={strategyGames} />
+          <div className="hidden md:block">
+            <GameMixedGrid games={strategyGames} />
+          </div>
+          <div className="md:hidden">
+            <MobileGameGrid games={strategyGames} variant={4} />
+          </div>
         </section>
       )}
 
@@ -131,7 +172,12 @@ export default async function Home() {
       {multiplayerGames && multiplayerGames.length > 0 && (
         <section>
           <SectionHeader title={cat('multiplayer')} href="/category/multiplayer" color="bg-indigo-500" />
-          <GameCarousel games={multiplayerGames} />
+          <div className="hidden md:block">
+            <GameCarousel games={multiplayerGames} />
+          </div>
+          <div className="md:hidden">
+            <MobileGameGrid games={multiplayerGames} variant={1} />
+          </div>
         </section>
       )}
 
