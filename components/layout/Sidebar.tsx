@@ -40,7 +40,7 @@ export default function Sidebar() {
   // Helper to determine if a path is active
   const isActive = (path: string) => {
     // Next-intl prefixes paths with locale, e.g., /pt-BR/category/arcade
-    // Let's do a simple includes or endsWith match
+    if (path === '/') return pathname === '/' || pathname.match(/^\/[a-z]{2}(-[A-Z]{2})?$/);
     return pathname.includes(path);
   };
 
@@ -100,26 +100,26 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className={`fixed left-0 bottom-0 z-40 hidden md:flex flex-col bg-slate-900 border-r border-slate-800 w-16 hover:w-64 transition-all duration-300 ease-in-out overflow-x-hidden overflow-y-auto group ${
+    <aside className={`fixed left-0 bottom-0 z-40 hidden md:flex flex-col bg-[#0b0c18] border-r border-white/5 w-16 hover:w-64 transition-all duration-300 ease-in-out overflow-x-hidden overflow-y-auto group ${
       isScrolled ? 'top-16' : 'top-24'
     }`}>
       <div className="flex flex-col py-4 w-64">
         {menuItems.map((item, index) => {
           if (item.divider) {
-            return <div key={`divider-${index}`} className="my-2 border-t border-slate-800 w-full" />;
+            return <div key={`divider-${index}`} className="my-2 border-t border-slate-900 w-full" />;
           }
 
           if (!item.href || !item.title) return null;
 
-          const active = item.exact ? pathname.endsWith(item.href) : isActive(item.href);
+          const active = isActive(item.href);
 
           return (
             <Link
               key={item.href}
               href={item.href}
               className={`flex items-center h-12 px-5 transition-colors ${active
-                ? 'bg-primary/10 text-primary border-r-4 border-primary'
-                : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                ? 'bg-primary/5 text-primary border-r-4 border-primary shadow-[inset_-5px_0_15px_-5px_rgba(255,90,0,0.2)]'
+                : 'text-slate-400 hover:bg-white/5 hover:text-white'
                 }`}
               title={item.title} // For tooltip when collapsed
             >

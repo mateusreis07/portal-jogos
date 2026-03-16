@@ -9,7 +9,7 @@ interface GameCardProps {
 export default function GameCard({ game }: GameCardProps) {
   return (
     <Link href={`/game/${game.slug}`} className="group block">
-      <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-800 border border-slate-700 transition-all duration-300 group-hover:border-primary group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+      <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-900 border border-slate-800 transition-all duration-300 group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(255,90,0,0.35)]">
         <Image
           src={game.thumbnail}
           alt={game.title}

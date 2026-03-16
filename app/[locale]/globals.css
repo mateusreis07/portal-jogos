@@ -3,15 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --background: #0f172a; /* slate-900 */
+  --background: #08090f; /* Even deeper Midnight Blue */
   --foreground: #f8fafc; /* slate-50 */
-  --primary: #3b82f6; /* blue-500 */
+  --card-bg: #11121d; /* Distinct card background */
+  --primary: #ff5a00; /* Fox Orange */
   --primary-foreground: #ffffff;
+  --secondary: #00f0ff; /* Chaos Cyan */
+  --secondary-foreground: #020617; /* contrast for cyan */
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-color: var(--background);
+  background-image: 
+    radial-gradient(circle at 50% -10%, rgba(255, 90, 0, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(0, 240, 255, 0.03) 0%, transparent 40%);
+  background-attachment: fixed;
 }
 
 /* Custom scrollbar for webkit */

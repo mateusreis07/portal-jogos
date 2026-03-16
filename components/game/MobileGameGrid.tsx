@@ -12,7 +12,7 @@ function MobileGameItem({ game, className, isSpecialLarge }: { game: Game; class
   if (!game) return null;
   return (
     <Link href={`/game/${game.slug}`} className={`group block ${className}`}>
-      <div className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/30 shadow-sm active:scale-95 transition-transform">
+      <div className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-950 border border-slate-900 shadow-sm active:scale-95 transition-transform">
         <Image
           src={game.thumbnail}
           alt={game.title}

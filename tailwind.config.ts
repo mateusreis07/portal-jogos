@@ -14,6 +14,10 @@ const config: Config = {
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",
         },
+        secondary: {
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],

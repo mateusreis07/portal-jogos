@@ -10,8 +10,8 @@ interface CategoryCardProps {
 export default function CategoryCard({ title, slug, icon, colorClass }: CategoryCardProps) {
   return (
     <Link href={`/category/${slug}`} className="group block h-full">
-      <div className={`h-full relative overflow-hidden rounded-xl border border-slate-700 bg-slate-800/50 p-4 sm:p-6 flex flex-col items-center justify-center gap-4 w-full transition-all duration-300 hover:scale-[1.03] hover:bg-slate-800 ${colorClass}`}>
-        <div className="relative z-10 text-slate-300 group-hover:text-white transition-colors duration-300">
+      <div className={`h-full relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900 p-4 sm:p-6 flex flex-col items-center justify-center gap-4 w-full transition-all duration-300 hover:scale-[1.05] hover:bg-slate-900 hover:border-primary/50 ${colorClass}`}>
+        <div className="relative z-10 text-slate-400 group-hover:text-white transition-colors duration-300">
           {icon}
         </div>
         <h3 className="relative z-10 font-bold text-center text-sm sm:text-base md:text-lg text-slate-200 group-hover:text-white transition-colors">

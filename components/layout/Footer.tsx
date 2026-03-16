@@ -9,7 +9,9 @@ export default function Footer() {
   const nav = useTranslations('Navigation');
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-800 pt-16 pb-8 mt-20">
+    <footer className="bg-transparent border-t border-white/5 pt-16 pb-8 mt-20 relative overflow-hidden">
+      {/* Background glow for footer */}
+      <div className="absolute top-0 left-1/4 w-1/2 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
@@ -49,7 +51,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <p className="text-slate-500 text-sm">
               &copy; {new Date().getFullYear()} <span className="text-slate-300 font-bold">FoxChaos</span>. {t('rights')}.

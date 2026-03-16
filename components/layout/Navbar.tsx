@@ -35,7 +35,10 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isActive = (path: string) => pathname.includes(path);
+  const isActive = (path: string) => {
+    if (path === '/') return pathname === '/' || pathname.match(/^\/[a-z]{2}(-[A-Z]{2})?$/);
+    return pathname.includes(path);
+  };
 
   const menuItems = [
     { title: t('home'), icon: <Home className="h-5 w-5" />, href: '/', exact: true },
@@ -53,7 +56,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`sticky top-0 z-50 w-full transition-all duration-300 border-b border-slate-800 backdrop-blur-xl ${isScrolled ? 'h-16 bg-slate-900/95 shadow-xl' : 'h-24 bg-slate-900/80'
+      <div className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60]"></div>
+      <nav className={`sticky top-0 z-50 w-full transition-all duration-300 border-b border-white/5 backdrop-blur-xl ${isScrolled ? 'h-16 bg-[#0b0c18]/95 shadow-xl' : 'h-24 bg-transparent'
         }`}>
         <div className="max-w-[1600px] mx-auto px-4 h-full">
           <div className="flex h-full items-center justify-between gap-4">
@@ -130,11 +134,11 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       <aside
-        className={`fixed top-0 left-0 bottom-0 z-[70] w-80 bg-slate-950 border-r border-slate-800 transform transition-transform duration-500 md:hidden ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed top-0 left-0 bottom-0 z-[70] w-80 bg-[#0b0c18] border-r border-white/10 transform transition-transform duration-500 md:hidden ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
       >
         {/* Drawer Header */}
-        <div className="flex flex-col items-center justify-center pt-8 pb-6 px-4 border-b border-slate-800 bg-slate-900">
+        <div className="flex flex-col items-center justify-center pt-8 pb-6 px-4 border-b border-white/5 bg-[#0e0f26]">
           <Link href="/" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
             <Image
               src="/images/brand/logo-full.png"
@@ -159,11 +163,11 @@ export default function Navbar() {
         <div className="flex flex-col py-6 overflow-y-auto h-[calc(100vh-10rem)] bg-slate-950">
           {menuItems.map((item, index) => {
             if (item.divider) {
-              return <div key={`divider-${index}`} className="my-4 border-t border-slate-800/50 mx-8" />;
+              return <div key={`divider-${index}`} className="my-4 border-t border-slate-900 mx-8" />;
             }
             if (!item.href || !item.title) return null;
 
-            const active = item.exact ? pathname.endsWith(item.href) : isActive(item.href);
+            const active = isActive(item.href);
 
             return (
               <Link
@@ -171,8 +175,8 @@ export default function Navbar() {
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-4 h-14 px-8 transition-all duration-300 ${active
-                    ? 'bg-primary/10 text-primary border-r-4 border-primary'
-                    : 'text-slate-400 hover:bg-slate-900 hover:text-white'
+                    ? 'bg-primary/5 text-primary border-r-4 border-primary shadow-[inset_-5px_0_15px_-5px_rgba(255,90,0,0.2)]'
+                    : 'text-slate-400 hover:bg-white/5 hover:text-white'
                   }`}
               >
                 <div className={`${active ? 'text-primary' : 'text-slate-500'} transition-colors`}>

@@ -5,7 +5,7 @@ export default async function SeoContent() {
   const t = await getTranslations('Seo');
 
   return (
-    <section className="bg-slate-900 border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8 mt-12 rounded-t-3xl">
+    <section className="bg-[#050510]/50 border-t border-white/5 py-12 px-4 sm:px-6 lg:px-8 mt-12 rounded-t-3xl backdrop-blur-sm">
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Main Introduction */}
         <div className="max-w-4xl">
@@ -16,11 +16,11 @@ export default async function SeoContent() {
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 border-t border-slate-800/50">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 border-t border-white/5">
 
-          <div className="space-y-4 p-6 rounded-2xl bg-slate-800/20 border border-slate-700/50 hover:bg-slate-800/40 transition-colors">
-            <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
-              <Zap className="w-6 h-6 text-blue-400" />
+          <div className="space-y-4 p-6 rounded-2xl bg-[#08081a] border border-white/5 transition-colors hover:bg-[#0a0a25] shadow-lg group">
+            <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+              <Zap className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-xl font-bold text-slate-200">{t('subtitle_1')}</h3>
             <p className="text-slate-400 leading-relaxed text-sm">
@@ -28,9 +28,9 @@ export default async function SeoContent() {
             </p>
           </div>
 
-          <div className="space-y-4 p-6 rounded-2xl bg-slate-800/20 border border-slate-700/50 hover:bg-slate-800/40 transition-colors">
-            <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-              <Gamepad2 className="w-6 h-6 text-purple-400" />
+          <div className="space-y-4 p-6 rounded-2xl bg-[#08081a] border border-white/5 transition-colors hover:bg-[#0a0a25] shadow-lg group">
+            <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
+              <Gamepad2 className="w-6 h-6 text-secondary" />
             </div>
             <h3 className="text-xl font-bold text-slate-200">{t('subtitle_2')}</h3>
             <p className="text-slate-400 leading-relaxed text-sm">

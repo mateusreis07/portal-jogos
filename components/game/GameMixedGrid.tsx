@@ -37,7 +37,7 @@ function GameItem({ game, index }: { game: Game; index: number }) {
       href={`/game/${game.slug}`}
       className={`group block ${position}`}
     >
-      <div className="relative w-full rounded-xl overflow-hidden bg-slate-800 border border-slate-700/50 transition-all duration-300 group-hover:border-primary/60 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] aspect-[4/3] md:aspect-auto md:h-full"
+      <div className="relative w-full rounded-xl overflow-hidden bg-slate-900 border border-slate-800/50 transition-all duration-300 group-hover:border-primary/60 group-hover:shadow-[0_0_20px_rgba(255,90,0,0.25)] aspect-[4/3] md:aspect-auto md:h-full"
         style={{ minHeight: isFeatured ? undefined : undefined }}>
         <Image
           src={game.thumbnail}

@@ -66,7 +66,7 @@ export default async function RootLayout({
           crossOrigin="anonymous"
         ></script>
       </head>
-      <body className={`${inter.variable} font-sans min-h-screen flex flex-col antialiased bg-slate-950 text-slate-200`}>
+      <body className={`${inter.variable} font-sans min-h-screen flex flex-col antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           <div className="flex w-full">

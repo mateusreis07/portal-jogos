@@ -36,14 +36,14 @@ export default async function Home() {
   ]);
 
   const categories = [
-    { title: cat('arcade'), slug: 'arcade', icon: <Gamepad2 size={32} />, colorClass: 'border-blue-500/30' },
-    { title: cat('puzzle'), slug: 'puzzle', icon: <Puzzle size={32} />, colorClass: 'border-pink-500/30' },
-    { title: cat('racing'), slug: 'racing', icon: <CarFront size={32} />, colorClass: 'border-teal-500/30' },
-    { title: cat('shooting'), slug: 'shooting', icon: <Crosshair size={32} />, colorClass: 'border-red-500/30' },
-    { title: cat('adventure'), slug: 'adventure', icon: <MapIcon size={32} />, colorClass: 'border-green-500/30' },
-    { title: cat('sports'), slug: 'sports', icon: <Trophy size={32} />, colorClass: 'border-orange-500/30' },
-    { title: cat('strategy'), slug: 'strategy', icon: <BrainCircuit size={32} />, colorClass: 'border-yellow-500/30' },
-    { title: cat('multiplayer'), slug: 'multiplayer', icon: <Users size={32} />, colorClass: 'border-purple-500/30' },
+    { title: cat('arcade'), slug: 'arcade', icon: <Gamepad2 size={32} />, colorClass: 'border-secondary/50 group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)]' },
+    { title: cat('puzzle'), slug: 'puzzle', icon: <Puzzle size={32} />, colorClass: 'border-pink-500/50 group-hover:shadow-[0_0_15px_rgba(236,72,153,0.4)]' },
+    { title: cat('racing'), slug: 'racing', icon: <CarFront size={32} />, colorClass: 'border-primary/50 group-hover:shadow-[0_0_15px_rgba(255,90,0,0.4)]' },
+    { title: cat('shooting'), slug: 'shooting', icon: <Crosshair size={32} />, colorClass: 'border-red-500/50 group-hover:shadow-[0_0_15px_rgba(239,68,68,0.4)]' },
+    { title: cat('adventure'), slug: 'adventure', icon: <MapIcon size={32} />, colorClass: 'border-emerald-500/50 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]' },
+    { title: cat('sports'), slug: 'sports', icon: <Trophy size={32} />, colorClass: 'border-yellow-500/50 group-hover:shadow-[0_0_15px_rgba(234,179,8,0.4)]' },
+    { title: cat('strategy'), slug: 'strategy', icon: <BrainCircuit size={32} />, colorClass: 'border-secondary/50 group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)]' },
+    { title: cat('multiplayer'), slug: 'multiplayer', icon: <Users size={32} />, colorClass: 'border-primary/50 group-hover:shadow-[0_0_15px_rgba(255,90,0,0.4)]' },
   ];
 
   /**
@@ -52,10 +52,10 @@ export default async function Home() {
   const SectionHeader = ({ title, href, color }: { title: string; href: string; color: string }) => (
     <div className="flex items-center justify-between mb-2 md:mb-3 px-1">
       <h2 className="text-lg md:text-xl font-bold tracking-tight text-white flex items-center gap-2">
-        <span className={`${color} w-1.5 h-5 rounded-full inline-block`}></span>
+        <span className={`${color} shadow-[0_0_8px_currentColor] w-1.5 h-5 rounded-full inline-block`}></span>
         {title}
       </h2>
-      <Link href={href} className="text-primary hover:text-primary/80 font-medium transition-colors text-xs md:text-sm">
+      <Link href={href} className="text-secondary hover:text-secondary/80 font-medium transition-colors text-xs md:text-sm">
         {t('view_all')}
       </Link>
     </div>
@@ -80,7 +80,7 @@ export default async function Home() {
       {/* Arcade — Mixed Grid (featured + small) */}
       {arcadeGames && arcadeGames.length > 0 && (
         <section>
-          <SectionHeader title={cat('arcade')} href="/category/arcade" color="bg-blue-500" />
+          <SectionHeader title={cat('arcade')} href="/category/arcade" color="bg-secondary text-secondary" />
           <div className="hidden md:block">
             <GameMixedGrid games={arcadeGames} />
           </div>
