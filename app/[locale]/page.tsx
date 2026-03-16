@@ -4,6 +4,7 @@ import GameMixedGrid from '@/components/game/GameMixedGrid';
 import MobileGameGrid from '@/components/game/MobileGameGrid';
 import CategoryCard from '@/components/category/CategoryCard';
 import SeoContent from '@/components/home/SeoContent';
+import SurpriseMeButton from '@/components/ui/SurpriseMeButton';
 import { Gamepad2, Puzzle, CarFront, Crosshair, Map as MapIcon, Trophy, BrainCircuit, Users } from 'lucide-react';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
@@ -281,6 +282,10 @@ export default async function Home() {
       {/* SEO Block Content */}
       <SeoContent />
 
+      {/* Surprise Me Feature - Bottom Call to Action */}
+      <section className="flex justify-center pb-8 pt-2">
+        <SurpriseMeButton />
+      </section>
     </div>
   );
 }

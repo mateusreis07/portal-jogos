@@ -13,7 +13,9 @@
     "popular_title": "Populares Ahora",
     "view_all": "Ver todos →",
     "categories_title": "Categorías",
-    "new_title": "Agregados Recientemente"
+    "new_title": "Agregados Recientemente",
+    "surprise_me": "¡Sorpréndeme!",
+    "surprise_me_sub": "¡Tengo suerte!"
   },
   "Categories": {
     "arcade": "Arcade",

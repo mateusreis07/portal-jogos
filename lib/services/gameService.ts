@@ -256,6 +256,24 @@ export const gameService = {
     });
 
     return Array.from(allTags).sort();
+  },
+
+  /**
+   * Returns a random game slug from the entire library.
+   * Used for the "Surprise Me" feature.
+   */
+  async getRandomGameSlug(): Promise<string | null> {
+    const { data, error } = await supabase
+      .from('games')
+      .select('slug');
+
+    if (error || !data || data.length === 0) {
+      console.error('Error fetching random game slug:', error);
+      return null;
+    }
+
+    const randomIndex = Math.floor(Math.random() * data.length);
+    return data[randomIndex].slug;
   }
 };
 

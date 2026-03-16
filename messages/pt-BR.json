@@ -13,7 +13,9 @@
     "popular_title": "Em Alta Agora",
     "view_all": "Ver todos →",
     "categories_title": "Categorias",
-    "new_title": "Adicionados Recentemente"
+    "new_title": "Adicionados Recentemente",
+    "surprise_me": "Surpreenda-me",
+    "surprise_me_sub": "Estou com sorte!"
   },
   "Categories": {
     "arcade": "Arcade",

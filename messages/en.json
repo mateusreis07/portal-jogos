@@ -13,7 +13,9 @@
     "popular_title": "Popular Right Now",
     "view_all": "View all →",
     "categories_title": "Categories",
-    "new_title": "New Additions"
+    "new_title": "Recently Added",
+    "surprise_me": "Surprise Me",
+    "surprise_me_sub": "I'm feeling lucky!"
   },
   "Categories": {
     "arcade": "Arcade",

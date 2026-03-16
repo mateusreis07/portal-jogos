@@ -35,3 +35,13 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #475569; /* slate-600 */
 }
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+

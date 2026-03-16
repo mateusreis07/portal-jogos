@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Sidebar from '@/components/layout/Sidebar';
 import Footer from '@/components/layout/Footer';
+import ScrollToTop from '@/components/ui/ScrollToTop';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import Script from 'next/script';
@@ -96,6 +97,7 @@ export default async function RootLayout({
               </main>
               <Footer />
             </div>
+            <ScrollToTop />
           </div>
         </NextIntlClientProvider>
       </body>

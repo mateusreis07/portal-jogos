@@ -33,7 +33,7 @@ export default async function SeoContent() {
   ];
 
   return (
-    <section className="bg-[#050510]/50 border-t border-white/5 py-16 px-4 sm:px-6 lg:px-8 mt-12 mb-12 rounded-3xl backdrop-blur-sm">
+    <section className="bg-[#050510]/50 border-t border-white/5 py-16 px-4 sm:px-6 lg:px-8 mt-12 mb-4 rounded-3xl backdrop-blur-sm">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
