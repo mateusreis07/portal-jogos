@@ -64,10 +64,10 @@ export const articleService = {
   /**
    * Get all article slugs for the sitemap
    */
-  async getAllArticleSlugs(): Promise<{ slug: string; created_at: string; locale: string }[]> {
+  async getAllArticleSlugs(): Promise<{ slug: string; created_at: string; locale: string; image_url?: string; title: string }[]> {
     const { data, error } = await supabase
       .from('articles')
-      .select('slug, created_at, locale')
+      .select('slug, created_at, locale, image_url, title')
       .eq('published', true)
       .order('created_at', { ascending: false });
 

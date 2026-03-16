@@ -42,6 +42,13 @@ export async function generateMetadata({ params }: GamePageProps): Promise<Metad
       type: 'website',
       url: `https://foxchaos.com/${locale}/game/${translatedGame.slug}`,
     },
+    alternates: {
+      canonical: `/${locale}/game/${translatedGame.slug}`,
+      languages: {
+        'pt-BR': `/pt-BR/game/${translatedGame.slug}`,
+        'en': `/en/game/${translatedGame.slug}`,
+      },
+    },
   };
 }
 
@@ -50,6 +57,7 @@ export default async function GamePage({ params }: GamePageProps) {
   let game = await gameService.getGameBySlug(slug);
   const t = await getTranslations('Game');
   const tCat = await getTranslations('Categories');
+  const tVibe = await getTranslations('QuickVibe');
 
   if (!game) {
     notFound();
@@ -116,6 +124,14 @@ export default async function GamePage({ params }: GamePageProps) {
               tags: t('tags'),
               related: t('related')
             }}
+            quickVibeLabels={{
+              title: tVibe('title'),
+              fire: tVibe('fire'),
+              mindblown: tVibe('mindblown'),
+              funny: tVibe('funny'),
+              chill: tVibe('chill'),
+              votes: tVibe('votes')
+            }}
           />
 
           {/* Infinite Scroll Feed triggers below the first game */}
@@ -133,6 +149,14 @@ export default async function GamePage({ params }: GamePageProps) {
               tip_3: t('tip_3'),
               tags: t('tags'),
               related: t('related')
+            }}
+            quickVibeLabels={{
+              title: tVibe('title'),
+              fire: tVibe('fire'),
+              mindblown: tVibe('mindblown'),
+              funny: tVibe('funny'),
+              chill: tVibe('chill'),
+              votes: tVibe('votes')
             }}
           />
 

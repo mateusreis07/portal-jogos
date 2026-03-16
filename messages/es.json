@@ -94,5 +94,13 @@
     "h1_sub": "El destino definitivo para los mejores juegos HTML5 en todos los dispositivos.",
     "meta_description": "Juega los mejores juegos en línea gratis en FoxChaos. Cientos de títulos de acción, rompecabezas y carreras para jugar ahora en el navegador.",
     "item_list_name": "Juegos Destacados en FoxChaos"
+  },
+  "QuickVibe": {
+    "title": "¿Cuál es la vibra de este juego?",
+    "fire": "Adictivo",
+    "mindblown": "Difícil",
+    "funny": "Divertido",
+    "chill": "Relajante",
+    "votes": "votos"
   }
 }

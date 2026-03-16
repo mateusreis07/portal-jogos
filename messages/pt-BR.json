@@ -103,5 +103,13 @@
     "h1_sub": "O destino definitivo para os melhores jogos HTML5 em todos os dispositivos.",
     "meta_description": "Jogue os melhores jogos online grátis no FoxChaos. Centenas de títulos de ação, quebra-cabeça e corrida para jogar agora no navegador.",
     "item_list_name": "Jogos em Destaque no FoxChaos"
+  },
+  "QuickVibe": {
+    "title": "Qual a vibe deste jogo?",
+    "fire": "Viciante",
+    "mindblown": "Difícil",
+    "funny": "Engraçado",
+    "chill": "Relaxante",
+    "votes": "votos"
   }
 }

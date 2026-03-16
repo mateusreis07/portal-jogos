@@ -20,13 +20,13 @@ export const gameService = {
   },
 
   /**
-   * Retrieves only game slugs and timestamps for SEO sitemap generation.
+   * Retrieves only game slugs, thumbnails and timestamps for SEO sitemap generation.
    * This is heavily optimized to use minimal DB resources.
    */
-  async getAllGamesSlugs(): Promise<{ slug: string; created_at: string }[]> {
+  async getAllGamesSlugs(): Promise<{ slug: string; created_at: string; thumbnail: string; title: string }[]> {
     const { data, error } = await supabase
       .from('games')
-      .select('slug, created_at')
+      .select('slug, created_at, thumbnail, title')
       .order('created_at', { ascending: false });
 
     if (error) {
@@ -233,6 +233,29 @@ export const gameService = {
     }
 
     return (data || []).map(mapSupabaseRowToGame);
+  },
+
+  /**
+   * Retrieves all unique tags across all games.
+   */
+  async getAllTags(): Promise<string[]> {
+    const { data, error } = await supabase
+      .from('games')
+      .select('tags');
+
+    if (error) {
+      console.error('Error fetching tags:', error);
+      return [];
+    }
+
+    const allTags = new Set<string>();
+    data?.forEach(row => {
+      if (Array.isArray(row.tags)) {
+        row.tags.forEach(t => allTags.add(t));
+      }
+    });
+
+    return Array.from(allTags).sort();
   }
 };
 

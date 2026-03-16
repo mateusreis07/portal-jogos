@@ -94,5 +94,13 @@
     "h1_sub": "The ultimate destination for the best HTML5 games across all devices.",
     "meta_description": "Play the best free online games at FoxChaos. Hundreds of action, puzzle and racing titles to play now in your browser.",
     "item_list_name": "Featured Games on FoxChaos"
+  },
+  "QuickVibe": {
+    "title": "What's the vibe of this game?",
+    "fire": "Addictive",
+    "mindblown": "Hard",
+    "funny": "Funny",
+    "chill": "Chill",
+    "votes": "votes"
   }
 }

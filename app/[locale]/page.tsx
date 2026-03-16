@@ -7,6 +7,24 @@ import SeoContent from '@/components/home/SeoContent';
 import { Gamepad2, Puzzle, CarFront, Crosshair, Map as MapIcon, Trophy, BrainCircuit, Users } from 'lucide-react';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const tSeo = await getTranslations('HomeSeo');
+
+  return {
+    title: tSeo('meta_title'),
+    description: tSeo('meta_description'),
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        'pt-BR': '/pt-BR',
+        'en': '/en',
+      },
+    },
+  };
+}
 
 export default async function Home() {
   const t = await getTranslations('Home');

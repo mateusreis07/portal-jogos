@@ -4,6 +4,8 @@ import GameGrid from '@/components/game/GameGrid';
 import AdTopBanner from '@/components/ads/AdTopBanner';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import SeoFooter from '@/components/ui/SeoFooter';
+import { Gamepad2 } from 'lucide-react';
 
 interface CategoryPageProps {
   params: Promise<{
@@ -24,6 +26,13 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       description: `Os melhores jogos de ${categoryTitle} online para jogar agora.`,
       url: `https://foxchaos.com/${locale}/category/${slug}`,
       type: 'website',
+    },
+    alternates: {
+      canonical: `/${locale}/category/${slug}`,
+      languages: {
+        'pt-BR': `/pt-BR/category/${slug}`,
+        'en': `/en/category/${slug}`,
+      },
     }
   };
 }
@@ -79,6 +88,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       </div>
 
       <GameGrid games={games} />
+
+      <SeoFooter 
+        title={categoryTitle}
+        description={`Os jogos de ${categoryTitle.toLowerCase()} no FoxChaos são selecionados para oferecer a melhor jogabilidade e diversão. Explore novos desafios agora.`}
+        count={games.length}
+        icon={Gamepad2}
+      />
     </div>
   );
 }

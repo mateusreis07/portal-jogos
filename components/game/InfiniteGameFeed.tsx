@@ -21,6 +21,14 @@ interface InfiniteGameFeedProps {
     tags: string;
     related: string;
   };
+  quickVibeLabels: {
+    title: string;
+    fire: string;
+    mindblown: string;
+    funny: string;
+    chill: string;
+    votes: string;
+  };
 }
 
 export default function InfiniteGameFeed({
@@ -29,6 +37,7 @@ export default function InfiniteGameFeed({
   initialTags,
   locale,
   translations,
+  quickVibeLabels,
 }: InfiniteGameFeedProps) {
   const [games, setGames] = useState<Game[]>([]);
   const [excludeIds, setExcludeIds] = useState<string[]>(initialExcludeIds);
@@ -91,7 +100,7 @@ export default function InfiniteGameFeed({
           </div>
 
           <div className="pt-8">
-            <GameView game={game} translations={translations} isInfiniteFeed={true} />
+            <GameView game={game} translations={translations} quickVibeLabels={quickVibeLabels} isInfiniteFeed={true} />
           </div>
         </div>
       ))}

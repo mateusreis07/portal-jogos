@@ -45,6 +45,13 @@ export async function generateMetadata({ params: { locale, slug } }: ArticlePage
       description: article.meta_description || article.title,
       images: article.image_url ? [article.image_url] : [],
     },
+    alternates: {
+      canonical: `/${locale}/article/${slug}`,
+      languages: {
+        'pt-BR': `/pt-BR/article/${slug}`,
+        'en': `/en/article/${slug}`,
+      },
+    },
   };
 }
 

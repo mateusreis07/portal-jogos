@@ -1,4 +1,5 @@
 import GamePlayer from '@/components/game/GamePlayer';
+import GameReactions from '@/components/game/GameReactions';
 import TrackRecentlyPlayed from '@/components/game/TrackRecentlyPlayed';
 import GameContentTabs from '@/components/game/GameContentTabs';
 import GameGrid from '@/components/game/GameGrid';
@@ -17,6 +18,14 @@ interface GameViewProps {
     tags: string;
     related?: string;
   };
+  quickVibeLabels: {
+    title: string;
+    fire: string;
+    mindblown: string;
+    funny: string;
+    chill: string;
+    votes: string;
+  };
   relatedGames?: Game[];
   isInfiniteFeed?: boolean;
 }
@@ -25,7 +34,7 @@ interface GameViewProps {
  * A reusable component that renders the full game player, details, and SEO elements.
  * Extracted so it can be used for both the initial page load and the infinite scroll feed.
  */
-export default function GameView({ game, translations: t, relatedGames = [], isInfiniteFeed = false }: GameViewProps) {
+export default function GameView({ game, translations: t, quickVibeLabels, relatedGames = [], isInfiniteFeed = false }: GameViewProps) {
   return (
     <div className="flex flex-col gap-8 pb-12 mb-12 border-b border-slate-800">
       {/* Track this game as recently played */}
@@ -62,7 +71,14 @@ export default function GameView({ game, translations: t, relatedGames = [], isI
         </div>
       </div>
 
-      <GamePlayer gameId={game.id} gameUrl={game.gameUrl} title={game.title} />
+      <div className="flex flex-col gap-1.5">
+        <GamePlayer gameId={game.id} gameUrl={game.gameUrl} title={game.title} />
+
+        {/* Quick-Vibe Reactions */}
+        <div className="relative z-0">
+            <GameReactions gameSlug={game.slug} labels={quickVibeLabels} />
+        </div>
+      </div>
 
       {/* SEO-Optimized Content Tabs for large text volumes */}
       <GameContentTabs

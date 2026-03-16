@@ -37,6 +37,7 @@ export default function Footer() {
               <li><Link href="/category/puzzle" className="text-slate-400 hover:text-primary transition-all text-sm hover:pl-2">{cat('puzzle')}</Link></li>
               <li><Link href="/category/racing" className="text-slate-400 hover:text-primary transition-all text-sm hover:pl-2">{cat('racing')}</Link></li>
               <li><Link href="/category/shooting" className="text-slate-400 hover:text-primary transition-all text-sm hover:pl-2">{cat('shooting')}</Link></li>
+              <li><Link href="/tags" className="text-primary hover:text-primary/80 font-bold transition-all text-sm hover:pl-2"># Explore Tags</Link></li>
             </ul>
           </div>
 

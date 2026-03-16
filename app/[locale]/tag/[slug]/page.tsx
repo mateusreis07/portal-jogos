@@ -3,6 +3,8 @@ import GameGrid from '@/components/game/GameGrid';
 import AdTopBanner from '@/components/ads/AdTopBanner';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import SeoFooter from '@/components/ui/SeoFooter';
+import { Tags } from 'lucide-react';
 
 interface TagPageProps {
   params: Promise<{
@@ -19,6 +21,13 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   return {
     title: `Jogar Jogos de ${tagTitle} Grátis Online - FoxChaos`,
     description: `Os melhores jogos com a tag ${tagTitle} para jogar online gratuitamente no seu navegador. Diversão sem download no FoxChaos.`,
+    alternates: {
+      canonical: `/${locale}/tag/${slug}`,
+      languages: {
+        'pt-BR': `/pt-BR/tag/${slug}`,
+        'en': `/en/tag/${slug}`,
+      },
+    },
   };
 }
 
@@ -59,6 +68,13 @@ export default async function TagPage({ params }: TagPageProps) {
           <p className="text-slate-400 text-lg">No games found for this tag yet. Check back soon!</p>
         </div>
       )}
+
+      <SeoFooter 
+        title={tagTitle}
+        description={`Os jogos com a tag ${tagTitle} no FoxChaos oferecem experiências únicas e diversificadas. Confira nossa seleção de ${games.length} jogos agora.`}
+        count={games.length}
+        icon={Tags}
+      />
     </div>
   );
 }

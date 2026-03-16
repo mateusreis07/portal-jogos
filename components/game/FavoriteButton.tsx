@@ -30,17 +30,17 @@ export default function FavoriteButton({ gameId }: FavoriteButtonProps) {
       onClick={handleToggle}
       aria-label={isFav ? 'Remove from favorites' : 'Add to favorites'}
       className={`
-        group relative inline-flex items-center gap-2 px-4 py-2 rounded-lg
-        font-medium text-sm transition-all duration-300
+        group relative inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-md
+        font-medium text-[11px] sm:text-xs transition-all duration-300
         ${isFav
-          ? 'bg-red-500/20 text-red-400 hover:bg-red-500/30 border border-red-500/30'
-          : 'bg-slate-800 text-slate-400 hover:text-red-400 hover:bg-slate-700 border border-slate-700'
+          ? 'bg-red-500/10 text-red-500 hover:bg-red-500/20 border border-red-500/30'
+          : 'bg-transparent text-slate-400 hover:text-red-400 hover:bg-white/5 border border-white/5'
         }
       `}
     >
       <Heart
         className={`
-          w-5 h-5 transition-all duration-300
+          w-3.5 h-3.5 sm:w-4 sm:h-4 transition-all duration-300
           ${isFav ? 'fill-red-400 text-red-400' : 'fill-none'}
           ${animate ? 'scale-125' : 'scale-100'}
         `}

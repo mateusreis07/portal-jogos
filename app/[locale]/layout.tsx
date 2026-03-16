@@ -59,13 +59,6 @@ export const metadata: Metadata = {
     shortcut: '/favicon-32x32.png',
   },
   metadataBase: new URL('https://foxchaos.com'),
-  alternates: {
-    canonical: '/',
-    languages: {
-      'pt-BR': '/pt-BR',
-      'en': '/en',
-    },
-  },
 };
 
 export const viewport = {
