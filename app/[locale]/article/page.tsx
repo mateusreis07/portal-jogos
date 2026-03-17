@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Articles & News | ArcadeHub',
+  title: 'Articles & News | FoxChaos',
   description: 'Read the latest news, guides, and articles about the best free online games.',
 };
 

@@ -31,8 +31,41 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
         <p>{isPt ? 'Você tem o direito de solicitar a exclusão de qualquer dado que possamos ter associado a você, solicitar limitações de processamento ou tirar dúvidas, bastando entrar em contato com nossa equipe.' : 'You have the right to request the deletion of any data we may have associated with you, request processing limitations, or ask questions simply by contacting our team.'}</p>
         
         <h2 className="text-xl font-semibold text-white mt-8">{isPt ? '5. Cookies de Terceiros e Anúncios' : '5. Third-party Cookies and Ads'}</h2>
-        <p>{isPt ? 'Utilizamos serviços de publicidade de terceiros (como Google AdSense) que podem utilizar cookies para veicular anúncios baseados em visitas anteriores suas ao nosso site ou a outros sites na Internet.' : 'We use third-party advertising services (like Google AdSense) that may use cookies to serve ads based on your previous visits to our website or other websites on the Internet.'}</p>
+        <p>
+          {isPt 
+            ? 'Utilizamos serviços de publicidade de terceiros (como Google AdSense) para veicular anúncios quando você visita nosso site. Essas empresas podem usar cookies para veicular anúncios baseados em suas visitas anteriores a este ou a outros sites.' 
+            : 'We use third-party advertising companies (like Google AdSense) to serve ads when you visit our website. These companies may use cookies to serve ads based on your prior visits to this or other websites.'}
+        </p>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>
+            {isPt 
+              ? 'O Google, como fornecedor de terceiros, utiliza cookies para exibir anúncios no seu site.' 
+              : 'Google, as a third-party vendor, uses cookies to serve ads on your site.'}
+          </li>
+          <li>
+            {isPt 
+              ? 'Com o uso do cookie DoubleClick, o Google e os parceiros dele podem exibir anúncios para os usuários com base nas visitas feitas aos seus sites e/ou a outros sites na Internet.' 
+              : 'Google\'s use of the DoubleClick cookie enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.'}
+          </li>
+          <li>
+            {isPt 
+              ? 'Você pode desativar o uso do cookie DoubleClick para publicidade baseada em interesses acessando as Configurações de anúncios do Google.' 
+              : 'You may opt out of the use of the DoubleClick cookie for interest-based advertising by visiting Google Ad Settings.'}
+          </li>
+        </ul>
+        <p>
+          {isPt 
+            ? 'Alternativamente, você pode orientar os usuários a desativar o uso de cookies de terceiros para publicidade baseada em interesses acessando o site aboutads.info.' 
+            : 'Alternatively, you can direct users to opt out of a third-party vendor\'s use of cookies for interest-based advertising by visiting aboutads.info.'}
+        </p>
         
+        <h2 className="text-xl font-semibold text-white mt-8">{isPt ? '6. Links de Terceiros' : '6. Third-party Links'}</h2>
+        <p>
+          {isPt 
+            ? 'Nosso site contém links para outros sites (como os próprios jogos). Não somos responsáveis pelas práticas de privacidade ou pelo conteúdo desses sites externos.' 
+            : 'Our site contains links to other websites (such as the games themselves). We are not responsible for the privacy practices or content of these external sites.'}
+        </p>
+
         <p className="mt-8 pt-8 border-t border-slate-800 text-sm">
           {isPt ? 'Para dúvidas, entre em contato em support@foxchaos.com' : 'For questions, please contact support@foxchaos.com'}
         </p>

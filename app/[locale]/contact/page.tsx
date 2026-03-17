@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { Mail, MapPin, MessageSquare } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export const metadata: Metadata = {
   title: 'Contact Us - FoxChaos',
@@ -7,14 +8,16 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const t = useTranslations('Contact');
+
   return (
     <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-extrabold text-white tracking-tight mb-4">
-          Contact Us
+          {t('title')}
         </h1>
         <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-          Have a question, feedback, or a business inquiry? We'd love to hear from you. Fill out the form or use our contact details below.
+          {t('subtitle')}
         </p>
       </div>
 
@@ -52,47 +55,47 @@ export default function ContactPage() {
           <form className="flex flex-col gap-6" action="#" method="POST">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">Full Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">{t('form.name')}</label>
                 <input
                   type="text"
                   id="name"
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg py-3 px-4 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
-                  placeholder="John Doe"
+                  placeholder={t('form.placeholder_name')}
                   required
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">Email Address</label>
+                <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">{t('form.email')}</label>
                 <input
                   type="email"
                   id="email"
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg py-3 px-4 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
-                  placeholder="john@example.com"
+                  placeholder={t('form.placeholder_email')}
                   required
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-slate-300 mb-2">Subject</label>
+              <label htmlFor="subject" className="block text-sm font-medium text-slate-300 mb-2">{t('form.subject')}</label>
               <select
                 id="subject"
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg py-3 px-4 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
               >
-                <option>General Inquiry</option>
-                <option>Game Submission (Developers)</option>
-                <option>Report a Bug</option>
-                <option>Business Partnership</option>
+                <option value="general">{t('form.subjects.general')}</option>
+                <option value="dev">{t('form.subjects.dev')}</option>
+                <option value="bug">{t('form.subjects.bug')}</option>
+                <option value="business">{t('form.subjects.business')}</option>
               </select>
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">Message</label>
+              <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">{t('form.message')}</label>
               <textarea
                 id="message"
                 rows={5}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg py-3 px-4 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-y"
-                placeholder="How can we help you?"
+                placeholder={t('form.placeholder_message')}
                 required
               ></textarea>
             </div>
@@ -101,7 +104,7 @@ export default function ContactPage() {
               type="submit"
               className="w-full sm:w-auto px-8 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-colors flex items-center justify-center gap-2"
             >
-              Send Message
+              {t('form.send')}
             </button>
           </form>
         </div>

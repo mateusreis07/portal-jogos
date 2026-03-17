@@ -36,7 +36,7 @@ export default function GamePlayer({ gameId, gameUrl, title }: GamePlayerProps) 
     if (canShare) {
       try {
         await navigator.share({
-          title: `Play ${title} on ArcadeHub`,
+          title: `Play ${title} on FoxChaos`,
           url: url
         });
       } catch (err) {

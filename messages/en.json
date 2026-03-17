@@ -97,12 +97,39 @@
     "meta_description": "Play the best free online games at FoxChaos. Hundreds of action, puzzle and racing titles to play now in your browser.",
     "item_list_name": "Featured Games on FoxChaos"
   },
-  "QuickVibe": {
-    "title": "What's the vibe of this game?",
-    "fire": "Addictive",
-    "mindblown": "Hard",
-    "funny": "Funny",
-    "chill": "Chill",
-    "votes": "votes"
+  "About": {
+    "title": "About FoxChaos",
+    "description": "Welcome to FoxChaos, your ultimate destination for free online browser games. We believe that gaming should be accessible, instantaneous, and fun for everyone, anywhere, at any time.",
+    "mission_title": "Our Mission",
+    "mission_desc": "Our mission is to curate and provide the highest quality HTML5 games on the web. Whether you're on a desktop computer during a break, or on your mobile phone commuting, FoxChaos delivers blazing fast games without the need for downloads or installations.",
+    "why_title": "Why Play Here?",
+    "points": {
+      "p1": "No Downloads: Click and play instantly. No storage space required.",
+      "p2": "Cross-Platform: Play seamlessly on PC, Mac, tablets, and smartphones.",
+      "p3": "Growing Library: We constantly update our catalog with the newest and most popular titles.",
+      "p4": "Safe Environment: Our team carefully reviews every game to ensure it meets our quality and safety standards."
+    },
+    "dev_title": "Publishers & Developers",
+    "dev_desc": "Are you an HTML5 game developer? We are always looking for great content to share with our audience. Contact us to feature your games on FoxChaos!"
+  },
+  "Contact": {
+    "title": "Contact Us",
+    "subtitle": "Have a question, feedback, or a business inquiry? We'd love to hear from you. Fill out the form or use our contact details below.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "placeholder_name": "John Doe",
+      "placeholder_email": "john@example.com",
+      "placeholder_message": "How can we help you?",
+      "subjects": {
+        "general": "General Inquiry",
+        "dev": "Game Submission (Developers)",
+        "bug": "Report a Bug",
+        "business": "Business Partnership"
+      }
+    }
   }
 }

@@ -5,6 +5,7 @@ import Navbar from '@/components/layout/Navbar';
 import Sidebar from '@/components/layout/Sidebar';
 import Footer from '@/components/layout/Footer';
 import ScrollToTop from '@/components/ui/ScrollToTop';
+import CookieConsent from '@/components/ui/CookieConsent';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import Script from 'next/script';
@@ -98,6 +99,7 @@ export default async function RootLayout({
               <Footer />
             </div>
             <ScrollToTop />
+            <CookieConsent />
           </div>
         </NextIntlClientProvider>
       </body>

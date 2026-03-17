@@ -138,7 +138,7 @@ export default async function ArticlePage({ params: { locale, slug } }: ArticleP
           <div className="max-w-7xl mx-auto mt-20 pt-10 border-t border-slate-800/50">
             <h2 className="text-3xl font-extrabold tracking-tight text-white flex items-center gap-3 mb-8">
               <span className="bg-primary w-2 h-8 rounded-full inline-block"></span>
-              Play {article.target_tag.replace('-', ' ')} Games
+              {locale === 'pt-BR' ? `Jogue Jogos de ${article.target_tag.replace('-', ' ')}` : `Play ${article.target_tag.replace('-', ' ')} Games`}
             </h2>
             <GameGrid games={relatedGames} />
           </div>

@@ -106,12 +106,39 @@
     "meta_description": "Jogue os melhores jogos online grátis no FoxChaos. Centenas de títulos de ação, quebra-cabeça e corrida para jogar agora no navegador.",
     "item_list_name": "Jogos em Destaque no FoxChaos"
   },
-  "QuickVibe": {
-    "title": "Qual a vibe deste jogo?",
-    "fire": "Viciante",
-    "mindblown": "Difícil",
-    "funny": "Engraçado",
-    "chill": "Relaxante",
-    "votes": "votos"
+  "About": {
+    "title": "Sobre a FoxChaos",
+    "description": "Bem-vindo ao FoxChaos, seu destino definitivo para jogos de navegador online gratuitos. Acreditamos que os jogos devem ser acessíveis, instantâneos e divertidos para todos, em qualquer lugar e a qualquer momento.",
+    "mission_title": "Nossa Missão",
+    "mission_desc": "Nossa missão é curar e fornecer os jogos HTML5 de maior qualidade na web. Quer você esteja em um computador desktop durante um intervalo ou em seu telefone celular no trajeto, o FoxChaos oferece jogos ultrarrápidos sem a necessidade de downloads ou instalações.",
+    "why_title": "Por que jogar aqui?",
+    "points": {
+      "p1": "Sem Downloads: Clique e jogue instantaneamente. Nenhum espaço de armazenamento necessário.",
+      "p2": "Multiplataforma: Jogue perfeitamente no PC, Mac, tablets e smartphones.",
+      "p3": "Biblioteca em Crescimento: Atualizamos constantemente nosso catálogo com os títulos mais novos e populares.",
+      "p4": "Ambiente Seguro: Nossa equipe analisa cuidadosamente cada jogo para garantir que ele atenda aos nossos padrões de qualidade e segurança."
+    },
+    "dev_title": "Editores e Desenvolvedores",
+    "dev_desc": "Você é um desenvolvedor de jogos HTML5? Estamos sempre em busca de ótimos conteúdos para compartilhar com nosso público. Entre em contato para destacar seus jogos no FoxChaos!"
+  },
+  "Contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Tem alguma dúvida, feedback ou uma consulta comercial? Adoraríamos ouvir você. Preencha o formulário ou use nossos detalhes de contato abaixo.",
+    "form": {
+      "name": "Nome Completo",
+      "email": "Endereço de E-mail",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "send": "Enviar Mensagem",
+      "placeholder_name": "João Silva",
+      "placeholder_email": "joao@exemplo.com",
+      "placeholder_message": "Como podemos ajudar você?",
+      "subjects": {
+        "general": "Consulta Geral",
+        "dev": "Envio de Jogo (Desenvolvedores)",
+        "bug": "Relatar um Bug",
+        "business": "Parceria Comercial"
+      }
+    }
   }
 }
