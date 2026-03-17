@@ -163,5 +163,13 @@
         "description": "Usados para exibir anúncios relevantes via Google AdSense."
       }
     }
+  },
+  "QuickVibe": {
+    "title": "Qual a vibe desse jogo?",
+    "fire": "Viciante",
+    "mindblown": "Difícil",
+    "funny": "Divertido",
+    "chill": "Relaxante",
+    "votes": "votos"
   }
 }

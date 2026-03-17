@@ -3,6 +3,7 @@ import GameReactions from '@/components/game/GameReactions';
 import TrackRecentlyPlayed from '@/components/game/TrackRecentlyPlayed';
 import GameContentTabs from '@/components/game/GameContentTabs';
 import GameGrid from '@/components/game/GameGrid';
+import AdTopBanner from '@/components/ads/AdTopBanner';
 import Link from 'next/link';
 import { Game } from '@/lib/types/game';
 
@@ -71,17 +72,23 @@ export default function GameView({ game, translations: t, quickVibeLabels, relat
         </div>
       </div>
 
-      <div className="flex flex-col gap-1.5">
+      <div className="flex flex-col gap-2">
         <GamePlayer gameId={game.id} gameUrl={game.gameUrl} title={game.title} />
 
         {/* Quick-Vibe Reactions */}
         <div className="relative z-0">
             <GameReactions gameSlug={game.slug} labels={quickVibeLabels} />
         </div>
+
+        {/* Ad Space below the player */}
+        <div className="mt-1">
+          <AdTopBanner />
+        </div>
       </div>
 
       {/* SEO-Optimized Content Tabs for large text volumes */}
-      <GameContentTabs
+      <div className="-mt-4">
+        <GameContentTabs
         title={game.title}
         translations={t}
         content={{
@@ -89,6 +96,7 @@ export default function GameView({ game, translations: t, quickVibeLabels, relat
           instructions: game.instructions
         }}
       />
+      </div>
 
       {/* Advanced Related Games Grid (Tags Based) injected before infinite loop */}
       {relatedGames.length > 0 && (

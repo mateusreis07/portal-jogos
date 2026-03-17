@@ -154,5 +154,13 @@
         "description": "Used to deliver relevant ads via Google AdSense."
       }
     }
+  },
+  "QuickVibe": {
+    "title": "What's the vibe of this game?",
+    "fire": "Addictive",
+    "mindblown": "Hard",
+    "funny": "Funny",
+    "chill": "Relaxing",
+    "votes": "votes"
   }
 }

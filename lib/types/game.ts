@@ -12,4 +12,5 @@ export interface Game {
   tags?: string[];
   createdAt: string;
   views: number;
+  relatedGames?: Game[];
 }

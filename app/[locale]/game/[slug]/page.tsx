@@ -65,7 +65,7 @@ export default async function GamePage({ params }: GamePageProps) {
 
   const translatedGame = applyTranslation(game, locale);
 
-  const relatedGames = await gameService.getAdvancedRelatedGames(translatedGame, 4);
+  const relatedGames = await gameService.getAdvancedRelatedGames(translatedGame, 10);
 
   const categoryLabel = tCat(translatedGame.category as any) || translatedGame.category;
 
@@ -105,7 +105,6 @@ export default async function GamePage({ params }: GamePageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <AdTopBanner />
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">

@@ -163,19 +163,13 @@ export const gameService = {
    * Retrieves advanced related games.
    * Prioritizes games with the exact same tags, falls back to same category.
    */
-  async getAdvancedRelatedGames(game: Game, limit: number = 6): Promise<Game[]> {
+  async getAdvancedRelatedGames(game: Game, limit: number = 6, additionalExcludeIds: string[] = []): Promise<Game[]> {
     let relatedGames: any[] = [];
+    const baseExcludeIds = [game.id, ...additionalExcludeIds];
 
     // 1. If game has tags, try to find games with matching tags first
     if (game.tags && game.tags.length > 0) {
-      // Supabase contains operator works with arrays. We use overlap (&&) to find *any* matching tag
-      // However, Supabase JS client 'contains' means elements must be fully included.
-      // Often overlap '&&' is not directly exposed as a simple filter depending on setup.
-      // Using 'contains' loops OR fallback might be safer.
-
-      // Let's perform a simple 'contains' OR query for the first 3 tags for performance
       const topTags = game.tags.slice(0, 3);
-
       const orQuery = topTags.map(t => `tags.cs.{${t}}`).join(',');
 
       if (orQuery) {
@@ -183,7 +177,7 @@ export const gameService = {
           .from('games')
           .select('*')
           .or(orQuery)
-          .neq('id', game.id)
+          .not('id', 'in', `(${baseExcludeIds.join(',')})`)
           .order('views', { ascending: false })
           .limit(limit);
 
@@ -196,13 +190,13 @@ export const gameService = {
     // 2. If we still don't have enough games, fill the rest with same category top games
     if (relatedGames.length < limit) {
       const remainingLimit = limit - relatedGames.length;
-      const excludeIds = [game.id, ...relatedGames.map(g => g.id)];
+      const currentExcludeIds = [...baseExcludeIds, ...relatedGames.map(g => g.id)];
 
       const { data: catData, error: catError } = await supabase
         .from('games')
         .select('*')
         .eq('category', game.category)
-        .not('id', 'in', `(${excludeIds.join(',')})`)
+        .not('id', 'in', `(${currentExcludeIds.join(',')})`)
         .order('views', { ascending: false })
         .limit(remainingLimit);
 

@@ -2,6 +2,7 @@
 
 import { supabase } from '@/lib/supabaseClient';
 import { Game } from '@/lib/types/game';
+import { gameService } from '@/lib/services/gameService';
 import translationsData from '@/data/translations.json';
 
 /**
@@ -23,9 +24,11 @@ export async function loadNextGame(category: string, excludeIds: string[], local
         .order('views', { ascending: false })
         .limit(1)
         .single();
-
+ 
       if (!error && data) {
-        return applyTranslationToRow(data, locale);
+        const nextGame = applyTranslationToRow(data, locale);
+        const relatedGames = await gameService.getAdvancedRelatedGames(nextGame, 10, excludeIds);
+        return { ...nextGame, relatedGames };
       }
     }
   }
@@ -39,15 +42,23 @@ export async function loadNextGame(category: string, excludeIds: string[], local
     .order('views', { ascending: false })
     .limit(1)
     .single();
-
+ 
   if (error || !data) {
     if (error?.code !== 'PGRST116') { // PGRST116 is the code for "no rows returned" by single()
       console.error('Error fetching next game for infinite scroll:', error);
     }
     return null;
   }
-
-  return applyTranslationToRow(data, locale);
+ 
+  const nextGame = applyTranslationToRow(data, locale);
+  
+  // Fetch related games for this next game so they appear in the infinite feed
+  const relatedGames = await gameService.getAdvancedRelatedGames(nextGame, 10, excludeIds);
+  
+  return {
+    ...nextGame,
+    relatedGames
+  };
 }
 
 function applyTranslationToRow(data: any, locale: string): Game {

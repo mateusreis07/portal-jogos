@@ -4,7 +4,6 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import { Game } from '@/lib/types/game';
 import { loadNextGame } from '@/lib/actions/gameActions';
 import GameView from '@/components/game/GameView';
-import AdTopBanner from '@/components/ads/AdTopBanner';
 
 interface InfiniteGameFeedProps {
   initialCategory: string;
@@ -56,7 +55,15 @@ export default function InfiniteGameFeed({
 
       if (nextGame) {
         setGames((prev) => [...prev, nextGame]);
-        setExcludeIds((prev) => [...prev, nextGame.id]);
+        
+        // Add both the game and its related games to exclusion list to keep the feed fresh
+        const newExclusions = [nextGame.id];
+        if (nextGame.relatedGames) {
+          nextGame.relatedGames.forEach(g => newExclusions.push(g.id));
+        }
+        
+        setExcludeIds((prev) => [...prev, ...newExclusions]);
+        
         if (nextGame.tags && nextGame.tags.length > 0) {
           setCurrentTags(nextGame.tags);
         }
@@ -94,13 +101,15 @@ export default function InfiniteGameFeed({
     <div className="flex flex-col gap-12 mt-12 pt-12">
       {games.map((game, index) => (
         <div key={game.id} className="flex flex-col gap-8">
-          {/* Inject an Ad Banner between every new loaded game to maximize revenue */}
-          <div className="border-y border-slate-800/50 py-8 bg-slate-900/30">
-            <AdTopBanner />
-          </div>
 
           <div className="pt-8">
-            <GameView game={game} translations={translations} quickVibeLabels={quickVibeLabels} isInfiniteFeed={true} />
+            <GameView 
+              game={game} 
+              relatedGames={game.relatedGames} 
+              translations={translations} 
+              quickVibeLabels={quickVibeLabels} 
+              isInfiniteFeed={true} 
+            />
           </div>
         </div>
       ))}
