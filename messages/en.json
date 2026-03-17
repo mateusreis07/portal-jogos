@@ -131,5 +131,28 @@
         "business": "Business Partnership"
       }
     }
+    },
+  "CookieConsent": {
+    "title": "Cookies & Privacy",
+    "description": "We use cookies to improve your experience, analyze traffic, and show relevant ads via Google AdSense. By continuing to browse, you agree to our",
+    "privacy_policy": "Privacy Policy",
+    "accept_all": "Accept All",
+    "settings": "Settings",
+    "confirm_choices": "Confirm My Choices",
+    "reject_all": "Reject Non-Essential",
+    "categories": {
+      "necessary": {
+        "title": "Necessary",
+        "description": "Essential for the website to function properly."
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "Helps us understand how visitors interact with the site."
+      },
+      "marketing": {
+        "title": "Marketing",
+        "description": "Used to deliver relevant ads via Google AdSense."
+      }
+    }
   }
 }

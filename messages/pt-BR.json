@@ -140,5 +140,28 @@
         "business": "Parceria Comercial"
       }
     }
+    },
+  "CookieConsent": {
+    "title": "Cookies e Privacidade",
+    "description": "Utilizamos cookies para melhorar sua experiência, analisar tráfego e exibir anúncios relevantes via Google AdSense. Ao continuar navegando, você concorda com nossa",
+    "privacy_policy": "Política de Privacidade",
+    "accept_all": "Aceitar Tudo",
+    "settings": "Configurações",
+    "confirm_choices": "Confirmar Escolhas",
+    "reject_all": "Recusar Não Essenciais",
+    "categories": {
+      "necessary": {
+        "title": "Necessários",
+        "description": "Essenciais para o funcionamento do site e segurança."
+      },
+      "analytics": {
+        "title": "Análise",
+        "description": "Nos ajudam a entender como os visitantes interagem com o site."
+      },
+      "marketing": {
+        "title": "Marketing",
+        "description": "Usados para exibir anúncios relevantes via Google AdSense."
+      }
+    }
   }
 }
