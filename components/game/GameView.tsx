@@ -4,6 +4,7 @@ import TrackRecentlyPlayed from '@/components/game/TrackRecentlyPlayed';
 import GameContentTabs from '@/components/game/GameContentTabs';
 import GameGrid from '@/components/game/GameGrid';
 import AdTopBanner from '@/components/ads/AdTopBanner';
+import AdBottomBanner from '@/components/ads/AdBottomBanner';
 import Link from 'next/link';
 import { Game } from '@/lib/types/game';
 
@@ -37,7 +38,7 @@ interface GameViewProps {
  */
 export default function GameView({ game, translations: t, quickVibeLabels, relatedGames = [], isInfiniteFeed = false }: GameViewProps) {
   return (
-    <div className="flex flex-col gap-8 pb-12 mb-12 border-b border-slate-800">
+    <div className="flex flex-col gap-8 pb-2 mb-12 border-b border-slate-800">
       {/* Track this game as recently played */}
       <TrackRecentlyPlayed gameId={game.id} />
 
@@ -108,6 +109,11 @@ export default function GameView({ game, translations: t, quickVibeLabels, relat
           <GameGrid games={relatedGames} />
         </div>
       )}
+
+      {/* New Ad Space below related games (Tight layout) */}
+      <div className="-mt-6">
+        <AdBottomBanner />
+      </div>
     </div>
   );
 }
