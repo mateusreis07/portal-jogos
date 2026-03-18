@@ -52,7 +52,7 @@ export default function GamePlayer({ gameId, gameUrl, title }: GamePlayerProps) 
   return (
     <div className="w-full flex flex-col">
       {/* Container do Iframe */}
-      <div className="w-full relative bg-black aspect-[4/3] md:aspect-[16/9] lg:h-[450px] lg:aspect-auto rounded-t-xl rounded-b-none overflow-hidden shadow-2xl border-x border-t border-b-0 border-white/5">
+      <div className="w-full relative bg-black aspect-[4/3] md:aspect-[16/9] lg:h-[420px] lg:aspect-auto rounded-t-xl rounded-b-none overflow-hidden shadow-2xl border-x border-t border-b-0 border-white/5">
         <iframe
           ref={iframeRef}
           src={gameUrl}
