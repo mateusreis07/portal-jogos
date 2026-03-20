@@ -4,6 +4,16 @@ import { locales } from '@/i18n';
 
 export const revalidate = 86400; // 24 hours
 
+/** Escape special XML characters to prevent parsing errors */
+function escapeXml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 export async function GET() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://foxchaos.com';
   const now = new Date().toISOString();
@@ -56,12 +66,12 @@ export async function GET() {
     xml += `
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${path}" />`;
 
-    // Image
-    if (image) {
+    // Image (only if URL is not empty)
+    if (image && image.loc) {
       xml += `
     <image:image>
-      <image:loc>${image.loc}</image:loc>
-      <image:title>${image.title}</image:title>
+      <image:loc>${escapeXml(image.loc)}</image:loc>
+      <image:title>${escapeXml(image.title)}</image:title>
     </image:image>`;
     }
 
@@ -92,7 +102,7 @@ export async function GET() {
 
   // Tags
   tags.forEach(tag => {
-    addUrl(`/tag/${tag}`, now, '0.6');
+    addUrl(`/tag/${escapeXml(tag)}`, now, '0.6');
   });
 
   xml += `
