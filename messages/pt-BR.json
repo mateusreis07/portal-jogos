@@ -7,7 +7,8 @@
     "about": "Sobre Nós",
     "contact": "Contato",
     "search_placeholder": "Pesquisar jogos...",
-    "dashboard": "Meu Painel"
+    "dashboard": "Meu Painel",
+    "articles": "Artigos e Dicas"
   },
   "Home": {
     "popular_title": "Em Alta Agora",
@@ -101,6 +102,7 @@
     "description": "Encontramos {count} jogos que correspondem à sua pesquisa para jogar online gratuitamente."
   },
   "HomeSeo": {
+    "meta_title": "Jogos Online Grátis | FoxChaos",
     "h1": "Jogos Online Grátis — Jogue Sem Download no FoxChaos",
     "h1_sub": "O destino definitivo para os melhores jogos HTML5 em todos os dispositivos.",
     "meta_description": "Jogue os melhores jogos online grátis no FoxChaos. Centenas de títulos de ação, quebra-cabeça e corrida para jogar agora no navegador.",

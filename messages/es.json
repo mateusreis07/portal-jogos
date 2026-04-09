@@ -7,7 +7,8 @@
     "about": "Sobre Nosotros",
     "contact": "Contacto",
     "search_placeholder": "Buscar juegos...",
-    "dashboard": "Mi Panel"
+    "dashboard": "Mi Panel",
+    "articles": "Artículos y Consejos"
   },
   "Home": {
     "popular_title": "Populares Ahora",
@@ -92,6 +93,7 @@
     "description": "Encontramos {count} juegos que coinciden con tu búsqueda para jugar en línea gratis."
   },
   "HomeSeo": {
+    "meta_title": "Juegos en Línea Gratis | FoxChaos",
     "h1": "Juegos en Línea Gratis — Juega Sin Descargar en FoxChaos",
     "h1_sub": "El destino definitivo para los mejores juegos HTML5 en todos los dispositivos.",
     "meta_description": "Juega los mejores juegos en línea gratis en FoxChaos. Cientos de títulos de acción, rompecabezas y carreras para jugar ahora en el navegador.",

@@ -7,7 +7,8 @@
     "about": "About Us",
     "contact": "Contact",
     "search_placeholder": "Search games...",
-    "dashboard": "My Dashboard"
+    "dashboard": "My Dashboard",
+    "articles": "Articles & Tips"
   },
   "Home": {
     "popular_title": "Popular Right Now",
@@ -92,6 +93,7 @@
     "description": "We found {count} games that match your search to play online for free."
   },
   "HomeSeo": {
+    "meta_title": "Free Online Games | FoxChaos",
     "h1": "Free Online Games — Play Without Download at FoxChaos",
     "h1_sub": "The ultimate destination for the best HTML5 games across all devices.",
     "meta_description": "Play the best free online games at FoxChaos. Hundreds of action, puzzle and racing titles to play now in your browser.",

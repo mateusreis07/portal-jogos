@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import {
   Menu, X,
-  Home, Heart,
+  Home, Heart, BookOpen,
   Gamepad2, Puzzle, CarFront, Crosshair,
   Map as MapIcon, Trophy, BrainCircuit, Users
 } from 'lucide-react';
@@ -43,6 +43,7 @@ export default function Navbar() {
   const menuItems = [
     { title: t('home'), icon: <Home className="h-5 w-5" />, href: '/', exact: true },
     { title: t('dashboard'), icon: <Heart className="h-5 w-5" />, href: '/dashboard' },
+    { title: t('articles'), icon: <BookOpen className="h-5 w-5" />, href: '/article' },
     { divider: true },
     { title: tCat('arcade'), icon: <Gamepad2 className="h-5 w-5" />, href: '/category/arcade' },
     { title: tCat('puzzle'), icon: <Puzzle className="h-5 w-5" />, href: '/category/puzzle' },

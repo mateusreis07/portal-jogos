@@ -33,6 +33,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-white mb-6 tracking-widest uppercase text-xs opacity-50">{nav('popular')}</h3>
             <ul className="space-y-4">
+              <li><Link href="/article" className="text-secondary hover:text-primary font-bold transition-all text-sm hover:pl-2">{nav('articles')}</Link></li>
               <li><Link href="/category/arcade" className="text-slate-400 hover:text-primary transition-all text-sm hover:pl-2">{cat('arcade')}</Link></li>
               <li><Link href="/category/puzzle" className="text-slate-400 hover:text-primary transition-all text-sm hover:pl-2">{cat('puzzle')}</Link></li>
               <li><Link href="/category/racing" className="text-slate-400 hover:text-primary transition-all text-sm hover:pl-2">{cat('racing')}</Link></li>

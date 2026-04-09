@@ -13,6 +13,7 @@ const withPWA = withPWAInit({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    unoptimized: true, // Prevents server from trying to fetch and optimize external images, avoiding timeouts
     remotePatterns: [
       {
         protocol: 'https',
