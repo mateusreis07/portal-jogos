@@ -60,6 +60,9 @@ export const metadata: Metadata = {
     ],
     shortcut: '/favicon-32x32.png',
   },
+  other: {
+    'google-adsense-account': 'ca-pub-3311983697432850'
+  },
   metadataBase: new URL('https://foxchaos.com'),
 };
 
