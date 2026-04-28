@@ -66,7 +66,7 @@ export default function GameContentTabs({ title, translations: t, content }: Gam
               <li>{t.tip_3}</li>
             </ul>
             <div className="mt-4 border-l-4 border-amber-500/50 pl-4 py-1 italic text-slate-400 text-sm">
-               Ao aprender sobre {title}, preste atenção aos padrões do jogo que se repetem, e tente antecipá-los para melhorar a sua pontuação!
+               Dica Pro: Domine as mecânicas básicas nas fases iniciais de {title} para garantir uma progressão mais tranquila nos níveis avançados!
             </div>
           </div>
         </div>

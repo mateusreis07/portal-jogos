@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+export const dynamic = 'force-dynamic';
 import { getTranslations } from 'next-intl/server';
 import { articleService } from '@/lib/services/articleService';
 import Link from 'next/link';
@@ -10,11 +11,40 @@ export const metadata: Metadata = {
 };
 
 export default async function ArticlesIndexPage({ params: { locale } }: { params: { locale: string } }) {
-  const t = await getTranslations({ locale });
   const articles = await articleService.getLatestArticles(locale, 50);
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'FoxChaos', item: `https://foxchaos.com/${locale}` },
+      { '@type': 'ListItem', position: 2, name: 'Artigos', item: `https://foxchaos.com/${locale}/article` },
+    ],
+  };
+
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Blog FoxChaos - Artigos e Guias',
+    description: 'Lista completa de artigos sobre jogos online, tecnologia e dicas gamer.',
+    numberOfItems: articles.length,
+    itemListElement: articles.map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'BlogPosting',
+        headline: article.title,
+        url: `https://foxchaos.com/${locale}/article/${article.slug}`,
+        image: article.image_url || 'https://foxchaos.com/images/og-blog.jpg',
+        datePublished: article.created_at,
+        description: article.meta_description,
+      },
+    })),
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       <main className="min-h-screen pt-12 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <header className="mb-12">
@@ -53,7 +83,11 @@ export default async function ArticlesIndexPage({ params: { locale } }: { params
                     )}
                     <div className="absolute top-4 left-4">
                       <span className="px-2 py-1 bg-primary text-white text-xs font-bold uppercase tracking-wider rounded">
-                        {article.target_tag.replace('-', ' ')}
+                        {article.target_tag === 'mobile' ? 'arcade' : 
+                         article.target_tag === 'html5' ? 'arcade' :
+                         article.target_tag === 'logic' ? 'puzzle' :
+                         article.target_tag === 'kids' ? 'puzzle' :
+                         article.target_tag.replace('-', ' ')}
                       </span>
                     </div>
                   </div>

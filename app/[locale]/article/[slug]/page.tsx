@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+export const dynamic = 'force-dynamic';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { articleService } from '@/lib/services/articleService';
@@ -63,8 +64,38 @@ export default async function ArticlePage({ params: { locale, slug } }: ArticleP
     notFound();
   }
 
-  // Fetch games based on the article's target_tag
-  const relatedGames = await gameService.getGamesByTag(article.target_tag, 40);
+  // Map conceptual tags to existing game categories to ensure the Related Games grid is populated
+  const tagMapping: Record<string, string> = {
+    'mobile': 'arcade',
+    'html5': 'arcade',
+    'logic': 'puzzle',
+    'kids': 'puzzle',
+    'stress-relief': 'arcade',
+    'brain': 'puzzle'
+  };
+
+  const effectiveTag = tagMapping[article.target_tag] || article.target_tag;
+  
+  let relatedGames = await gameService.getGamesByCategory(effectiveTag as any, 40);
+  
+  if (relatedGames.length === 0) {
+    relatedGames = await gameService.getGamesByTag(effectiveTag, 40);
+  }
+
+  if (relatedGames.length === 0) {
+    relatedGames = await gameService.getGamesByCategory('arcade', 40);
+  }
+
+  if (relatedGames.length === 0) {
+    relatedGames = await gameService.getAllGames();
+  }
+
+  // Determine the display title for the grid
+  const gridTitle = relatedGames.length > 0 
+    ? (locale === 'pt-BR' ? `Jogue Jogos de ${effectiveTag.replace('-', ' ')}` : `Play ${effectiveTag.replace('-', ' ')} Games`)
+    : (locale === 'pt-BR' ? 'Jogue Nossos Melhores Jogos' : 'Play Our Best Games');
+
+  console.log(`[DEBUG] Related games for "${slug}": ${relatedGames.length} items. Title: "${gridTitle}"`);
 
   return (
     <main className="min-h-screen pt-4 pb-12">
@@ -133,12 +164,73 @@ export default async function ArticlePage({ params: { locale, slug } }: ArticleP
           </div>
         </article>
 
+        {/* Structured Data for Google AdSense Authority */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": article.title,
+              "description": article.meta_description,
+              "image": article.image_url,
+              "datePublished": article.created_at,
+              "author": {
+                "@type": "Organization",
+                "name": "FoxChaos"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "FoxChaos",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://foxchaos.com/images/brand/logo-full.png"
+                }
+              },
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": `https://foxchaos.com/${locale}/article/${slug}`
+              }
+            })
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "FoxChaos",
+                  "item": "https://foxchaos.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Blog",
+                  "item": `https://foxchaos.com/${locale}/article`
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": article.title,
+                  "item": `https://foxchaos.com/${locale}/article/${slug}`
+                }
+              ]
+            })
+          }}
+        />
+
         {/* Related Games Grid based on the article's target_tag */}
         {relatedGames.length > 0 && (
           <div className="max-w-7xl mx-auto mt-20 pt-10 border-t border-slate-800/50">
             <h2 className="text-3xl font-extrabold tracking-tight text-white flex items-center gap-3 mb-8">
               <span className="bg-primary w-2 h-8 rounded-full inline-block"></span>
-              {locale === 'pt-BR' ? `Jogue Jogos de ${article.target_tag.replace('-', ' ')}` : `Play ${article.target_tag.replace('-', ' ')} Games`}
+              {gridTitle}
             </h2>
             <GameGrid games={relatedGames} />
           </div>

@@ -9,8 +9,18 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
   const { locale } = await params;
   const isPt = locale === 'pt-BR';
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'FoxChaos', item: `https://foxchaos.com/${locale}` },
+      { '@type': 'ListItem', position: 2, name: isPt ? 'Privacidade' : 'Privacy', item: `https://foxchaos.com/${locale}/privacy` },
+    ],
+  };
+
   return (
     <div className="max-w-4xl mx-auto py-12 px-6 sm:px-12 bg-slate-900 border border-slate-800 rounded-2xl mt-8 mb-16 shadow-xl">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <h1 className="text-3xl font-bold text-white mb-6">
         {isPt ? 'Política de Privacidade' : 'Privacy Policy'}
       </h1>

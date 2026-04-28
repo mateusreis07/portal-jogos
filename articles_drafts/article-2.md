@@ -1,3 +1,4 @@
+slug: por-que-jogos-html5-sao-o-futuro-mobile
 # Por que os Jogos HTML5 são o Futuro do Entretenimento Mobile
 
 <p>Vivemos em uma era onde a conveniência é a moeda mais valiosa. No mundo do entretenimento digital, isso se traduz em uma palavra: instantaneidade. É aqui que os jogos em HTML5 entram como protagonistas, redefinindo como consumimos diversão em nossos dispositivos móveis.</p>
@@ -8,7 +9,7 @@
 
 <h2>Desempenho que Surpreende</h2>
 <p>Houve um tempo em que os jogos de navegador eram vistos como simples e limitados. Esse tempo ficou no passado. Os motores de jogos modernos, como Phaser, PixiJS e Babylon.js, permitem que desenvolvedores criem experiências em 2D e 3D que rivalizam com muitos aplicativos nativos.</p>
-<p>A aceleração de hardware via WebGL permite que os navegadores mobile processem gráficos complexos com baixo consumo de bateria, tornando os jogos mais fluidos e responsivos do que nunca.</p>
+<p>A aceleração de hardware via WebGL permite que os navegadores mobile processem gráficos complexos com baixo consumo de bateria, tornando os jogos mais fluidos e responsivos do que nunca. Títulos como o clássico [Moto X3M](/pt-BR/game/moto-x3m) são exemplos perfeitos dessa fluidez.</p>
 
 <h2>Multiplataforma por Natureza</h2>
 <p>Um dos maiores desafios para desenvolvedores de jogos é criar versões separadas para iOS, Android, Windows e Mac. O HTML5 resolve isso com o conceito de "escreva uma vez, rode em qualquer lugar".</p>

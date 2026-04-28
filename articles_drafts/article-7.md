@@ -1,3 +1,4 @@
+slug: melhores-jogos-multiplayer-diversao-amigos
 # Melhores Jogos Multiplayer Para Diversão com Amigos
 
 <p>Nada supera a emoção de uma competição amigável ou a satisfação de uma cooperação bem-sucedida. No <strong>FoxChaos</strong>, entendemos que jogar sozinho é divertido, mas jogar com amigos transforma a experiência em algo memorável. Nossa seleção de jogos multiplayer foi pensada para conectar pessoas instantaneamente, sem a necessidade de configurações complexas ou downloads demorados.</p>
@@ -9,7 +10,7 @@
 <p>Temos jogos para todos os tipos de grupos de amigos e estilos de competição:</p>
 
 <h3>1. Battle Royale e Arena (.io games)</h3>
-<p>Os jogos ".io" revolucionaram a web. Títulos como <strong>ZombsRoyale.io</strong> ou <strong>BuildRoyale.io</strong> colocam você contra dezenas de outros jogadores em tempo real. O objetivo é simples: sobreviver e ser o último a ficar de pé em um mapa que encolhe constantemente. É a dose perfeita de adrenalina para quem gosta de desafios rápidos.</p>
+<p>Os jogos ".io" revolucionaram a web. Títulos como o popular [Worm Hunt](/pt-BR/game/worm-hunt-snake-game-io-zone) colocam você contra dezenas de outros jogadores em tempo real. O objetivo é simples: sobreviver e ser o último a ficar de pé em um mapa que encolhe constantemente. É a dose perfeita de adrenalina para quem gosta de desafios rápidos.</p>
 
 <h3>2. Jogadores Locais (Mesmo Teclado)</h3>
 <p>Para quem está dividindo o mesmo computador, temos clássicos "2-player games". Seja em lutas frenéticas ou corridas lado a lado, esses jogos são ideais para resolver disputas de quem vai lavar a louça ou apenas para dar algumas risadas juntos.</p>
@@ -29,4 +30,4 @@
 <p>Estamos constantemente adicionando novos títulos que permitem interações sociais mais profundas, chats integrados e sistemas de ranking global. Queremos que o FoxChaos não seja apenas um site de jogos, mas um ponto de encontro digital para gamers casuais de todo o mundo.</p>
 
 <h2>Conclusão</h2>
-<p>Não jogue no vácuo! Explore nossa categoria multiplayer agora, chame seus amigos e comece a criar suas próprias lendas competitivas. No <strong>FoxChaos</strong>, o próximo grande desafio está a apenas um clique de distância. Quem será o campeão hoje?</p>
+<p>Não jogue no vácuo! Explore nossa [categoria multiplayer](/pt-BR/category/multiplayer) agora, chame seus amigos e comece a criar suas próprias lendas competitivas. No <strong>FoxChaos</strong>, o próximo grande desafio está a apenas um clique de distância. Quem será o campeão hoje?</p>

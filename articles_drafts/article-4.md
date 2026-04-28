@@ -1,3 +1,4 @@
+slug: top-5-jogos-acao-pc-fraco
 # Top 5 Jogos de Ação que Rodam em Qualquer PC Fraco
 
 <p>Nem todo mundo possui um computador de última geração com placas de vídeo potentes, mas isso não significa que você deva ficar de fora da diversão. No <strong>FoxChaos</strong>, acreditamos na democratização do acesso aos jogos. Por isso, selecionamos títulos de ação emocionantes que foram otimizados para rodar diretamente no seu navegador, consumindo o mínimo de recursos do seu hardware.</p>
@@ -8,16 +9,16 @@
 <h2>Nossas Escolhas: Ação Sem Travamentos</h2>
 <p>Aqui estão as nossas 5 principais sugestões de ação que garantem diversão instantânea para qualquer PC:</p>
 
-<h3>1. Combat Online (Tiro em Primeira Pessoa)</h3>
-<p>Se você gosta de jogos como Counter-Strike, o Combat Online é uma escolha obrigatória. Ele oferece mapas variados e jogabilidade rápida com uma carga visual surpreendentemente leve. Você pode entrar em salas com jogadores de todo o mundo em segundos.</p>
+<h3>1. [Combat Online](/pt-BR/game/combat-online) (Tiro em Primeira Pessoa)</h3>
+<p>Se você gosta de jogos como Counter-Strike, o Combat Online é uma escolha obrigatória. Ele oferece mapas variados e jogabilidade rápida com uma carga visual surpreendentemente leve. <p>Você pode começar com o intenso [Funny Shooter 2](/pt-BR/game/funny-shooter-2) ou o clássico de combate [Stickman Warriors](/pt-BR/game/stickman-warriors-1).</p>
 
-<h3>2. Venge.io (FPS Tático com Upgrades)</h3>
+<h3>2. [Venge.io](/pt-BR/game/venge-io) (FPS Tático com Upgrades)</h3>
 <p>Com um estilo visual limpo e estilizado, Venge.io foca na habilidade pura. Como os gráficos não tentam ser ultra-realistas, o jogo mantém uma taxa de quadros (FPS) alta e estável, o que é crucial para jogos de tiro competitivos.</p>
 
-<h3>3. Super Sniper (Precisão e Calma)</h3>
+<h3>3. [Super Sniper](/pt-BR/game/super-sniper) (Precisão e Calma)</h3>
 <p>Um jogo focado em missões rápidas de eliminação à distância. Pela sua mecânica de cenários controlados, ele exige quase nada do seu processador, sendo ideal para sessões curtas de jogo durante um intervalo.</p>
 
-<h3>4. Shell Shockers (O Jogo do Ovo!)</h3>
+<h3>4. [Shell Shockers](/pt-BR/game/shell-shockers) (O Jogo do Ovo!)</h3>
 <p>Um dos jogos mais divertidos e bizarros da internet. Você controla um ovo armado em uma batalha frenética. O design simplificado e as cores vibrantes garantem que qualquer PC fraco consiga processar a ação sem quedas de desempenho.</p>
 
 <h3>5. EvoWars.io (Evolução e Combate)</h3>
@@ -32,4 +33,4 @@
 </ul>
 
 <h2>Conclusão</h2>
-<p>No <strong>FoxChaos</strong>, o seu hardware não é um limite para a sua diversão. Nossa categoria de jogos de ação é constantemente testada para garantir que a adrenalina esteja sempre presente, independentemente de quão antigo seja o seu PC. Explore agora e prove que habilidade não depende de especificações técnicas!</p>
+<p>No <strong>FoxChaos</strong>, o seu hardware não é um limite para a sua diversão. Nossa [categoria de jogos de ação e tiro](/pt-BR/category/shooting) é constantemente testada para garantir que a adrenalina esteja sempre presente, independentemente de quão antigo seja o seu PC. Explore agora e prove que habilidade não depende de especificações técnicas!</p>

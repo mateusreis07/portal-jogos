@@ -16,12 +16,14 @@
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.37.0",
     "lucide-react": "^0.364.0",
+    "marked": "^18.0.2",
     "next": "14.2.1",
     "next-intl": "^4.8.3",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
